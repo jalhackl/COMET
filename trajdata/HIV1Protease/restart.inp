@@ -1,0 +1,21 @@
+T_sim 300.000000
+dt 0.020000
+number_of_steps 10000000
+xml 1hhp.sxml
+printfreq 1000
+out_file 1hhp-lan-g2.out
+outfreq 1000
+dcd_file 1hhp-lan-g2.dcd
+dcdfreq 1000
+langevin yes
+gamma 2.000000
+T_end 300.000000
+freqTranRot 100
+step 10000000
+restart yes
+restart_mom restart.mom
+restart_coord restart.coord
+restart_input restart.inp
+restartfreq 100
+number_of_processors 2
+

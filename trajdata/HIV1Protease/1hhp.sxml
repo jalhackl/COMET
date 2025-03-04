@@ -1,0 +1,1318 @@
+<?xml version="1.0"?>
+<STRUCTURE>
+  <COMMENT>
+ Generated with: /opt/RedMD/bin/GenForceField 1hhp.pdb 
+</COMMENT>
+  <NONBONDED>
+    <NLMORSE cutoff="20.000000" atomTypeKey="type">
+      <PAIR type1="CA" type2="CA" alpha="0.707000" E0="0.207081" l0="9.500000"/>
+    </NLMORSE>
+  </NONBONDED>
+  <MOLECULE molId="mol1">
+    <ATOM id="1" name="CA" x="6.283" y="15.041" z="-6.838" resName="PRO" chainID="A" resSeq="1" m="97" type="CA"/>
+    <ATOM id="2" name="CA" x="6.570" y="15.342" z="-3.027" resName="GLN" chainID="A" resSeq="2" m="128" type="CA"/>
+    <ATOM id="3" name="CA" x="3.074" y="13.685" z="-2.377" resName="ILE" chainID="A" resSeq="3" m="113" type="CA"/>
+    <ATOM id="4" name="CA" x="2.006" y="13.535" z="1.253" resName="THR" chainID="A" resSeq="4" m="101" type="CA"/>
+    <ATOM id="5" name="CA" x="-0.014" y="10.377" z="1.861" resName="LEU" chainID="A" resSeq="5" m="113" type="CA"/>
+    <ATOM id="6" name="CA" x="-2.933" y="12.675" z="2.724" resName="TRP" chainID="A" resSeq="6" m="186" type="CA"/>
+    <ATOM id="7" name="CA" x="-5.990" y="12.202" z="0.413" resName="GLN" chainID="A" resSeq="7" m="128" type="CA"/>
+    <ATOM id="8" name="CA" x="-4.954" y="8.582" z="-0.506" resName="ARG" chainID="A" resSeq="8" m="156" type="CA"/>
+    <ATOM id="9" name="CA" x="-2.591" y="9.757" z="-3.216" resName="PRO" chainID="A" resSeq="9" m="97" type="CA"/>
+    <ATOM id="10" name="CA" x="-4.176" y="8.983" z="-6.695" resName="LEU" chainID="A" resSeq="10" m="113" type="CA"/>
+    <ATOM id="11" name="CA" x="-2.296" y="10.095" z="-9.803" resName="VAL" chainID="A" resSeq="11" m="99" type="CA"/>
+    <ATOM id="12" name="CA" x="-2.957" y="9.655" z="-13.574" resName="THR" chainID="A" resSeq="12" m="101" type="CA"/>
+    <ATOM id="13" name="CA" x="-0.652" y="7.090" z="-15.010" resName="ILE" chainID="A" resSeq="13" m="113" type="CA"/>
+    <ATOM id="14" name="CA" x="-0.856" y="7.287" z="-18.762" resName="LYS" chainID="A" resSeq="14" m="128" type="CA"/>
+    <ATOM id="15" name="CA" x="-0.737" y="3.895" z="-20.499" resName="ILE" chainID="A" resSeq="15" m="113" type="CA"/>
+    <ATOM id="16" name="CA" x="-1.927" y="3.497" z="-24.074" resName="GLY" chainID="A" resSeq="16" m="57" type="CA"/>
+    <ATOM id="17" name="CA" x="-2.893" y="7.197" z="-24.463" resName="GLY" chainID="A" resSeq="17" m="57" type="CA"/>
+    <ATOM id="18" name="CA" x="-5.684" y="7.358" z="-21.932" resName="GLN" chainID="A" resSeq="18" m="128" type="CA"/>
+    <ATOM id="19" name="CA" x="-4.647" y="9.396" z="-18.939" resName="LEU" chainID="A" resSeq="19" m="113" type="CA"/>
+    <ATOM id="20" name="CA" x="-5.941" y="6.932" z="-16.230" resName="LYS" chainID="A" resSeq="20" m="128" type="CA"/>
+    <ATOM id="21" name="CA" x="-5.838" y="7.505" z="-12.448" resName="GLU" chainID="A" resSeq="21" m="129" type="CA"/>
+    <ATOM id="22" name="CA" x="-3.815" y="5.282" z="-10.093" resName="ALA" chainID="A" resSeq="22" m="71" type="CA"/>
+    <ATOM id="23" name="CA" x="-2.604" y="4.684" z="-6.534" resName="LEU" chainID="A" resSeq="23" m="113" type="CA"/>
+    <ATOM id="24" name="CA" x="1.110" y="5.161" z="-5.547" resName="LEU" chainID="A" resSeq="24" m="113" type="CA"/>
+    <ATOM id="25" name="CA" x="1.203" y="2.179" z="-3.216" resName="ASP" chainID="A" resSeq="25" m="115" type="CA"/>
+    <ATOM id="26" name="CA" x="4.399" y="0.976" z="-1.533" resName="THR" chainID="A" resSeq="26" m="101" type="CA"/>
+    <ATOM id="27" name="CA" x="2.568" y="-2.189" z="-0.674" resName="GLY" chainID="A" resSeq="27" m="57" type="CA"/>
+    <ATOM id="28" name="CA" x="1.316" y="-4.016" z="-3.817" resName="ALA" chainID="A" resSeq="28" m="71" type="CA"/>
+    <ATOM id="29" name="CA" x="3.926" y="-6.553" z="-4.999" resName="ASP" chainID="A" resSeq="29" m="115" type="CA"/>
+    <ATOM id="30" name="CA" x="2.268" y="-6.246" z="-8.463" resName="ASP" chainID="A" resSeq="30" m="115" type="CA"/>
+    <ATOM id="31" name="CA" x="0.748" y="-3.320" z="-10.406" resName="THR" chainID="A" resSeq="31" m="101" type="CA"/>
+    <ATOM id="32" name="CA" x="-2.853" y="-3.870" z="-11.523" resName="VAL" chainID="A" resSeq="32" m="99" type="CA"/>
+    <ATOM id="33" name="CA" x="-4.865" y="-1.939" z="-13.977" resName="LEU" chainID="A" resSeq="33" m="113" type="CA"/>
+    <ATOM id="34" name="CA" x="-8.353" y="-1.333" z="-15.081" resName="GLU" chainID="A" resSeq="34" m="129" type="CA"/>
+    <ATOM id="35" name="CA" x="-8.758" y="-2.855" z="-18.503" resName="GLU" chainID="A" resSeq="35" m="129" type="CA"/>
+    <ATOM id="36" name="CA" x="-8.897" y="-0.941" z="-21.707" resName="MET" chainID="A" resSeq="36" m="131" type="CA"/>
+    <ATOM id="37" name="CA" x="-6.981" y="-3.079" z="-24.099" resName="SER" chainID="A" resSeq="37" m="87" type="CA"/>
+    <ATOM id="38" name="CA" x="-3.439" y="-3.164" z="-24.693" resName="LEU" chainID="A" resSeq="38" m="113" type="CA"/>
+    <ATOM id="39" name="CA" x="-1.918" y="-5.428" z="-27.360" resName="PRO" chainID="A" resSeq="39" m="97" type="CA"/>
+    <ATOM id="40" name="CA" x="-0.155" y="-8.408" z="-25.856" resName="GLY" chainID="A" resSeq="40" m="57" type="CA"/>
+    <ATOM id="41" name="CA" x="-0.181" y="-12.149" z="-25.685" resName="ARG" chainID="A" resSeq="41" m="156" type="CA"/>
+    <ATOM id="42" name="CA" x="-1.351" y="-12.619" z="-22.191" resName="TRP" chainID="A" resSeq="42" m="186" type="CA"/>
+    <ATOM id="43" name="CA" x="-0.120" y="-15.007" z="-19.522" resName="LYS" chainID="A" resSeq="43" m="128" type="CA"/>
+    <ATOM id="44" name="CA" x="-1.974" y="-15.910" z="-16.198" resName="PRO" chainID="A" resSeq="44" m="97" type="CA"/>
+    <ATOM id="45" name="CA" x="-2.133" y="-13.898" z="-12.943" resName="LYS" chainID="A" resSeq="45" m="128" type="CA"/>
+    <ATOM id="46" name="CA" x="-5.097" y="-14.713" z="-10.638" resName="MET" chainID="A" resSeq="46" m="131" type="CA"/>
+    <ATOM id="47" name="CA" x="-4.910" y="-12.307" z="-7.657" resName="ILE" chainID="A" resSeq="47" m="113" type="CA"/>
+    <ATOM id="48" name="CA" x="-7.164" y="-12.071" z="-4.655" resName="GLY" chainID="A" resSeq="48" m="57" type="CA"/>
+    <ATOM id="49" name="CA" x="-9.271" y="-9.169" z="-3.473" resName="GLY" chainID="A" resSeq="49" m="57" type="CA"/>
+    <ATOM id="50" name="CA" x="-11.777" y="-8.416" z="-0.753" resName="ILE" chainID="A" resSeq="50" m="113" type="CA"/>
+    <ATOM id="51" name="CA" x="-13.365" y="-11.772" z="-1.566" resName="GLY" chainID="A" resSeq="51" m="57" type="CA"/>
+    <ATOM id="52" name="CA" x="-11.378" y="-14.745" z="-3.081" resName="GLY" chainID="A" resSeq="52" m="57" type="CA"/>
+    <ATOM id="53" name="CA" x="-9.301" y="-14.120" z="-6.184" resName="PHE" chainID="A" resSeq="53" m="147" type="CA"/>
+    <ATOM id="54" name="CA" x="-10.151" y="-12.964" z="-9.682" resName="ILE" chainID="A" resSeq="54" m="113" type="CA"/>
+    <ATOM id="55" name="CA" x="-7.933" y="-14.131" z="-12.632" resName="LYS" chainID="A" resSeq="55" m="128" type="CA"/>
+    <ATOM id="56" name="CA" x="-6.356" y="-11.415" z="-14.852" resName="VAL" chainID="A" resSeq="56" m="99" type="CA"/>
+    <ATOM id="57" name="CA" x="-3.920" y="-10.319" z="-17.579" resName="ARG" chainID="A" resSeq="57" m="156" type="CA"/>
+    <ATOM id="58" name="CA" x="-0.130" y="-10.045" z="-17.132" resName="GLN" chainID="A" resSeq="58" m="128" type="CA"/>
+    <ATOM id="59" name="CA" x="1.836" y="-8.446" z="-20.014" resName="TYR" chainID="A" resSeq="59" m="163" type="CA"/>
+    <ATOM id="60" name="CA" x="5.723" y="-8.462" z="-19.758" resName="ASP" chainID="A" resSeq="60" m="115" type="CA"/>
+    <ATOM id="61" name="CA" x="7.153" y="-5.262" z="-21.171" resName="GLN" chainID="A" resSeq="61" m="128" type="CA"/>
+    <ATOM id="62" name="CA" x="4.634" y="-2.382" z="-20.798" resName="ILE" chainID="A" resSeq="62" m="113" type="CA"/>
+    <ATOM id="63" name="CA" x="5.683" y="1.283" z="-21.147" resName="LEU" chainID="A" resSeq="63" m="113" type="CA"/>
+    <ATOM id="64" name="CA" x="3.316" y="2.927" z="-18.709" resName="ILE" chainID="A" resSeq="64" m="113" type="CA"/>
+    <ATOM id="65" name="CA" x="4.151" y="6.515" z="-17.740" resName="GLU" chainID="A" resSeq="65" m="129" type="CA"/>
+    <ATOM id="66" name="CA" x="3.976" y="7.723" z="-14.114" resName="ILE" chainID="A" resSeq="66" m="113" type="CA"/>
+    <ATOM id="67" name="CA" x="4.033" y="11.447" z="-13.466" resName="CYS" chainID="A" resSeq="67" m="103" type="CA"/>
+    <ATOM id="68" name="CA" x="6.086" y="12.116" z="-16.435" resName="GLY" chainID="A" resSeq="68" m="57" type="CA"/>
+    <ATOM id="69" name="CA" x="8.619" y="9.204" z="-16.348" resName="HIS" chainID="A" resSeq="69" m="137" type="CA"/>
+    <ATOM id="70" name="CA" x="8.350" y="6.163" z="-18.571" resName="LYS" chainID="A" resSeq="70" m="128" type="CA"/>
+    <ATOM id="71" name="CA" x="9.077" y="2.935" z="-16.836" resName="ALA" chainID="A" resSeq="71" m="71" type="CA"/>
+    <ATOM id="72" name="CA" x="9.129" y="-0.647" z="-18.195" resName="ILE" chainID="A" resSeq="72" m="113" type="CA"/>
+    <ATOM id="73" name="CA" x="7.431" y="-3.612" z="-16.720" resName="GLY" chainID="A" resSeq="73" m="57" type="CA"/>
+    <ATOM id="74" name="CA" x="4.792" y="-6.239" z="-16.498" resName="THR" chainID="A" resSeq="74" m="101" type="CA"/>
+    <ATOM id="75" name="CA" x="1.348" y="-4.776" z="-15.895" resName="VAL" chainID="A" resSeq="75" m="99" type="CA"/>
+    <ATOM id="76" name="CA" x="-1.506" y="-6.742" z="-14.325" resName="LEU" chainID="A" resSeq="76" m="113" type="CA"/>
+    <ATOM id="77" name="CA" x="-4.583" y="-5.992" z="-16.675" resName="VAL" chainID="A" resSeq="77" m="99" type="CA"/>
+    <ATOM id="78" name="CA" x="-8.044" y="-6.749" z="-15.290" resName="GLY" chainID="A" resSeq="78" m="57" type="CA"/>
+    <ATOM id="79" name="CA" x="-11.211" y="-5.650" z="-13.390" resName="PRO" chainID="A" resSeq="79" m="97" type="CA"/>
+    <ATOM id="80" name="CA" x="-9.254" y="-4.117" z="-10.610" resName="THR" chainID="A" resSeq="80" m="101" type="CA"/>
+    <ATOM id="81" name="CA" x="-11.201" y="-1.553" z="-8.481" resName="PRO" chainID="A" resSeq="81" m="97" type="CA"/>
+    <ATOM id="82" name="CA" x="-8.303" y="-0.145" z="-6.448" resName="VAL" chainID="A" resSeq="82" m="99" type="CA"/>
+    <ATOM id="83" name="CA" x="-5.999" y="0.308" z="-9.445" resName="ASN" chainID="A" resSeq="83" m="114" type="CA"/>
+    <ATOM id="84" name="CA" x="-2.455" y="0.429" z="-8.038" resName="ILE" chainID="A" resSeq="84" m="113" type="CA"/>
+    <ATOM id="85" name="CA" x="1.177" y="1.352" z="-9.043" resName="ILE" chainID="A" resSeq="85" m="113" type="CA"/>
+    <ATOM id="86" name="CA" x="2.670" y="-1.067" z="-6.561" resName="GLY" chainID="A" resSeq="86" m="57" type="CA"/>
+    <ATOM id="87" name="CA" x="6.169" y="-2.375" z="-5.890" resName="ARG" chainID="A" resSeq="87" m="156" type="CA"/>
+    <ATOM id="88" name="CA" x="7.154" y="-3.507" z="-9.371" resName="ASN" chainID="A" resSeq="88" m="114" type="CA"/>
+    <ATOM id="89" name="CA" x="7.346" y="-0.077" z="-11.164" resName="LEU" chainID="A" resSeq="89" m="113" type="CA"/>
+    <ATOM id="90" name="CA" x="7.754" y="2.305" z="-8.157" resName="LEU" chainID="A" resSeq="90" m="113" type="CA"/>
+    <ATOM id="91" name="CA" x="11.359" y="1.152" z="-7.609" resName="THR" chainID="A" resSeq="91" m="101" type="CA"/>
+    <ATOM id="92" name="CA" x="11.979" y="1.595" z="-11.347" resName="GLN" chainID="A" resSeq="92" m="128" type="CA"/>
+    <ATOM id="93" name="CA" x="10.347" y="4.998" z="-11.193" resName="ILE" chainID="A" resSeq="93" m="113" type="CA"/>
+    <ATOM id="94" name="CA" x="12.469" y="5.897" z="-8.108" resName="GLY" chainID="A" resSeq="94" m="57" type="CA"/>
+    <ATOM id="95" name="CA" x="10.316" y="5.722" z="-4.928" resName="CYS" chainID="A" resSeq="95" m="103" type="CA"/>
+    <ATOM id="96" name="CA" x="11.318" y="6.739" z="-1.489" resName="THR" chainID="A" resSeq="96" m="101" type="CA"/>
+    <ATOM id="97" name="CA" x="9.873" y="7.149" z="2.034" resName="LEU" chainID="A" resSeq="97" m="113" type="CA"/>
+    <ATOM id="98" name="CA" x="12.026" y="9.982" z="3.230" resName="ASN" chainID="A" resSeq="98" m="114" type="CA"/>
+    <ATOM id="99" name="CA" x="11.502" y="11.056" z="6.846" resName="PHE" chainID="A" resSeq="99" m="147" type="CA"/>
+    <ATOM id="100" name="CA" x="15.785" y="7.407" z="6.849" resName="PRO" chainID="B" resSeq="1" m="97" type="CA"/>
+    <ATOM id="101" name="CA" x="14.181" y="6.723" z="3.435" resName="GLN" chainID="B" resSeq="2" m="128" type="CA"/>
+    <ATOM id="102" name="CA" x="13.875" y="2.948" z="2.416" resName="ILE" chainID="B" resSeq="3" m="113" type="CA"/>
+    <ATOM id="103" name="CA" x="13.842" y="2.478" z="-1.342" resName="THR" chainID="B" resSeq="4" m="101" type="CA"/>
+    <ATOM id="104" name="CA" x="10.825" y="0.241" z="-1.901" resName="LEU" chainID="B" resSeq="5" m="113" type="CA"/>
+    <ATOM id="105" name="CA" x="12.846" y="-2.738" z="-3.162" resName="TRP" chainID="B" resSeq="6" m="186" type="CA"/>
+    <ATOM id="106" name="CA" x="12.629" y="-5.384" z="-0.358" resName="GLN" chainID="B" resSeq="7" m="128" type="CA"/>
+    <ATOM id="107" name="CA" x="9.210" y="-5.287" z="1.463" resName="ARG" chainID="B" resSeq="8" m="156" type="CA"/>
+    <ATOM id="108" name="CA" x="9.609" y="-2.061" z="3.399" resName="PRO" chainID="B" resSeq="9" m="97" type="CA"/>
+    <ATOM id="109" name="CA" x="9.137" y="-3.148" z="7.115" resName="LEU" chainID="B" resSeq="10" m="113" type="CA"/>
+    <ATOM id="110" name="CA" x="9.889" y="-0.807" z="10.011" resName="VAL" chainID="B" resSeq="11" m="99" type="CA"/>
+    <ATOM id="111" name="CA" x="10.114" y="-1.775" z="13.735" resName="THR" chainID="B" resSeq="12" m="101" type="CA"/>
+    <ATOM id="112" name="CA" x="7.122" y="-0.108" z="15.225" resName="ILE" chainID="B" resSeq="13" m="113" type="CA"/>
+    <ATOM id="113" name="CA" x="7.665" y="-0.617" z="18.913" resName="LYS" chainID="B" resSeq="14" m="128" type="CA"/>
+    <ATOM id="114" name="CA" x="4.211" y="-0.013" z="20.412" resName="ILE" chainID="B" resSeq="15" m="113" type="CA"/>
+    <ATOM id="115" name="CA" x="3.012" y="-1.586" z="23.643" resName="GLY" chainID="B" resSeq="16" m="57" type="CA"/>
+    <ATOM id="116" name="CA" x="6.227" y="-3.056" z="25.152" resName="GLY" chainID="B" resSeq="17" m="57" type="CA"/>
+    <ATOM id="117" name="CA" x="6.211" y="-5.088" z="21.976" resName="GLN" chainID="B" resSeq="18" m="128" type="CA"/>
+    <ATOM id="118" name="CA" x="8.536" y="-4.906" z="19.019" resName="LEU" chainID="B" resSeq="19" m="113" type="CA"/>
+    <ATOM id="119" name="CA" x="6.411" y="-6.105" z="15.997" resName="LYS" chainID="B" resSeq="20" m="128" type="CA"/>
+    <ATOM id="120" name="CA" x="7.155" y="-5.051" z="12.394" resName="GLU" chainID="B" resSeq="21" m="129" type="CA"/>
+    <ATOM id="121" name="CA" x="4.443" y="-3.721" z="10.057" resName="ALA" chainID="B" resSeq="22" m="71" type="CA"/>
+    <ATOM id="122" name="CA" x="4.495" y="-2.311" z="6.521" resName="LEU" chainID="B" resSeq="23" m="113" type="CA"/>
+    <ATOM id="123" name="CA" x="5.012" y="1.399" z="5.540" resName="LEU" chainID="B" resSeq="24" m="113" type="CA"/>
+    <ATOM id="124" name="CA" x="2.375" y="0.980" z="2.853" resName="ASP" chainID="B" resSeq="25" m="115" type="CA"/>
+    <ATOM id="125" name="CA" x="0.538" y="3.901" z="1.245" resName="THR" chainID="B" resSeq="26" m="101" type="CA"/>
+    <ATOM id="126" name="CA" x="-1.688" y="1.106" z="0.086" resName="GLY" chainID="B" resSeq="27" m="57" type="CA"/>
+    <ATOM id="127" name="CA" x="-3.364" y="0.947" z="3.543" resName="ALA" chainID="B" resSeq="28" m="71" type="CA"/>
+    <ATOM id="128" name="CA" x="-5.629" y="3.828" z="4.646" resName="ASP" chainID="B" resSeq="29" m="115" type="CA"/>
+    <ATOM id="129" name="CA" x="-6.045" y="2.106" z="8.067" resName="ASP" chainID="B" resSeq="30" m="115" type="CA"/>
+    <ATOM id="130" name="CA" x="-3.718" y="0.603" z="10.708" resName="THR" chainID="B" resSeq="31" m="101" type="CA"/>
+    <ATOM id="131" name="CA" x="-3.604" y="-3.071" z="11.708" resName="VAL" chainID="B" resSeq="32" m="99" type="CA"/>
+    <ATOM id="132" name="CA" x="-2.161" y="-4.392" z="14.865" resName="LEU" chainID="B" resSeq="33" m="113" type="CA"/>
+    <ATOM id="133" name="CA" x="-1.844" y="-8.087" z="14.917" resName="GLU" chainID="B" resSeq="34" m="129" type="CA"/>
+    <ATOM id="134" name="CA" x="-3.526" y="-9.911" z="17.751" resName="GLU" chainID="B" resSeq="35" m="129" type="CA"/>
+    <ATOM id="135" name="CA" x="-1.749" y="-7.686" z="20.169" resName="MET" chainID="B" resSeq="36" m="131" type="CA"/>
+    <ATOM id="136" name="CA" x="-2.730" y="-6.754" z="23.652" resName="SER" chainID="B" resSeq="37" m="87" type="CA"/>
+    <ATOM id="137" name="CA" x="-3.824" y="-3.351" z="24.014" resName="LEU" chainID="B" resSeq="38" m="113" type="CA"/>
+    <ATOM id="138" name="CA" x="-5.180" y="-2.480" z="27.471" resName="PRO" chainID="B" resSeq="39" m="97" type="CA"/>
+    <ATOM id="139" name="CA" x="-8.175" y="-0.553" z="26.218" resName="GLY" chainID="B" resSeq="40" m="57" type="CA"/>
+    <ATOM id="140" name="CA" x="-11.859" y="-0.621" z="25.545" resName="ARG" chainID="B" resSeq="41" m="156" type="CA"/>
+    <ATOM id="141" name="CA" x="-11.539" y="-1.656" z="21.992" resName="TRP" chainID="B" resSeq="42" m="186" type="CA"/>
+    <ATOM id="142" name="CA" x="-14.618" y="-0.351" z="20.213" resName="LYS" chainID="B" resSeq="43" m="128" type="CA"/>
+    <ATOM id="143" name="CA" x="-15.896" y="-2.727" z="17.381" resName="PRO" chainID="B" resSeq="44" m="97" type="CA"/>
+    <ATOM id="144" name="CA" x="-15.404" y="-1.921" z="13.669" resName="LYS" chainID="B" resSeq="45" m="128" type="CA"/>
+    <ATOM id="145" name="CA" x="-15.356" y="-4.673" z="10.988" resName="MET" chainID="B" resSeq="46" m="131" type="CA"/>
+    <ATOM id="146" name="CA" x="-12.763" y="-4.639" z="8.164" resName="ILE" chainID="B" resSeq="47" m="113" type="CA"/>
+    <ATOM id="147" name="CA" x="-11.837" y="-6.930" z="5.329" resName="GLY" chainID="B" resSeq="48" m="57" type="CA"/>
+    <ATOM id="148" name="CA" x="-9.625" y="-9.876" z="4.501" resName="GLY" chainID="B" resSeq="49" m="57" type="CA"/>
+    <ATOM id="149" name="CA" x="-8.314" y="-12.280" z="1.904" resName="ILE" chainID="B" resSeq="50" m="113" type="CA"/>
+    <ATOM id="150" name="CA" x="-11.234" y="-14.503" z="2.891" resName="GLY" chainID="B" resSeq="51" m="57" type="CA"/>
+    <ATOM id="151" name="CA" x="-14.233" y="-12.160" z="3.668" resName="GLY" chainID="B" resSeq="52" m="57" type="CA"/>
+    <ATOM id="152" name="CA" x="-15.001" y="-9.558" z="6.309" resName="PHE" chainID="B" resSeq="53" m="147" type="CA"/>
+    <ATOM id="153" name="CA" x="-13.696" y="-10.251" z="9.789" resName="ILE" chainID="B" resSeq="54" m="113" type="CA"/>
+    <ATOM id="154" name="CA" x="-14.511" y="-8.062" z="12.875" resName="LYS" chainID="B" resSeq="55" m="128" type="CA"/>
+    <ATOM id="155" name="CA" x="-11.694" y="-6.001" z="14.489" resName="VAL" chainID="B" resSeq="56" m="99" type="CA"/>
+    <ATOM id="156" name="CA" x="-10.869" y="-4.062" z="17.671" resName="ARG" chainID="B" resSeq="57" m="156" type="CA"/>
+    <ATOM id="157" name="CA" x="-10.219" y="-0.334" z="17.105" resName="GLN" chainID="B" resSeq="58" m="128" type="CA"/>
+    <ATOM id="158" name="CA" x="-7.976" y="1.582" z="19.560" resName="TYR" chainID="B" resSeq="59" m="163" type="CA"/>
+    <ATOM id="159" name="CA" x="-7.767" y="5.447" z="19.131" resName="ASP" chainID="B" resSeq="60" m="115" type="CA"/>
+    <ATOM id="160" name="CA" x="-5.451" y="7.681" z="21.113" resName="GLN" chainID="B" resSeq="61" m="128" type="CA"/>
+    <ATOM id="161" name="CA" x="-2.744" y="4.958" z="21.321" resName="ILE" chainID="B" resSeq="62" m="113" type="CA"/>
+    <ATOM id="162" name="CA" x="0.895" y="5.947" z="20.662" resName="LEU" chainID="B" resSeq="63" m="113" type="CA"/>
+    <ATOM id="163" name="CA" x="3.506" y="3.691" z="19.133" resName="ILE" chainID="B" resSeq="64" m="113" type="CA"/>
+    <ATOM id="164" name="CA" x="7.027" y="4.623" z="18.020" resName="GLU" chainID="B" resSeq="65" m="129" type="CA"/>
+    <ATOM id="165" name="CA" x="7.536" y="3.826" z="14.312" resName="ILE" chainID="B" resSeq="66" m="113" type="CA"/>
+    <ATOM id="166" name="CA" x="10.988" y="4.077" z="12.793" resName="CYS" chainID="B" resSeq="67" m="103" type="CA"/>
+    <ATOM id="167" name="CA" x="11.697" y="6.468" z="15.486" resName="GLY" chainID="B" resSeq="68" m="57" type="CA"/>
+    <ATOM id="168" name="CA" x="8.510" y="8.617" z="15.124" resName="HIS" chainID="B" resSeq="69" m="137" type="CA"/>
+    <ATOM id="169" name="CA" x="6.508" y="8.355" z="18.314" resName="LYS" chainID="B" resSeq="70" m="128" type="CA"/>
+    <ATOM id="170" name="CA" x="3.380" y="8.509" z="16.273" resName="ALA" chainID="B" resSeq="71" m="71" type="CA"/>
+    <ATOM id="171" name="CA" x="-0.171" y="8.517" z="17.714" resName="ILE" chainID="B" resSeq="72" m="113" type="CA"/>
+    <ATOM id="172" name="CA" x="-3.163" y="7.010" z="16.090" resName="GLY" chainID="B" resSeq="73" m="57" type="CA"/>
+    <ATOM id="173" name="CA" x="-6.008" y="4.598" z="16.138" resName="THR" chainID="B" resSeq="74" m="101" type="CA"/>
+    <ATOM id="174" name="CA" x="-5.240" y="0.950" z="15.451" resName="VAL" chainID="B" resSeq="75" m="99" type="CA"/>
+    <ATOM id="175" name="CA" x="-7.423" y="-1.678" z="13.777" resName="LEU" chainID="B" resSeq="76" m="113" type="CA"/>
+    <ATOM id="176" name="CA" x="-6.484" y="-4.863" z="15.906" resName="VAL" chainID="B" resSeq="77" m="99" type="CA"/>
+    <ATOM id="177" name="CA" x="-7.598" y="-8.166" z="14.383" resName="GLY" chainID="B" resSeq="78" m="57" type="CA"/>
+    <ATOM id="178" name="CA" x="-6.471" y="-11.560" z="12.951" resName="PRO" chainID="B" resSeq="79" m="97" type="CA"/>
+    <ATOM id="179" name="CA" x="-4.287" y="-9.644" z="10.613" resName="THR" chainID="B" resSeq="80" m="101" type="CA"/>
+    <ATOM id="180" name="CA" x="-1.614" y="-11.292" z="8.369" resName="PRO" chainID="B" resSeq="81" m="97" type="CA"/>
+    <ATOM id="181" name="CA" x="0.363" y="-8.223" z="7.281" resName="VAL" chainID="B" resSeq="82" m="99" type="CA"/>
+    <ATOM id="182" name="CA" x="0.323" y="-5.662" z="10.097" resName="ASN" chainID="B" resSeq="83" m="114" type="CA"/>
+    <ATOM id="183" name="CA" x="-0.474" y="-2.762" z="7.750" resName="ILE" chainID="B" resSeq="84" m="113" type="CA"/>
+    <ATOM id="184" name="CA" x="0.904" y="0.682" z="8.887" resName="ILE" chainID="B" resSeq="85" m="113" type="CA"/>
+    <ATOM id="185" name="CA" x="-1.677" y="2.848" z="7.189" resName="GLY" chainID="B" resSeq="86" m="57" type="CA"/>
+    <ATOM id="186" name="CA" x="-2.330" y="6.417" z="6.074" resName="ARG" chainID="B" resSeq="87" m="156" type="CA"/>
+    <ATOM id="187" name="CA" x="-3.468" y="6.768" z="9.673" resName="ASN" chainID="B" resSeq="88" m="114" type="CA"/>
+    <ATOM id="188" name="CA" x="0.134" y="6.972" z="11.088" resName="LEU" chainID="B" resSeq="89" m="113" type="CA"/>
+    <ATOM id="189" name="CA" x="2.516" y="7.567" z="8.112" resName="LEU" chainID="B" resSeq="90" m="113" type="CA"/>
+    <ATOM id="190" name="CA" x="0.876" y="11.015" z="7.890" resName="THR" chainID="B" resSeq="91" m="101" type="CA"/>
+    <ATOM id="191" name="CA" x="1.926" y="12.343" z="11.309" resName="GLN" chainID="B" resSeq="92" m="128" type="CA"/>
+    <ATOM id="192" name="CA" x="5.301" y="10.716" z="10.835" resName="ILE" chainID="B" resSeq="93" m="113" type="CA"/>
+    <ATOM id="193" name="CA" x="6.530" y="12.934" z="7.938" resName="GLY" chainID="B" resSeq="94" m="57" type="CA"/>
+    <ATOM id="194" name="CA" x="6.589" y="10.388" z="5.058" resName="CYS" chainID="B" resSeq="95" m="103" type="CA"/>
+    <ATOM id="195" name="CA" x="5.953" y="11.597" z="1.594" resName="THR" chainID="B" resSeq="96" m="101" type="CA"/>
+    <ATOM id="196" name="CA" x="6.958" y="9.759" z="-1.611" resName="LEU" chainID="B" resSeq="97" m="113" type="CA"/>
+    <ATOM id="197" name="CA" x="9.699" y="11.704" z="-3.284" resName="ASN" chainID="B" resSeq="98" m="114" type="CA"/>
+    <ATOM id="198" name="CA" x="10.065" y="10.524" z="-6.886" resName="PHE" chainID="B" resSeq="99" m="147" type="CA"/>
+    <BOND idAtom1="1" idAtom2="2" k="50.000000" l0="3.833626"/>
+    <BOND idAtom1="2" idAtom2="3" k="50.000000" l0="3.923030"/>
+    <BOND idAtom1="3" idAtom2="4" k="50.000000" l0="3.786822"/>
+    <BOND idAtom1="4" idAtom2="5" k="50.000000" l0="3.797766"/>
+    <BOND idAtom1="5" idAtom2="6" k="50.000000" l0="3.813939"/>
+    <BOND idAtom1="6" idAtom2="7" k="50.000000" l0="3.861308"/>
+    <BOND idAtom1="7" idAtom2="8" k="50.000000" l0="3.875856"/>
+    <BOND idAtom1="8" idAtom2="9" k="50.000000" l0="3.782657"/>
+    <BOND idAtom1="9" idAtom2="10" k="50.000000" l0="3.900608"/>
+    <BOND idAtom1="10" idAtom2="11" k="50.000000" l0="3.798764"/>
+    <BOND idAtom1="11" idAtom2="12" k="50.000000" l0="3.853695"/>
+    <BOND idAtom1="12" idAtom2="13" k="50.000000" l0="3.735552"/>
+    <BOND idAtom1="13" idAtom2="14" k="50.000000" l0="3.762702"/>
+    <BOND idAtom1="14" idAtom2="15" k="50.000000" l0="3.812741"/>
+    <BOND idAtom1="15" idAtom2="16" k="50.000000" l0="3.788816"/>
+    <BOND idAtom1="16" idAtom2="17" k="50.000000" l0="3.843758"/>
+    <BOND idAtom1="17" idAtom2="18" k="50.000000" l0="3.771149"/>
+    <BOND idAtom1="18" idAtom2="19" k="50.000000" l0="3.766545"/>
+    <BOND idAtom1="19" idAtom2="20" k="50.000000" l0="3.883866"/>
+    <BOND idAtom1="20" idAtom2="21" k="50.000000" l0="3.826547"/>
+    <BOND idAtom1="21" idAtom2="22" k="50.000000" l0="3.818414"/>
+    <BOND idAtom1="22" idAtom2="23" k="50.000000" l0="3.806653"/>
+    <BOND idAtom1="23" idAtom2="24" k="50.000000" l0="3.872402"/>
+    <BOND idAtom1="24" idAtom2="25" k="50.000000" l0="3.786097"/>
+    <BOND idAtom1="25" idAtom2="26" k="50.000000" l0="3.807114"/>
+    <BOND idAtom1="26" idAtom2="27" k="50.000000" l0="3.756017"/>
+    <BOND idAtom1="27" idAtom2="28" k="50.000000" l0="3.844981"/>
+    <BOND idAtom1="28" idAtom2="29" k="50.000000" l0="3.826956"/>
+    <BOND idAtom1="29" idAtom2="30" k="50.000000" l0="3.852598"/>
+    <BOND idAtom1="30" idAtom2="31" k="50.000000" l0="3.827156"/>
+    <BOND idAtom1="31" idAtom2="32" k="50.000000" l0="3.810169"/>
+    <BOND idAtom1="32" idAtom2="33" k="50.000000" l0="3.714703"/>
+    <BOND idAtom1="33" idAtom2="34" k="50.000000" l0="3.708395"/>
+    <BOND idAtom1="34" idAtom2="35" k="50.000000" l0="3.767040"/>
+    <BOND idAtom1="35" idAtom2="36" k="50.000000" l0="3.734747"/>
+    <BOND idAtom1="36" idAtom2="37" k="50.000000" l0="3.736812"/>
+    <BOND idAtom1="37" idAtom2="38" k="50.000000" l0="3.592468"/>
+    <BOND idAtom1="38" idAtom2="39" k="50.000000" l0="3.814712"/>
+    <BOND idAtom1="39" idAtom2="40" k="50.000000" l0="3.774995"/>
+    <BOND idAtom1="40" idAtom2="41" k="50.000000" l0="3.744996"/>
+    <BOND idAtom1="41" idAtom2="42" k="50.000000" l0="3.714544"/>
+    <BOND idAtom1="42" idAtom2="43" k="50.000000" l0="3.787013"/>
+    <BOND idAtom1="43" idAtom2="44" k="50.000000" l0="3.911739"/>
+    <BOND idAtom1="44" idAtom2="45" k="50.000000" l0="3.829941"/>
+    <BOND idAtom1="45" idAtom2="46" k="50.000000" l0="3.842206"/>
+    <BOND idAtom1="46" idAtom2="47" k="50.000000" l0="3.835383"/>
+    <BOND idAtom1="47" idAtom2="48" k="50.000000" l0="3.761411"/>
+    <BOND idAtom1="48" idAtom2="49" k="50.000000" l0="3.776000"/>
+    <BOND idAtom1="49" idAtom2="50" k="50.000000" l0="3.774314"/>
+    <BOND idAtom1="50" idAtom2="51" k="50.000000" l0="3.800717"/>
+    <BOND idAtom1="51" idAtom2="52" k="50.000000" l0="3.883571"/>
+    <BOND idAtom1="52" idAtom2="53" k="50.000000" l0="3.785916"/>
+    <BOND idAtom1="53" idAtom2="54" k="50.000000" l0="3.780852"/>
+    <BOND idAtom1="54" idAtom2="55" k="50.000000" l0="3.870906"/>
+    <BOND idAtom1="55" idAtom2="56" k="50.000000" l0="3.846035"/>
+    <BOND idAtom1="56" idAtom2="57" k="50.000000" l0="3.817308"/>
+    <BOND idAtom1="57" idAtom2="58" k="50.000000" l0="3.826093"/>
+    <BOND idAtom1="58" idAtom2="59" k="50.000000" l0="3.837692"/>
+    <BOND idAtom1="59" idAtom2="60" k="50.000000" l0="3.895454"/>
+    <BOND idAtom1="60" idAtom2="61" k="50.000000" l0="3.779083"/>
+    <BOND idAtom1="61" idAtom2="62" k="50.000000" l0="3.844332"/>
+    <BOND idAtom1="62" idAtom2="63" k="50.000000" l0="3.828110"/>
+    <BOND idAtom1="63" idAtom2="64" k="50.000000" l0="3.774820"/>
+    <BOND idAtom1="64" idAtom2="65" k="50.000000" l0="3.809190"/>
+    <BOND idAtom1="65" idAtom2="66" k="50.000000" l0="3.825933"/>
+    <BOND idAtom1="66" idAtom2="67" k="50.000000" l0="3.780387"/>
+    <BOND idAtom1="67" idAtom2="68" k="50.000000" l0="3.671148"/>
+    <BOND idAtom1="68" idAtom2="69" k="50.000000" l0="3.860492"/>
+    <BOND idAtom1="69" idAtom2="70" k="50.000000" l0="3.776476"/>
+    <BOND idAtom1="70" idAtom2="71" k="50.000000" l0="3.736139"/>
+    <BOND idAtom1="71" idAtom2="72" k="50.000000" l0="3.831489"/>
+    <BOND idAtom1="72" idAtom2="73" k="50.000000" l0="3.721566"/>
+    <BOND idAtom1="73" idAtom2="74" k="50.000000" l0="3.730246"/>
+    <BOND idAtom1="74" idAtom2="75" k="50.000000" l0="3.790134"/>
+    <BOND idAtom1="75" idAtom2="76" k="50.000000" l0="3.804651"/>
+    <BOND idAtom1="76" idAtom2="77" k="50.000000" l0="3.943720"/>
+    <BOND idAtom1="77" idAtom2="78" k="50.000000" l0="3.803918"/>
+    <BOND idAtom1="78" idAtom2="79" k="50.000000" l0="3.853270"/>
+    <BOND idAtom1="79" idAtom2="80" k="50.000000" l0="3.729388"/>
+    <BOND idAtom1="80" idAtom2="81" k="50.000000" l0="3.859734"/>
+    <BOND idAtom1="81" idAtom2="82" k="50.000000" l0="3.809719"/>
+    <BOND idAtom1="82" idAtom2="83" k="50.000000" l0="3.807313"/>
+    <BOND idAtom1="83" idAtom2="84" k="50.000000" l0="3.815000"/>
+    <BOND idAtom1="84" idAtom2="85" k="50.000000" l0="3.879868"/>
+    <BOND idAtom1="85" idAtom2="86" k="50.000000" l0="3.773716"/>
+    <BOND idAtom1="86" idAtom2="87" k="50.000000" l0="3.795274"/>
+    <BOND idAtom1="87" idAtom2="88" k="50.000000" l0="3.790648"/>
+    <BOND idAtom1="88" idAtom2="89" k="50.000000" l0="3.875127"/>
+    <BOND idAtom1="89" idAtom2="90" k="50.000000" l0="3.857776"/>
+    <BOND idAtom1="90" idAtom2="91" k="50.000000" l0="3.824361"/>
+    <BOND idAtom1="91" idAtom2="92" k="50.000000" l0="3.814878"/>
+    <BOND idAtom1="92" idAtom2="93" k="50.000000" l0="3.777241"/>
+    <BOND idAtom1="93" idAtom2="94" k="50.000000" l0="3.850754"/>
+    <BOND idAtom1="94" idAtom2="95" k="50.000000" l0="3.844273"/>
+    <BOND idAtom1="95" idAtom2="96" k="50.000000" l0="3.723575"/>
+    <BOND idAtom1="96" idAtom2="97" k="50.000000" l0="3.829837"/>
+    <BOND idAtom1="97" idAtom2="98" k="50.000000" l0="3.753893"/>
+    <BOND idAtom1="98" idAtom2="99" k="50.000000" l0="3.808347"/>
+    <ANG_QUAR idAtom1="1" idAtom2="2" idAtom3="3" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="2" idAtom2="3" idAtom3="4" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="3" idAtom2="4" idAtom3="5" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="4" idAtom2="5" idAtom3="6" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="5" idAtom2="6" idAtom3="7" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="6" idAtom2="7" idAtom3="8" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="7" idAtom2="8" idAtom3="9" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="8" idAtom2="9" idAtom3="10" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="9" idAtom2="10" idAtom3="11" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="10" idAtom2="11" idAtom3="12" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="11" idAtom2="12" idAtom3="13" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="12" idAtom2="13" idAtom3="14" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="13" idAtom2="14" idAtom3="15" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="14" idAtom2="15" idAtom3="16" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="15" idAtom2="16" idAtom3="17" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="16" idAtom2="17" idAtom3="18" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="17" idAtom2="18" idAtom3="19" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="18" idAtom2="19" idAtom3="20" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="19" idAtom2="20" idAtom3="21" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="20" idAtom2="21" idAtom3="22" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="21" idAtom2="22" idAtom3="23" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="22" idAtom2="23" idAtom3="24" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="23" idAtom2="24" idAtom3="25" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="24" idAtom2="25" idAtom3="26" theta0="90.000000" kTheta1="38.000000" kTheta2="-133.212687" kTheta3="112.846468"/>
+    <ANG_QUAR idAtom1="25" idAtom2="26" idAtom3="27" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="26" idAtom2="27" idAtom3="28" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="27" idAtom2="28" idAtom3="29" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="28" idAtom2="29" idAtom3="30" theta0="90.000000" kTheta1="38.000000" kTheta2="-133.212687" kTheta3="112.846468"/>
+    <ANG_QUAR idAtom1="29" idAtom2="30" idAtom3="31" theta0="90.000000" kTheta1="38.000000" kTheta2="-133.212687" kTheta3="112.846468"/>
+    <ANG_QUAR idAtom1="30" idAtom2="31" idAtom3="32" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="31" idAtom2="32" idAtom3="33" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="32" idAtom2="33" idAtom3="34" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="33" idAtom2="34" idAtom3="35" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="34" idAtom2="35" idAtom3="36" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="35" idAtom2="36" idAtom3="37" theta0="90.000000" kTheta1="38.000000" kTheta2="-106.570150" kTheta3="72.221740"/>
+    <ANG_QUAR idAtom1="36" idAtom2="37" idAtom3="38" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="37" idAtom2="38" idAtom3="39" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="38" idAtom2="39" idAtom3="40" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="39" idAtom2="40" idAtom3="41" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="40" idAtom2="41" idAtom3="42" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="41" idAtom2="42" idAtom3="43" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="42" idAtom2="43" idAtom3="44" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="43" idAtom2="44" idAtom3="45" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="44" idAtom2="45" idAtom3="46" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="45" idAtom2="46" idAtom3="47" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="46" idAtom2="47" idAtom3="48" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="47" idAtom2="48" idAtom3="49" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="48" idAtom2="49" idAtom3="50" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="49" idAtom2="50" idAtom3="51" theta0="90.000000" kTheta1="38.000000" kTheta2="-266.425375" kTheta3="451.385873"/>
+    <ANG_QUAR idAtom1="50" idAtom2="51" idAtom3="52" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="51" idAtom2="52" idAtom3="53" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="52" idAtom2="53" idAtom3="54" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="53" idAtom2="54" idAtom3="55" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="54" idAtom2="55" idAtom3="56" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="55" idAtom2="56" idAtom3="57" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="56" idAtom2="57" idAtom3="58" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="57" idAtom2="58" idAtom3="59" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="58" idAtom2="59" idAtom3="60" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="59" idAtom2="60" idAtom3="61" theta0="90.000000" kTheta1="38.000000" kTheta2="-133.212687" kTheta3="112.846468"/>
+    <ANG_QUAR idAtom1="60" idAtom2="61" idAtom3="62" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="61" idAtom2="62" idAtom3="63" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="62" idAtom2="63" idAtom3="64" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="63" idAtom2="64" idAtom3="65" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="64" idAtom2="65" idAtom3="66" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="65" idAtom2="66" idAtom3="67" theta0="90.000000" kTheta1="38.000000" kTheta2="-266.425375" kTheta3="451.385873"/>
+    <ANG_QUAR idAtom1="66" idAtom2="67" idAtom3="68" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="67" idAtom2="68" idAtom3="69" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="68" idAtom2="69" idAtom3="70" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="69" idAtom2="70" idAtom3="71" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="70" idAtom2="71" idAtom3="72" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="71" idAtom2="72" idAtom3="73" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="72" idAtom2="73" idAtom3="74" theta0="90.000000" kTheta1="38.000000" kTheta2="-88.808458" kTheta3="50.153986"/>
+    <ANG_QUAR idAtom1="73" idAtom2="74" idAtom3="75" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="74" idAtom2="75" idAtom3="76" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="75" idAtom2="76" idAtom3="77" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="76" idAtom2="77" idAtom3="78" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="77" idAtom2="78" idAtom3="79" theta0="90.000000" kTheta1="38.000000" kTheta2="-88.808458" kTheta3="50.153986"/>
+    <ANG_QUAR idAtom1="78" idAtom2="79" idAtom3="80" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="79" idAtom2="80" idAtom3="81" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="80" idAtom2="81" idAtom3="82" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="81" idAtom2="82" idAtom3="83" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="82" idAtom2="83" idAtom3="84" theta0="90.000000" kTheta1="38.000000" kTheta2="-266.425375" kTheta3="451.385873"/>
+    <ANG_QUAR idAtom1="83" idAtom2="84" idAtom3="85" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="84" idAtom2="85" idAtom3="86" theta0="90.000000" kTheta1="38.000000" kTheta2="-266.425375" kTheta3="451.385873"/>
+    <ANG_QUAR idAtom1="85" idAtom2="86" idAtom3="87" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="86" idAtom2="87" idAtom3="88" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="87" idAtom2="88" idAtom3="89" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="88" idAtom2="89" idAtom3="90" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="89" idAtom2="90" idAtom3="91" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="90" idAtom2="91" idAtom3="92" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="91" idAtom2="92" idAtom3="93" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="92" idAtom2="93" idAtom3="94" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="93" idAtom2="94" idAtom3="95" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="94" idAtom2="95" idAtom3="96" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="95" idAtom2="96" idAtom3="97" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="96" idAtom2="97" idAtom3="98" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="97" idAtom2="98" idAtom3="99" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <DIH_HARM idAtom1="1" idAtom2="2" idAtom3="3" idAtom4="4" alpha0="176.839847" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="2" idAtom2="3" idAtom3="4" idAtom4="5" alpha0="146.256901" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="3" idAtom2="4" idAtom3="5" idAtom4="6" alpha0="117.101957" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="4" idAtom2="5" idAtom3="6" idAtom4="7" alpha0="-119.411892" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="5" idAtom2="6" idAtom3="7" idAtom4="8" alpha0="-23.851954" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="6" idAtom2="7" idAtom3="8" idAtom4="9" alpha0="83.906654" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="7" idAtom2="8" idAtom3="9" idAtom4="10" alpha0="106.793062" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="8" idAtom2="9" idAtom3="10" idAtom4="11" alpha0="-177.322972" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="9" idAtom2="10" idAtom3="11" idAtom4="12" alpha0="-176.798358" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="10" idAtom2="11" idAtom3="12" idAtom4="13" alpha0="105.313125" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="11" idAtom2="12" idAtom3="13" idAtom4="14" alpha0="167.756437" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="12" idAtom2="13" idAtom3="14" idAtom4="15" alpha0="141.368788" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="13" idAtom2="14" idAtom3="15" idAtom4="16" alpha0="-161.562162" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="14" idAtom2="15" idAtom3="16" idAtom4="17" alpha0="0.284064" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="15" idAtom2="16" idAtom3="17" idAtom4="18" alpha0="64.944214" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="16" idAtom2="17" idAtom3="18" idAtom4="19" alpha0="-109.942811" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="17" idAtom2="18" idAtom3="19" idAtom4="20" alpha0="134.014975" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="18" idAtom2="19" idAtom3="20" idAtom4="21" alpha0="177.213545" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="19" idAtom2="20" idAtom3="21" idAtom4="22" alpha0="116.837893" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="20" idAtom2="21" idAtom3="22" idAtom4="23" alpha0="-174.543050" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="21" idAtom2="22" idAtom3="23" idAtom4="24" alpha0="109.427047" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="22" idAtom2="23" idAtom3="24" idAtom4="25" alpha0="141.415147" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="23" idAtom2="24" idAtom3="25" idAtom4="26" alpha0="-174.415008" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="24" idAtom2="25" idAtom3="26" idAtom4="27" alpha0="166.080418" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="25" idAtom2="26" idAtom3="27" idAtom4="28" alpha0="-59.620510" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="26" idAtom2="27" idAtom3="28" idAtom4="29" alpha0="-91.773693" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="27" idAtom2="28" idAtom3="29" idAtom4="30" alpha0="156.864663" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="28" idAtom2="29" idAtom3="30" idAtom4="31" alpha0="-37.563241" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="29" idAtom2="30" idAtom3="31" idAtom4="32" alpha0="124.492924" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="30" idAtom2="31" idAtom3="32" idAtom4="33" alpha0="166.476947" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="31" idAtom2="32" idAtom3="33" idAtom4="34" alpha0="162.904974" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="32" idAtom2="33" idAtom3="34" idAtom4="35" alpha0="110.776276" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="33" idAtom2="34" idAtom3="35" idAtom4="36" alpha0="104.746632" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="34" idAtom2="35" idAtom3="36" idAtom4="37" alpha0="-141.457781" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="35" idAtom2="36" idAtom3="37" idAtom4="38" alpha0="85.842879" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="36" idAtom2="37" idAtom3="38" idAtom4="39" alpha0="177.418711" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="37" idAtom2="38" idAtom3="39" idAtom4="40" alpha0="105.916841" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="38" idAtom2="39" idAtom3="40" idAtom4="41" alpha0="-117.643448" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="39" idAtom2="40" idAtom3="41" idAtom4="42" alpha0="108.873602" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="40" idAtom2="41" idAtom3="42" idAtom4="43" alpha0="136.619989" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="41" idAtom2="42" idAtom3="43" idAtom4="44" alpha0="165.334211" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="42" idAtom2="43" idAtom3="44" idAtom4="45" alpha0="79.791313" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="43" idAtom2="44" idAtom3="45" idAtom4="46" alpha0="-158.217955" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="44" idAtom2="45" idAtom3="46" idAtom4="47" alpha0="176.697138" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="45" idAtom2="46" idAtom3="47" idAtom4="48" alpha0="178.902158" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="46" idAtom2="47" idAtom3="48" idAtom4="49" alpha0="119.873658" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="47" idAtom2="48" idAtom3="49" idAtom4="50" alpha0="-175.960683" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="48" idAtom2="49" idAtom3="50" idAtom4="51" alpha0="44.351968" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="49" idAtom2="50" idAtom3="51" idAtom4="52" alpha0="-27.140276" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="50" idAtom2="51" idAtom3="52" idAtom4="53" alpha0="51.600733" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="51" idAtom2="52" idAtom3="53" idAtom4="54" alpha0="60.766709" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="52" idAtom2="53" idAtom3="54" idAtom4="55" alpha0="151.027821" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="53" idAtom2="54" idAtom3="55" idAtom4="56" alpha0="124.016003" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="54" idAtom2="55" idAtom3="56" idAtom4="57" alpha0="-168.867266" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="55" idAtom2="56" idAtom3="57" idAtom4="58" alpha0="73.880665" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="56" idAtom2="57" idAtom3="58" idAtom4="59" alpha0="171.917859" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="57" idAtom2="58" idAtom3="59" idAtom4="60" alpha0="174.150771" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="58" idAtom2="59" idAtom3="60" idAtom4="61" alpha0="143.260976" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="59" idAtom2="60" idAtom3="61" idAtom4="62" alpha0="-28.274058" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="60" idAtom2="61" idAtom3="62" idAtom4="63" alpha0="-163.765958" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="61" idAtom2="62" idAtom3="63" idAtom4="64" alpha0="147.249027" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="62" idAtom2="63" idAtom3="64" idAtom4="65" alpha0="-165.954507" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="63" idAtom2="64" idAtom3="65" idAtom4="66" alpha0="135.790191" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="64" idAtom2="65" idAtom3="66" idAtom4="67" alpha0="165.712364" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="65" idAtom2="66" idAtom3="67" idAtom4="68" alpha0="30.562157" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="66" idAtom2="67" idAtom3="68" idAtom4="69" alpha0="40.736460" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="67" idAtom2="68" idAtom3="69" idAtom4="70" alpha0="-102.270857" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="68" idAtom2="69" idAtom3="70" idAtom4="71" alpha0="137.841211" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="69" idAtom2="70" idAtom3="71" idAtom4="72" alpha0="178.912893" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="70" idAtom2="71" idAtom3="72" idAtom4="73" alpha0="130.501272" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="71" idAtom2="72" idAtom3="73" idAtom4="74" alpha0="-104.615057" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="72" idAtom2="73" idAtom3="74" idAtom4="75" alpha0="63.207361" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="73" idAtom2="74" idAtom3="75" idAtom4="76" alpha0="156.726677" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="74" idAtom2="75" idAtom3="76" idAtom4="77" alpha0="133.170822" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="75" idAtom2="76" idAtom3="77" idAtom4="78" alpha0="162.874986" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="76" idAtom2="77" idAtom3="78" idAtom4="79" alpha0="-90.719065" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="77" idAtom2="78" idAtom3="79" idAtom4="80" alpha0="47.104922" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="78" idAtom2="79" idAtom3="80" idAtom4="81" alpha0="-160.339687" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="79" idAtom2="80" idAtom3="81" idAtom4="82" alpha0="170.143640" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="80" idAtom2="81" idAtom3="82" idAtom4="83" alpha0="-46.813923" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="81" idAtom2="82" idAtom3="83" idAtom4="84" alpha0="158.624824" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="82" idAtom2="83" idAtom3="84" idAtom4="85" alpha0="166.600452" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="83" idAtom2="84" idAtom3="85" idAtom4="86" alpha0="152.499419" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="84" idAtom2="85" idAtom3="86" idAtom4="87" alpha0="-170.619904" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="85" idAtom2="86" idAtom3="87" idAtom4="88" alpha0="51.492721" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="86" idAtom2="87" idAtom3="88" idAtom4="89" alpha0="-67.391128" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="87" idAtom2="88" idAtom3="89" idAtom4="90" alpha0="-20.436162" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="88" idAtom2="89" idAtom3="90" idAtom4="91" alpha0="-72.732186" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="89" idAtom2="90" idAtom3="91" idAtom4="92" alpha0="-47.570096" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="90" idAtom2="91" idAtom3="92" idAtom4="93" alpha0="-47.673540" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="91" idAtom2="92" idAtom3="93" idAtom4="94" alpha0="-48.062591" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="92" idAtom2="93" idAtom3="94" idAtom4="95" alpha0="104.365302" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="93" idAtom2="94" idAtom3="95" idAtom4="96" alpha0="173.293337" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="94" idAtom2="95" idAtom3="96" idAtom4="97" alpha0="-174.194667" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="95" idAtom2="96" idAtom3="97" idAtom4="98" alpha0="148.956689" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="96" idAtom2="97" idAtom3="98" idAtom4="99" alpha0="176.441585" kAlpha="5.000000"/>
+    <BOND idAtom1="100" idAtom2="101" k="50.000000" l0="3.833545"/>
+    <BOND idAtom1="101" idAtom2="102" k="50.000000" l0="3.922069"/>
+    <BOND idAtom1="102" idAtom2="103" k="50.000000" l0="3.787420"/>
+    <BOND idAtom1="103" idAtom2="104" k="50.000000" l0="3.797228"/>
+    <BOND idAtom1="104" idAtom2="105" k="50.000000" l0="3.814316"/>
+    <BOND idAtom1="105" idAtom2="106" k="50.000000" l0="3.861453"/>
+    <BOND idAtom1="106" idAtom2="107" k="50.000000" l0="3.874921"/>
+    <BOND idAtom1="107" idAtom2="108" k="50.000000" l0="3.783434"/>
+    <BOND idAtom1="108" idAtom2="109" k="50.000000" l0="3.900386"/>
+    <BOND idAtom1="109" idAtom2="110" k="50.000000" l0="3.799026"/>
+    <BOND idAtom1="110" idAtom2="111" k="50.000000" l0="3.854325"/>
+    <BOND idAtom1="111" idAtom2="112" k="50.000000" l0="3.735111"/>
+    <BOND idAtom1="112" idAtom2="113" k="50.000000" l0="3.762350"/>
+    <BOND idAtom1="113" idAtom2="114" k="50.000000" l0="3.813389"/>
+    <BOND idAtom1="114" idAtom2="115" k="50.000000" l0="3.788310"/>
+    <BOND idAtom1="115" idAtom2="116" k="50.000000" l0="3.843723"/>
+    <BOND idAtom1="116" idAtom2="117" k="50.000000" l0="3.770445"/>
+    <BOND idAtom1="117" idAtom2="118" k="50.000000" l0="3.765979"/>
+    <BOND idAtom1="118" idAtom2="119" k="50.000000" l0="3.884033"/>
+    <BOND idAtom1="119" idAtom2="120" k="50.000000" l0="3.827017"/>
+    <BOND idAtom1="120" idAtom2="121" k="50.000000" l0="3.819085"/>
+    <BOND idAtom1="121" idAtom2="122" k="50.000000" l0="3.807112"/>
+    <BOND idAtom1="122" idAtom2="123" k="50.000000" l0="3.872176"/>
+    <BOND idAtom1="123" idAtom2="124" k="50.000000" l0="3.788047"/>
+    <BOND idAtom1="124" idAtom2="125" k="50.000000" l0="3.806898"/>
+    <BOND idAtom1="125" idAtom2="126" k="50.000000" l0="3.756379"/>
+    <BOND idAtom1="126" idAtom2="127" k="50.000000" l0="3.845141"/>
+    <BOND idAtom1="127" idAtom2="128" k="50.000000" l0="3.827139"/>
+    <BOND idAtom1="128" idAtom2="129" k="50.000000" l0="3.852477"/>
+    <BOND idAtom1="129" idAtom2="130" k="50.000000" l0="3.827378"/>
+    <BOND idAtom1="130" idAtom2="131" k="50.000000" l0="3.809366"/>
+    <BOND idAtom1="131" idAtom2="132" k="50.000000" l0="3.714019"/>
+    <BOND idAtom1="132" idAtom2="133" k="50.000000" l0="3.708938"/>
+    <BOND idAtom1="133" idAtom2="134" k="50.000000" l0="3.766651"/>
+    <BOND idAtom1="134" idAtom2="135" k="50.000000" l0="3.735650"/>
+    <BOND idAtom1="135" idAtom2="136" k="50.000000" l0="3.736613"/>
+    <BOND idAtom1="136" idAtom2="137" k="50.000000" l0="3.592811"/>
+    <BOND idAtom1="137" idAtom2="138" k="50.000000" l0="3.814214"/>
+    <BOND idAtom1="138" idAtom2="139" k="50.000000" l0="3.775363"/>
+    <BOND idAtom1="139" idAtom2="140" k="50.000000" l0="3.745585"/>
+    <BOND idAtom1="140" idAtom2="141" k="50.000000" l0="3.714490"/>
+    <BOND idAtom1="141" idAtom2="142" k="50.000000" l0="3.787890"/>
+    <BOND idAtom1="142" idAtom2="143" k="50.000000" l0="3.911379"/>
+    <BOND idAtom1="143" idAtom2="144" k="50.000000" l0="3.830228"/>
+    <BOND idAtom1="144" idAtom2="145" k="50.000000" l0="3.842339"/>
+    <BOND idAtom1="145" idAtom2="146" k="50.000000" l0="3.834029"/>
+    <BOND idAtom1="146" idAtom2="147" k="50.000000" l0="3.760769"/>
+    <BOND idAtom1="147" idAtom2="148" k="50.000000" l0="3.775903"/>
+    <BOND idAtom1="148" idAtom2="149" k="50.000000" l0="3.773903"/>
+    <BOND idAtom1="149" idAtom2="150" k="50.000000" l0="3.800302"/>
+    <BOND idAtom1="150" idAtom2="151" k="50.000000" l0="3.884248"/>
+    <BOND idAtom1="151" idAtom2="152" k="50.000000" l0="3.786173"/>
+    <BOND idAtom1="152" idAtom2="153" k="50.000000" l0="3.780698"/>
+    <BOND idAtom1="153" idAtom2="154" k="50.000000" l0="3.870315"/>
+    <BOND idAtom1="154" idAtom2="155" k="50.000000" l0="3.845544"/>
+    <BOND idAtom1="155" idAtom2="156" k="50.000000" l0="3.816474"/>
+    <BOND idAtom1="156" idAtom2="157" k="50.000000" l0="3.826335"/>
+    <BOND idAtom1="157" idAtom2="158" k="50.000000" l0="3.837855"/>
+    <BOND idAtom1="158" idAtom2="159" k="50.000000" l0="3.894348"/>
+    <BOND idAtom1="159" idAtom2="160" k="50.000000" l0="3.779277"/>
+    <BOND idAtom1="160" idAtom2="161" k="50.000000" l0="3.845236"/>
+    <BOND idAtom1="161" idAtom2="162" k="50.000000" l0="3.828149"/>
+    <BOND idAtom1="162" idAtom2="163" k="50.000000" l0="3.774215"/>
+    <BOND idAtom1="163" idAtom2="164" k="50.000000" l0="3.808521"/>
+    <BOND idAtom1="164" idAtom2="165" k="50.000000" l0="3.826690"/>
+    <BOND idAtom1="165" idAtom2="166" k="50.000000" l0="3.779771"/>
+    <BOND idAtom1="166" idAtom2="167" k="50.000000" l0="3.670397"/>
+    <BOND idAtom1="167" idAtom2="168" k="50.000000" l0="3.860857"/>
+    <BOND idAtom1="168" idAtom2="169" k="50.000000" l0="3.775281"/>
+    <BOND idAtom1="169" idAtom2="170" k="50.000000" l0="3.738152"/>
+    <BOND idAtom1="170" idAtom2="171" k="50.000000" l0="3.832251"/>
+    <BOND idAtom1="171" idAtom2="172" k="50.000000" l0="3.722968"/>
+    <BOND idAtom1="172" idAtom2="173" k="50.000000" l0="3.730157"/>
+    <BOND idAtom1="173" idAtom2="174" k="50.000000" l0="3.790738"/>
+    <BOND idAtom1="174" idAtom2="175" k="50.000000" l0="3.804491"/>
+    <BOND idAtom1="175" idAtom2="176" k="50.000000" l0="3.944437"/>
+    <BOND idAtom1="176" idAtom2="177" k="50.000000" l0="3.803989"/>
+    <BOND idAtom1="177" idAtom2="178" k="50.000000" l0="3.852271"/>
+    <BOND idAtom1="178" idAtom2="179" k="50.000000" l0="3.729230"/>
+    <BOND idAtom1="179" idAtom2="180" k="50.000000" l0="3.859581"/>
+    <BOND idAtom1="180" idAtom2="181" k="50.000000" l0="3.809335"/>
+    <BOND idAtom1="181" idAtom2="182" k="50.000000" l0="3.806597"/>
+    <BOND idAtom1="182" idAtom2="183" k="50.000000" l0="3.814920"/>
+    <BOND idAtom1="183" idAtom2="184" k="50.000000" l0="3.879792"/>
+    <BOND idAtom1="184" idAtom2="185" k="50.000000" l0="3.773105"/>
+    <BOND idAtom1="185" idAtom2="186" k="50.000000" l0="3.795707"/>
+    <BOND idAtom1="186" idAtom2="187" k="50.000000" l0="3.790916"/>
+    <BOND idAtom1="187" idAtom2="188" k="50.000000" l0="3.875338"/>
+    <BOND idAtom1="188" idAtom2="189" k="50.000000" l0="3.858047"/>
+    <BOND idAtom1="189" idAtom2="190" k="50.000000" l0="3.824603"/>
+    <BOND idAtom1="190" idAtom2="191" k="50.000000" l0="3.815186"/>
+    <BOND idAtom1="191" idAtom2="192" k="50.000000" l0="3.776563"/>
+    <BOND idAtom1="192" idAtom2="193" k="50.000000" l0="3.850010"/>
+    <BOND idAtom1="193" idAtom2="194" k="50.000000" l0="3.844476"/>
+    <BOND idAtom1="194" idAtom2="195" k="50.000000" l0="3.723637"/>
+    <BOND idAtom1="195" idAtom2="196" k="50.000000" l0="3.828876"/>
+    <BOND idAtom1="196" idAtom2="197" k="50.000000" l0="3.754335"/>
+    <BOND idAtom1="197" idAtom2="198" k="50.000000" l0="3.807986"/>
+    <ANG_QUAR idAtom1="100" idAtom2="101" idAtom3="102" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="101" idAtom2="102" idAtom3="103" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="102" idAtom2="103" idAtom3="104" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="103" idAtom2="104" idAtom3="105" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="104" idAtom2="105" idAtom3="106" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="105" idAtom2="106" idAtom3="107" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="106" idAtom2="107" idAtom3="108" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="107" idAtom2="108" idAtom3="109" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="108" idAtom2="109" idAtom3="110" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="109" idAtom2="110" idAtom3="111" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="110" idAtom2="111" idAtom3="112" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="111" idAtom2="112" idAtom3="113" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="112" idAtom2="113" idAtom3="114" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="113" idAtom2="114" idAtom3="115" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="114" idAtom2="115" idAtom3="116" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="115" idAtom2="116" idAtom3="117" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="116" idAtom2="117" idAtom3="118" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="117" idAtom2="118" idAtom3="119" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="118" idAtom2="119" idAtom3="120" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="119" idAtom2="120" idAtom3="121" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="120" idAtom2="121" idAtom3="122" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="121" idAtom2="122" idAtom3="123" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="122" idAtom2="123" idAtom3="124" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="123" idAtom2="124" idAtom3="125" theta0="90.000000" kTheta1="38.000000" kTheta2="-133.212687" kTheta3="112.846468"/>
+    <ANG_QUAR idAtom1="124" idAtom2="125" idAtom3="126" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="125" idAtom2="126" idAtom3="127" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="126" idAtom2="127" idAtom3="128" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="127" idAtom2="128" idAtom3="129" theta0="90.000000" kTheta1="38.000000" kTheta2="-133.212687" kTheta3="112.846468"/>
+    <ANG_QUAR idAtom1="128" idAtom2="129" idAtom3="130" theta0="90.000000" kTheta1="38.000000" kTheta2="-133.212687" kTheta3="112.846468"/>
+    <ANG_QUAR idAtom1="129" idAtom2="130" idAtom3="131" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="130" idAtom2="131" idAtom3="132" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="131" idAtom2="132" idAtom3="133" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="132" idAtom2="133" idAtom3="134" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="133" idAtom2="134" idAtom3="135" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="134" idAtom2="135" idAtom3="136" theta0="90.000000" kTheta1="38.000000" kTheta2="-106.570150" kTheta3="72.221740"/>
+    <ANG_QUAR idAtom1="135" idAtom2="136" idAtom3="137" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="136" idAtom2="137" idAtom3="138" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="137" idAtom2="138" idAtom3="139" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="138" idAtom2="139" idAtom3="140" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="139" idAtom2="140" idAtom3="141" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="140" idAtom2="141" idAtom3="142" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="141" idAtom2="142" idAtom3="143" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="142" idAtom2="143" idAtom3="144" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="143" idAtom2="144" idAtom3="145" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="144" idAtom2="145" idAtom3="146" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="145" idAtom2="146" idAtom3="147" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="146" idAtom2="147" idAtom3="148" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="147" idAtom2="148" idAtom3="149" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="148" idAtom2="149" idAtom3="150" theta0="90.000000" kTheta1="38.000000" kTheta2="-266.425375" kTheta3="451.385873"/>
+    <ANG_QUAR idAtom1="149" idAtom2="150" idAtom3="151" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="150" idAtom2="151" idAtom3="152" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="151" idAtom2="152" idAtom3="153" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="152" idAtom2="153" idAtom3="154" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="153" idAtom2="154" idAtom3="155" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="154" idAtom2="155" idAtom3="156" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="155" idAtom2="156" idAtom3="157" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="156" idAtom2="157" idAtom3="158" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="157" idAtom2="158" idAtom3="159" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="158" idAtom2="159" idAtom3="160" theta0="90.000000" kTheta1="38.000000" kTheta2="-133.212687" kTheta3="112.846468"/>
+    <ANG_QUAR idAtom1="159" idAtom2="160" idAtom3="161" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="160" idAtom2="161" idAtom3="162" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="161" idAtom2="162" idAtom3="163" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="162" idAtom2="163" idAtom3="164" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="163" idAtom2="164" idAtom3="165" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="164" idAtom2="165" idAtom3="166" theta0="90.000000" kTheta1="38.000000" kTheta2="-266.425375" kTheta3="451.385873"/>
+    <ANG_QUAR idAtom1="165" idAtom2="166" idAtom3="167" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="166" idAtom2="167" idAtom3="168" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="167" idAtom2="168" idAtom3="169" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="168" idAtom2="169" idAtom3="170" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="169" idAtom2="170" idAtom3="171" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="170" idAtom2="171" idAtom3="172" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="171" idAtom2="172" idAtom3="173" theta0="90.000000" kTheta1="38.000000" kTheta2="-88.808458" kTheta3="50.153986"/>
+    <ANG_QUAR idAtom1="172" idAtom2="173" idAtom3="174" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="173" idAtom2="174" idAtom3="175" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="174" idAtom2="175" idAtom3="176" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="175" idAtom2="176" idAtom3="177" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="176" idAtom2="177" idAtom3="178" theta0="90.000000" kTheta1="38.000000" kTheta2="-88.808458" kTheta3="50.153986"/>
+    <ANG_QUAR idAtom1="177" idAtom2="178" idAtom3="179" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="178" idAtom2="179" idAtom3="180" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="179" idAtom2="180" idAtom3="181" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="180" idAtom2="181" idAtom3="182" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="181" idAtom2="182" idAtom3="183" theta0="90.000000" kTheta1="38.000000" kTheta2="-266.425375" kTheta3="451.385873"/>
+    <ANG_QUAR idAtom1="182" idAtom2="183" idAtom3="184" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="183" idAtom2="184" idAtom3="185" theta0="90.000000" kTheta1="38.000000" kTheta2="-266.425375" kTheta3="451.385873"/>
+    <ANG_QUAR idAtom1="184" idAtom2="185" idAtom3="186" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="185" idAtom2="186" idAtom3="187" theta0="90.000000" kTheta1="38.000000" kTheta2="-213.140300" kTheta3="288.886959"/>
+    <ANG_QUAR idAtom1="186" idAtom2="187" idAtom3="188" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="187" idAtom2="188" idAtom3="189" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="188" idAtom2="189" idAtom3="190" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="189" idAtom2="190" idAtom3="191" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="190" idAtom2="191" idAtom3="192" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="191" idAtom2="192" idAtom3="193" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="192" idAtom2="193" idAtom3="194" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="193" idAtom2="194" idAtom3="195" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <ANG_QUAR idAtom1="194" idAtom2="195" idAtom3="196" theta0="90.000000" kTheta1="38.000000" kTheta2="-118.411278" kTheta3="89.162642"/>
+    <ANG_QUAR idAtom1="195" idAtom2="196" idAtom3="197" theta0="90.000000" kTheta1="38.000000" kTheta2="-532.850749" kTheta3="1805.543493"/>
+    <ANG_QUAR idAtom1="196" idAtom2="197" idAtom3="198" theta0="90.000000" kTheta1="38.000000" kTheta2="-177.616916" kTheta3="200.615944"/>
+    <DIH_HARM idAtom1="100" idAtom2="101" idAtom3="102" idAtom4="103" alpha0="153.344308" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="101" idAtom2="102" idAtom3="103" idAtom4="104" alpha0="130.174928" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="102" idAtom2="103" idAtom3="104" idAtom4="105" alpha0="114.375891" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="103" idAtom2="104" idAtom3="105" idAtom4="106" alpha0="-109.344289" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="104" idAtom2="105" idAtom3="106" idAtom4="107" alpha0="-33.982683" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="105" idAtom2="106" idAtom3="107" idAtom4="108" alpha0="72.054552" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="106" idAtom2="107" idAtom3="108" idAtom4="109" alpha0="122.006219" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="107" idAtom2="108" idAtom3="109" idAtom4="110" alpha0="-169.843131" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="108" idAtom2="109" idAtom3="110" idAtom4="111" alpha0="168.506844" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="109" idAtom2="110" idAtom3="111" idAtom4="112" alpha0="111.403182" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="110" idAtom2="111" idAtom3="112" idAtom4="113" alpha0="171.505787" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="111" idAtom2="112" idAtom3="113" idAtom4="114" alpha0="161.942901" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="112" idAtom2="113" idAtom3="114" idAtom4="115" alpha0="-152.499607" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="113" idAtom2="114" idAtom3="115" idAtom4="116" alpha0="-12.056707" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="114" idAtom2="115" idAtom3="116" idAtom4="117" alpha0="61.276175" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="115" idAtom2="116" idAtom3="117" idAtom4="118" alpha0="-110.640767" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="116" idAtom2="117" idAtom3="118" idAtom4="119" alpha0="152.024012" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="117" idAtom2="118" idAtom3="119" idAtom4="120" alpha0="-154.425548" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="118" idAtom2="119" idAtom3="120" idAtom4="121" alpha0="131.182504" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="119" idAtom2="120" idAtom3="121" idAtom4="122" alpha0="-175.392673" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="120" idAtom2="121" idAtom3="122" idAtom4="123" alpha0="88.709591" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="121" idAtom2="122" idAtom3="123" idAtom4="124" alpha0="140.270823" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="122" idAtom2="123" idAtom3="124" idAtom4="125" alpha0="-160.835453" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="123" idAtom2="124" idAtom3="125" idAtom4="126" alpha0="165.618029" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="124" idAtom2="125" idAtom3="126" idAtom4="127" alpha0="-78.358391" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="125" idAtom2="126" idAtom3="127" idAtom4="128" alpha0="-69.643729" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="126" idAtom2="127" idAtom3="128" idAtom4="129" alpha0="176.256885" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="127" idAtom2="128" idAtom3="129" idAtom4="130" alpha0="-49.970015" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="128" idAtom2="129" idAtom3="130" idAtom4="131" alpha0="115.547451" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="129" idAtom2="130" idAtom3="131" idAtom4="132" alpha0="160.664127" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="130" idAtom2="131" idAtom3="132" idAtom4="133" alpha0="169.741452" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="131" idAtom2="132" idAtom3="133" idAtom4="134" alpha0="124.004978" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="132" idAtom2="133" idAtom3="134" idAtom4="135" alpha0="52.884541" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="133" idAtom2="134" idAtom3="135" idAtom4="136" alpha0="-155.088086" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="134" idAtom2="135" idAtom3="136" idAtom4="137" alpha0="108.664606" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="135" idAtom2="136" idAtom3="137" idAtom4="138" alpha0="-173.796760" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="136" idAtom2="137" idAtom3="138" idAtom4="139" alpha0="135.986540" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="137" idAtom2="138" idAtom3="139" idAtom4="140" alpha0="-100.548864" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="138" idAtom2="139" idAtom3="140" idAtom4="141" alpha0="93.134588" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="139" idAtom2="140" idAtom3="141" idAtom4="142" alpha0="153.082560" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="140" idAtom2="141" idAtom3="142" idAtom4="143" alpha0="145.017463" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="141" idAtom2="142" idAtom3="143" idAtom4="144" alpha0="105.856418" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="142" idAtom2="143" idAtom3="144" idAtom4="145" alpha0="-155.694561" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="143" idAtom2="144" idAtom3="145" idAtom4="146" alpha0="136.792810" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="144" idAtom2="145" idAtom3="146" idAtom4="147" alpha0="-175.388559" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="145" idAtom2="146" idAtom3="147" idAtom4="148" alpha0="88.483727" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="146" idAtom2="147" idAtom3="148" idAtom4="149" alpha0="175.699070" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="147" idAtom2="148" idAtom3="149" idAtom4="150" alpha0="91.258033" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="148" idAtom2="149" idAtom3="150" idAtom4="151" alpha0="-36.289094" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="149" idAtom2="150" idAtom3="151" idAtom4="152" alpha0="66.082285" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="150" idAtom2="151" idAtom3="152" idAtom4="153" alpha0="35.909462" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="151" idAtom2="152" idAtom3="153" idAtom4="154" alpha0="173.985250" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="152" idAtom2="153" idAtom3="154" idAtom4="155" alpha0="111.926608" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="153" idAtom2="154" idAtom3="155" idAtom4="156" alpha0="165.289418" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="154" idAtom2="155" idAtom3="156" idAtom4="157" alpha0="117.759505" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="155" idAtom2="156" idAtom3="157" idAtom4="158" alpha0="153.685810" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="156" idAtom2="157" idAtom3="158" idAtom4="159" alpha0="172.374821" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="157" idAtom2="158" idAtom3="159" idAtom4="160" alpha0="174.209969" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="158" idAtom2="159" idAtom3="160" idAtom4="161" alpha0="-32.886115" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="159" idAtom2="160" idAtom3="161" idAtom4="162" alpha0="-135.403339" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="160" idAtom2="161" idAtom3="162" idAtom4="163" alpha0="148.639629" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="161" idAtom2="162" idAtom3="163" idAtom4="164" alpha0="-171.888387" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="162" idAtom2="163" idAtom3="164" idAtom4="165" alpha0="121.992755" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="163" idAtom2="164" idAtom3="165" idAtom4="166" alpha0="171.150936" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="164" idAtom2="165" idAtom3="166" idAtom4="167" alpha0="25.098617" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="165" idAtom2="166" idAtom3="167" idAtom4="168" alpha0="47.376558" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="166" idAtom2="167" idAtom3="168" idAtom4="169" alpha0="-117.212937" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="167" idAtom2="168" idAtom3="169" idAtom4="170" alpha0="144.523288" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="168" idAtom2="169" idAtom3="170" idAtom4="171" alpha0="177.558768" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="169" idAtom2="170" idAtom3="171" idAtom4="172" alpha0="147.320749" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="170" idAtom2="171" idAtom3="172" idAtom4="173" alpha0="-120.790766" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="171" idAtom2="172" idAtom3="173" idAtom4="174" alpha0="76.970332" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="172" idAtom2="173" idAtom3="174" idAtom4="175" alpha0="148.356675" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="173" idAtom2="174" idAtom3="175" idAtom4="176" alpha0="143.161820" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="174" idAtom2="175" idAtom3="176" idAtom4="177" alpha0="166.017077" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="175" idAtom2="176" idAtom3="177" idAtom4="178" alpha0="-117.631918" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="176" idAtom2="177" idAtom3="178" idAtom4="179" alpha0="54.307083" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="177" idAtom2="178" idAtom3="179" idAtom4="180" alpha0="-170.188689" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="178" idAtom2="179" idAtom3="180" idAtom4="181" alpha0="166.156671" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="179" idAtom2="180" idAtom3="181" idAtom4="182" alpha0="-32.567606" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="180" idAtom2="181" idAtom3="182" idAtom4="183" alpha0="134.418136" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="181" idAtom2="182" idAtom3="183" idAtom4="184" alpha0="150.153055" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="182" idAtom2="183" idAtom3="184" idAtom4="185" alpha0="152.778200" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="183" idAtom2="184" idAtom3="185" idAtom4="186" alpha0="162.896411" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="184" idAtom2="185" idAtom3="186" idAtom4="187" alpha0="84.516324" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="185" idAtom2="186" idAtom3="187" idAtom4="188" alpha0="-77.870453" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="186" idAtom2="187" idAtom3="188" idAtom4="189" alpha0="-13.469091" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="187" idAtom2="188" idAtom3="189" idAtom4="190" alpha0="-68.528980" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="188" idAtom2="189" idAtom3="190" idAtom4="191" alpha0="-62.462052" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="189" idAtom2="190" idAtom3="191" idAtom4="192" alpha0="-39.641616" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="190" idAtom2="191" idAtom3="192" idAtom4="193" alpha0="-67.220346" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="191" idAtom2="192" idAtom3="193" idAtom4="194" alpha0="112.231432" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="192" idAtom2="193" idAtom3="194" idAtom4="195" alpha0="-149.498749" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="193" idAtom2="194" idAtom3="195" idAtom4="196" alpha0="-159.759320" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="194" idAtom2="195" idAtom3="196" idAtom4="197" alpha0="110.839424" kAlpha="5.000000"/>
+    <DIH_HARM idAtom1="195" idAtom2="196" idAtom3="197" idAtom4="198" alpha0="164.132721" kAlpha="5.000000"/>
+    <MORSE idAtom1="1" idAtom2="67" alpha="0.707000" l0="7.868273" E0="0.369195"/>
+    <MORSE idAtom1="1" idAtom2="196" alpha="0.707000" l0="7.461681" E0="0.426411"/>
+    <MORSE idAtom1="1" idAtom2="197" alpha="0.707000" l0="5.952776" E0="0.727852"/>
+    <MORSE idAtom1="1" idAtom2="198" alpha="0.707000" l0="5.891444" E0="0.743844"/>
+    <MORSE idAtom1="2" idAtom2="195" alpha="0.707000" l0="5.979913" E0="0.720886"/>
+    <MORSE idAtom1="2" idAtom2="196" alpha="0.707000" l0="5.772823" E0="0.775777"/>
+    <MORSE idAtom1="2" idAtom2="197" alpha="0.707000" l0="4.805386" E0="1.093004"/>
+    <MORSE idAtom1="2" idAtom2="198" alpha="0.707000" l0="7.093661" E0="0.485809"/>
+    <MORSE idAtom1="3" idAtom2="9" alpha="0.707000" l0="6.944446" E0="0.512187"/>
+    <MORSE idAtom1="3" idAtom2="195" alpha="0.707000" l0="5.330781" E0="0.907330"/>
+    <MORSE idAtom1="3" idAtom2="196" alpha="0.707000" l0="5.575454" E0="0.831977"/>
+    <MORSE idAtom1="3" idAtom2="197" alpha="0.707000" l0="6.974069" E0="0.506839"/>
+    <MORSE idAtom1="4" idAtom2="9" alpha="0.707000" l0="7.441616" E0="0.429454"/>
+    <MORSE idAtom1="4" idAtom2="190" alpha="0.707000" l0="7.188676" E0="0.469724"/>
+    <MORSE idAtom1="4" idAtom2="194" alpha="0.707000" l0="6.736878" E0="0.551281"/>
+    <MORSE idAtom1="4" idAtom2="195" alpha="0.707000" l0="4.410321" E0="1.257247"/>
+    <MORSE idAtom1="4" idAtom2="196" alpha="0.707000" l0="6.854413" E0="0.528792"/>
+    <MORSE idAtom1="5" idAtom2="9" alpha="0.707000" l0="5.727238" E0="0.788410"/>
+    <MORSE idAtom1="5" idAtom2="125" alpha="0.707000" l0="6.528609" E0="0.593505"/>
+    <MORSE idAtom1="5" idAtom2="186" alpha="0.707000" l0="6.228549" E0="0.660089"/>
+    <MORSE idAtom1="5" idAtom2="189" alpha="0.707000" l0="7.305614" E0="0.450657"/>
+    <MORSE idAtom1="5" idAtom2="190" alpha="0.707000" l0="6.127641" E0="0.684119"/>
+    <MORSE idAtom1="5" idAtom2="194" alpha="0.707000" l0="7.336248" E0="0.445792"/>
+    <MORSE idAtom1="5" idAtom2="195" alpha="0.707000" l0="6.096292" E0="0.691761"/>
+    <MORSE idAtom1="5" idAtom2="196" alpha="0.707000" l0="7.813161" E0="0.376476"/>
+    <MORSE idAtom1="6" idAtom2="186" alpha="0.707000" l0="7.123810" E0="0.480646"/>
+    <MORSE idAtom1="6" idAtom2="190" alpha="0.707000" l0="6.629603" E0="0.572640"/>
+    <MORSE idAtom1="8" idAtom2="23" alpha="0.707000" l0="7.553389" E0="0.412776"/>
+    <MORSE idAtom1="8" idAtom2="125" alpha="0.707000" l0="7.425620" E0="0.431895"/>
+    <MORSE idAtom1="8" idAtom2="128" alpha="0.707000" l0="7.042673" E0="0.494666"/>
+    <MORSE idAtom1="8" idAtom2="186" alpha="0.707000" l0="7.407361" E0="0.434698"/>
+    <MORSE idAtom1="9" idAtom2="23" alpha="0.707000" l0="6.061734" E0="0.700285"/>
+    <MORSE idAtom1="9" idAtom2="24" alpha="0.707000" l0="6.344618" E0="0.633490"/>
+    <MORSE idAtom1="9" idAtom2="125" alpha="0.707000" l0="7.998994" E0="0.352483"/>
+    <MORSE idAtom1="10" idAtom2="21" alpha="0.707000" l0="6.167961" E0="0.674414"/>
+    <MORSE idAtom1="10" idAtom2="22" alpha="0.707000" l0="5.037274" E0="1.006781"/>
+    <MORSE idAtom1="10" idAtom2="23" alpha="0.707000" l0="4.580230" E0="1.183783"/>
+    <MORSE idAtom1="10" idAtom2="24" alpha="0.707000" l0="6.623246" E0="0.573932"/>
+    <MORSE idAtom1="11" idAtom2="21" alpha="0.707000" l0="5.123465" E0="0.976496"/>
+    <MORSE idAtom1="11" idAtom2="22" alpha="0.707000" l0="5.055337" E0="1.000357"/>
+    <MORSE idAtom1="11" idAtom2="23" alpha="0.707000" l0="6.329308" E0="0.636936"/>
+    <MORSE idAtom1="11" idAtom2="24" alpha="0.707000" l0="7.352464" E0="0.443238"/>
+    <MORSE idAtom1="11" idAtom2="66" alpha="0.707000" l0="7.971768" E0="0.355900"/>
+    <MORSE idAtom1="11" idAtom2="67" alpha="0.707000" l0="7.436512" E0="0.430231"/>
+    <MORSE idAtom1="12" idAtom2="19" alpha="0.707000" l0="5.630844" E0="0.815806"/>
+    <MORSE idAtom1="12" idAtom2="20" alpha="0.707000" l0="4.834596" E0="1.081748"/>
+    <MORSE idAtom1="12" idAtom2="21" alpha="0.707000" l0="3.767033" E0="1.579138"/>
+    <MORSE idAtom1="12" idAtom2="22" alpha="0.707000" l0="5.654790" E0="0.808913"/>
+    <MORSE idAtom1="12" idAtom2="66" alpha="0.707000" l0="7.217390" E0="0.464969"/>
+    <MORSE idAtom1="12" idAtom2="67" alpha="0.707000" l0="7.216857" E0="0.465057"/>
+    <MORSE idAtom1="13" idAtom2="19" alpha="0.707000" l0="6.059266" E0="0.700898"/>
+    <MORSE idAtom1="13" idAtom2="20" alpha="0.707000" l0="5.430183" E0="0.875927"/>
+    <MORSE idAtom1="13" idAtom2="21" alpha="0.707000" l0="5.799195" E0="0.768561"/>
+    <MORSE idAtom1="13" idAtom2="22" alpha="0.707000" l0="6.119667" E0="0.686055"/>
+    <MORSE idAtom1="13" idAtom2="64" alpha="0.707000" l0="6.837996" E0="0.531877"/>
+    <MORSE idAtom1="13" idAtom2="65" alpha="0.707000" l0="5.554488" E0="0.838181"/>
+    <MORSE idAtom1="13" idAtom2="66" alpha="0.707000" l0="4.756247" E0="1.112202"/>
+    <MORSE idAtom1="13" idAtom2="67" alpha="0.707000" l0="6.581536" E0="0.582478"/>
+    <MORSE idAtom1="14" idAtom2="18" alpha="0.707000" l0="5.776117" E0="0.774872"/>
+    <MORSE idAtom1="14" idAtom2="19" alpha="0.707000" l0="4.341761" E0="1.288165"/>
+    <MORSE idAtom1="14" idAtom2="20" alpha="0.707000" l0="5.691597" E0="0.798431"/>
+    <MORSE idAtom1="14" idAtom2="64" alpha="0.707000" l0="6.034732" E0="0.707018"/>
+    <MORSE idAtom1="14" idAtom2="65" alpha="0.707000" l0="5.168222" E0="0.961131"/>
+    <MORSE idAtom1="14" idAtom2="66" alpha="0.707000" l0="6.718796" E0="0.554824"/>
+    <MORSE idAtom1="15" idAtom2="19" alpha="0.707000" l0="6.926955" E0="0.515372"/>
+    <MORSE idAtom1="15" idAtom2="20" alpha="0.707000" l0="7.384399" E0="0.438250"/>
+    <MORSE idAtom1="15" idAtom2="63" alpha="0.707000" l0="6.961239" E0="0.509149"/>
+    <MORSE idAtom1="15" idAtom2="64" alpha="0.707000" l0="4.535188" E0="1.202829"/>
+    <MORSE idAtom1="15" idAtom2="65" alpha="0.707000" l0="6.194274" E0="0.668155"/>
+    <MORSE idAtom1="16" idAtom2="38" alpha="0.707000" l0="6.858442" E0="0.528037"/>
+    <MORSE idAtom1="16" idAtom2="64" alpha="0.707000" l0="7.523109" E0="0.417229"/>
+    <MORSE idAtom1="21" idAtom2="83" alpha="0.707000" l0="7.800047" E0="0.378229"/>
+    <MORSE idAtom1="22" idAtom2="82" alpha="0.707000" l0="7.929722" E0="0.361242"/>
+    <MORSE idAtom1="22" idAtom2="83" alpha="0.707000" l0="5.470872" E0="0.863388"/>
+    <MORSE idAtom1="22" idAtom2="84" alpha="0.707000" l0="5.442815" E0="0.872015"/>
+    <MORSE idAtom1="22" idAtom2="85" alpha="0.707000" l0="6.439524" E0="0.612540"/>
+    <MORSE idAtom1="23" idAtom2="82" alpha="0.707000" l0="7.470290" E0="0.425112"/>
+    <MORSE idAtom1="23" idAtom2="83" alpha="0.707000" l0="6.256942" E0="0.653481"/>
+    <MORSE idAtom1="23" idAtom2="84" alpha="0.707000" l0="4.515445" E0="1.211274"/>
+    <MORSE idAtom1="23" idAtom2="85" alpha="0.707000" l0="5.629677" E0="0.816143"/>
+    <MORSE idAtom1="23" idAtom2="86" alpha="0.707000" l0="7.803192" E0="0.377808"/>
+    <MORSE idAtom1="23" idAtom2="126" alpha="0.707000" l0="7.580603" E0="0.408815"/>
+    <MORSE idAtom1="24" idAtom2="84" alpha="0.707000" l0="6.426985" E0="0.615268"/>
+    <MORSE idAtom1="24" idAtom2="85" alpha="0.707000" l0="5.170589" E0="0.960325"/>
+    <MORSE idAtom1="24" idAtom2="86" alpha="0.707000" l0="6.499983" E0="0.599556"/>
+    <MORSE idAtom1="24" idAtom2="90" alpha="0.707000" l0="7.688405" E0="0.393493"/>
+    <MORSE idAtom1="24" idAtom2="125" alpha="0.707000" l0="6.931526" E0="0.514538"/>
+    <MORSE idAtom1="24" idAtom2="126" alpha="0.707000" l0="7.483483" E0="0.423129"/>
+    <MORSE idAtom1="25" idAtom2="84" alpha="0.707000" l0="6.300409" E0="0.643493"/>
+    <MORSE idAtom1="25" idAtom2="85" alpha="0.707000" l0="5.885451" E0="0.745425"/>
+    <MORSE idAtom1="25" idAtom2="86" alpha="0.707000" l0="4.886474" E0="1.062044"/>
+    <MORSE idAtom1="25" idAtom2="87" alpha="0.707000" l0="7.249162" E0="0.459763"/>
+    <MORSE idAtom1="25" idAtom2="124" alpha="0.707000" l0="6.296344" E0="0.644420"/>
+    <MORSE idAtom1="25" idAtom2="125" alpha="0.707000" l0="4.827839" E0="1.084342"/>
+    <MORSE idAtom1="25" idAtom2="126" alpha="0.707000" l0="4.518010" E0="1.210173"/>
+    <MORSE idAtom1="26" idAtom2="86" alpha="0.707000" l0="5.695970" E0="0.797195"/>
+    <MORSE idAtom1="26" idAtom2="87" alpha="0.707000" l0="5.774561" E0="0.775300"/>
+    <MORSE idAtom1="26" idAtom2="90" alpha="0.707000" l0="7.543185" E0="0.414272"/>
+    <MORSE idAtom1="26" idAtom2="104" alpha="0.707000" l0="6.478358" E0="0.604168"/>
+    <MORSE idAtom1="26" idAtom2="108" alpha="0.707000" l0="7.790513" E0="0.379509"/>
+    <MORSE idAtom1="26" idAtom2="123" alpha="0.707000" l0="7.112104" E0="0.482644"/>
+    <MORSE idAtom1="26" idAtom2="124" alpha="0.707000" l0="4.830485" E0="1.083325"/>
+    <MORSE idAtom1="26" idAtom2="125" alpha="0.707000" l0="5.583926" E0="0.829483"/>
+    <MORSE idAtom1="26" idAtom2="126" alpha="0.707000" l0="6.299971" E0="0.643593"/>
+    <MORSE idAtom1="27" idAtom2="86" alpha="0.707000" l0="5.993835" E0="0.717338"/>
+    <MORSE idAtom1="27" idAtom2="87" alpha="0.707000" l0="6.341014" E0="0.634300"/>
+    <MORSE idAtom1="27" idAtom2="107" alpha="0.707000" l0="7.634169" E0="0.401128"/>
+    <MORSE idAtom1="27" idAtom2="122" alpha="0.707000" l0="7.449580" E0="0.428244"/>
+    <MORSE idAtom1="27" idAtom2="123" alpha="0.707000" l0="7.580282" E0="0.408862"/>
+    <MORSE idAtom1="27" idAtom2="124" alpha="0.707000" l0="4.745476" E0="1.116456"/>
+    <MORSE idAtom1="27" idAtom2="125" alpha="0.707000" l0="6.700116" E0="0.558509"/>
+    <MORSE idAtom1="27" idAtom2="126" alpha="0.707000" l0="5.435822" E0="0.874178"/>
+    <MORSE idAtom1="27" idAtom2="127" alpha="0.707000" l0="7.925037" E0="0.361843"/>
+    <MORSE idAtom1="28" idAtom2="84" alpha="0.707000" l0="7.196896" E0="0.468358"/>
+    <MORSE idAtom1="28" idAtom2="85" alpha="0.707000" l0="7.493052" E0="0.421697"/>
+    <MORSE idAtom1="28" idAtom2="86" alpha="0.707000" l0="4.249642" E0="1.330909"/>
+    <MORSE idAtom1="28" idAtom2="87" alpha="0.707000" l0="5.526465" E0="0.846546"/>
+    <MORSE idAtom1="28" idAtom2="126" alpha="0.707000" l0="7.105794" E0="0.483724"/>
+    <MORSE idAtom1="29" idAtom2="86" alpha="0.707000" l0="5.840683" E0="0.757345"/>
+    <MORSE idAtom1="29" idAtom2="87" alpha="0.707000" l0="4.824999" E0="1.085434"/>
+    <MORSE idAtom1="29" idAtom2="88" alpha="0.707000" l0="6.229967" E0="0.659758"/>
+    <MORSE idAtom1="30" idAtom2="75" alpha="0.707000" l0="7.631640" E0="0.401488"/>
+    <MORSE idAtom1="30" idAtom2="76" alpha="0.707000" l0="6.989430" E0="0.504088"/>
+    <MORSE idAtom1="30" idAtom2="85" alpha="0.707000" l0="7.697810" E0="0.392183"/>
+    <MORSE idAtom1="30" idAtom2="86" alpha="0.707000" l0="5.531840" E0="0.844935"/>
+    <MORSE idAtom1="30" idAtom2="87" alpha="0.707000" l0="6.068177" E0="0.698688"/>
+    <MORSE idAtom1="30" idAtom2="88" alpha="0.707000" l0="5.674467" E0="0.803292"/>
+    <MORSE idAtom1="31" idAtom2="74" alpha="0.707000" l0="7.873180" E0="0.368553"/>
+    <MORSE idAtom1="31" idAtom2="75" alpha="0.707000" l0="5.710434" E0="0.793119"/>
+    <MORSE idAtom1="31" idAtom2="76" alpha="0.707000" l0="5.670023" E0="0.804558"/>
+    <MORSE idAtom1="31" idAtom2="83" alpha="0.707000" l0="7.720616" E0="0.389027"/>
+    <MORSE idAtom1="31" idAtom2="84" alpha="0.707000" l0="5.470067" E0="0.863634"/>
+    <MORSE idAtom1="31" idAtom2="85" alpha="0.707000" l0="4.885631" E0="1.062361"/>
+    <MORSE idAtom1="31" idAtom2="86" alpha="0.707000" l0="4.853258" E0="1.074618"/>
+    <MORSE idAtom1="31" idAtom2="87" alpha="0.707000" l0="7.118604" E0="0.481534"/>
+    <MORSE idAtom1="31" idAtom2="88" alpha="0.707000" l0="6.491766" E0="0.601304"/>
+    <MORSE idAtom1="31" idAtom2="89" alpha="0.707000" l0="7.390887" E0="0.437243"/>
+    <MORSE idAtom1="32" idAtom2="75" alpha="0.707000" l0="6.130548" E0="0.683415"/>
+    <MORSE idAtom1="32" idAtom2="76" alpha="0.707000" l0="4.232493" E0="1.339022"/>
+    <MORSE idAtom1="32" idAtom2="77" alpha="0.707000" l0="5.834286" E0="0.759063"/>
+    <MORSE idAtom1="32" idAtom2="78" alpha="0.707000" l0="7.030321" E0="0.496836"/>
+    <MORSE idAtom1="32" idAtom2="80" alpha="0.707000" l0="6.470501" E0="0.605853"/>
+    <MORSE idAtom1="32" idAtom2="83" alpha="0.707000" l0="5.627707" E0="0.816714"/>
+    <MORSE idAtom1="32" idAtom2="84" alpha="0.707000" l0="5.548426" E0="0.839984"/>
+    <MORSE idAtom1="32" idAtom2="85" alpha="0.707000" l0="7.047027" E0="0.493904"/>
+    <MORSE idAtom1="32" idAtom2="86" alpha="0.707000" l0="7.936106" E0="0.360426"/>
+    <MORSE idAtom1="33" idAtom2="75" alpha="0.707000" l0="7.094270" E0="0.485704"/>
+    <MORSE idAtom1="33" idAtom2="76" alpha="0.707000" l0="5.871354" E0="0.749158"/>
+    <MORSE idAtom1="33" idAtom2="77" alpha="0.707000" l0="4.877042" E0="1.065600"/>
+    <MORSE idAtom1="33" idAtom2="78" alpha="0.707000" l0="5.913215" E0="0.738127"/>
+    <MORSE idAtom1="33" idAtom2="79" alpha="0.707000" l0="7.374809" E0="0.439742"/>
+    <MORSE idAtom1="33" idAtom2="80" alpha="0.707000" l0="5.945056" E0="0.729846"/>
+    <MORSE idAtom1="33" idAtom2="83" alpha="0.707000" l0="5.184013" E0="0.955768"/>
+    <MORSE idAtom1="33" idAtom2="84" alpha="0.707000" l0="6.832807" E0="0.532856"/>
+    <MORSE idAtom1="34" idAtom2="77" alpha="0.707000" l0="6.201614" E0="0.666420"/>
+    <MORSE idAtom1="34" idAtom2="78" alpha="0.707000" l0="5.428832" E0="0.876346"/>
+    <MORSE idAtom1="34" idAtom2="79" alpha="0.707000" l0="5.446479" E0="0.870883"/>
+    <MORSE idAtom1="34" idAtom2="80" alpha="0.707000" l0="5.343435" E0="0.903271"/>
+    <MORSE idAtom1="34" idAtom2="81" alpha="0.707000" l0="7.191627" E0="0.469233"/>
+    <MORSE idAtom1="34" idAtom2="83" alpha="0.707000" l0="6.324452" E0="0.638033"/>
+    <MORSE idAtom1="35" idAtom2="77" alpha="0.707000" l0="5.532900" E0="0.844618"/>
+    <MORSE idAtom1="35" idAtom2="78" alpha="0.707000" l0="5.098667" E0="0.985115"/>
+    <MORSE idAtom1="35" idAtom2="79" alpha="0.707000" l0="6.322342" E0="0.638511"/>
+    <MORSE idAtom1="40" idAtom2="59" alpha="0.707000" l0="6.172073" E0="0.673432"/>
+    <MORSE idAtom1="41" idAtom2="59" alpha="0.707000" l0="7.066876" E0="0.490442"/>
+    <MORSE idAtom1="42" idAtom2="57" alpha="0.707000" l0="5.758499" E0="0.779725"/>
+    <MORSE idAtom1="42" idAtom2="58" alpha="0.707000" l0="5.806014" E0="0.766706"/>
+    <MORSE idAtom1="42" idAtom2="59" alpha="0.707000" l0="5.684209" E0="0.800524"/>
+    <MORSE idAtom1="43" idAtom2="57" alpha="0.707000" l0="6.339763" E0="0.634581"/>
+    <MORSE idAtom1="43" idAtom2="58" alpha="0.707000" l0="5.507599" E0="0.852224"/>
+    <MORSE idAtom1="43" idAtom2="59" alpha="0.707000" l0="6.864016" E0="0.526995"/>
+    <MORSE idAtom1="44" idAtom2="55" alpha="0.707000" l0="7.168743" E0="0.473054"/>
+    <MORSE idAtom1="44" idAtom2="56" alpha="0.707000" l0="6.420176" E0="0.616754"/>
+    <MORSE idAtom1="44" idAtom2="57" alpha="0.707000" l0="6.078927" E0="0.696031"/>
+    <MORSE idAtom1="44" idAtom2="58" alpha="0.707000" l0="6.218594" E0="0.662422"/>
+    <MORSE idAtom1="45" idAtom2="55" alpha="0.707000" l0="5.813004" E0="0.764810"/>
+    <MORSE idAtom1="45" idAtom2="56" alpha="0.707000" l0="5.257690" E0="0.931138"/>
+    <MORSE idAtom1="45" idAtom2="57" alpha="0.707000" l0="6.123325" E0="0.685167"/>
+    <MORSE idAtom1="45" idAtom2="58" alpha="0.707000" l0="6.033684" E0="0.707280"/>
+    <MORSE idAtom1="45" idAtom2="76" alpha="0.707000" l0="7.315148" E0="0.449138"/>
+    <MORSE idAtom1="46" idAtom2="53" alpha="0.707000" l0="6.153323" E0="0.677922"/>
+    <MORSE idAtom1="46" idAtom2="54" alpha="0.707000" l0="5.432849" E0="0.875100"/>
+    <MORSE idAtom1="46" idAtom2="55" alpha="0.707000" l0="3.515346" E0="1.726449"/>
+    <MORSE idAtom1="46" idAtom2="56" alpha="0.707000" l0="5.497243" E0="0.855357"/>
+    <MORSE idAtom1="47" idAtom2="53" alpha="0.707000" l0="4.973689" E0="1.029723"/>
+    <MORSE idAtom1="47" idAtom2="54" alpha="0.707000" l0="5.656886" E0="0.808312"/>
+    <MORSE idAtom1="47" idAtom2="55" alpha="0.707000" l0="6.100502" E0="0.690730"/>
+    <MORSE idAtom1="47" idAtom2="56" alpha="0.707000" l0="7.392875" E0="0.436936"/>
+    <MORSE idAtom1="48" idAtom2="52" alpha="0.707000" l0="5.233120" E0="0.939280"/>
+    <MORSE idAtom1="48" idAtom2="53" alpha="0.707000" l0="3.332118" E0="1.842263"/>
+    <MORSE idAtom1="48" idAtom2="54" alpha="0.707000" l0="5.915264" E0="0.737591"/>
+    <MORSE idAtom1="48" idAtom2="149" alpha="0.707000" l0="6.662332" E0="0.566037"/>
+    <MORSE idAtom1="49" idAtom2="53" alpha="0.707000" l0="5.644716" E0="0.811806"/>
+    <MORSE idAtom1="49" idAtom2="54" alpha="0.707000" l0="7.329946" E0="0.446788"/>
+    <MORSE idAtom1="49" idAtom2="149" alpha="0.707000" l0="6.285404" E0="0.646923"/>
+    <MORSE idAtom1="50" idAtom2="147" alpha="0.707000" l0="6.261192" E0="0.652498"/>
+    <MORSE idAtom1="50" idAtom2="148" alpha="0.707000" l0="5.862356" E0="0.751550"/>
+    <MORSE idAtom1="50" idAtom2="149" alpha="0.707000" l0="5.829452" E0="0.760365"/>
+    <MORSE idAtom1="50" idAtom2="150" alpha="0.707000" l0="7.115136" E0="0.482126"/>
+    <MORSE idAtom1="50" idAtom2="151" alpha="0.707000" l0="6.292433" E0="0.645314"/>
+    <MORSE idAtom1="50" idAtom2="152" alpha="0.707000" l0="7.846667" E0="0.372032"/>
+    <MORSE idAtom1="51" idAtom2="148" alpha="0.707000" l0="7.375019" E0="0.439709"/>
+    <MORSE idAtom1="51" idAtom2="149" alpha="0.707000" l0="6.149111" E0="0.678934"/>
+    <MORSE idAtom1="51" idAtom2="150" alpha="0.707000" l0="5.644853" E0="0.811766"/>
+    <MORSE idAtom1="51" idAtom2="151" alpha="0.707000" l0="5.319655" E0="0.910915"/>
+    <MORSE idAtom1="52" idAtom2="149" alpha="0.707000" l0="6.349374" E0="0.632424"/>
+    <MORSE idAtom1="52" idAtom2="150" alpha="0.707000" l0="5.978636" E0="0.721212"/>
+    <MORSE idAtom1="52" idAtom2="151" alpha="0.707000" l0="7.770602" E0="0.382197"/>
+    <MORSE idAtom1="55" idAtom2="78" alpha="0.707000" l0="7.846732" E0="0.372024"/>
+    <MORSE idAtom1="56" idAtom2="76" alpha="0.707000" l0="6.755528" E0="0.547649"/>
+    <MORSE idAtom1="56" idAtom2="77" alpha="0.707000" l0="5.989640" E0="0.718406"/>
+    <MORSE idAtom1="56" idAtom2="78" alpha="0.707000" l0="4.981239" E0="1.026972"/>
+    <MORSE idAtom1="56" idAtom2="79" alpha="0.707000" l0="7.677480" E0="0.395019"/>
+    <MORSE idAtom1="57" idAtom2="75" alpha="0.707000" l0="7.830232" E0="0.374205"/>
+    <MORSE idAtom1="57" idAtom2="76" alpha="0.707000" l0="5.404705" E0="0.883871"/>
+    <MORSE idAtom1="57" idAtom2="77" alpha="0.707000" l0="4.469867" E0="1.230996"/>
+    <MORSE idAtom1="57" idAtom2="78" alpha="0.707000" l0="5.915386" E0="0.737559"/>
+    <MORSE idAtom1="58" idAtom2="74" alpha="0.707000" l0="6.254093" E0="0.654141"/>
+    <MORSE idAtom1="58" idAtom2="75" alpha="0.707000" l0="5.610438" E0="0.821727"/>
+    <MORSE idAtom1="58" idAtom2="76" alpha="0.707000" l0="4.547794" E0="1.197468"/>
+    <MORSE idAtom1="58" idAtom2="77" alpha="0.707000" l0="6.038615" E0="0.706045"/>
+    <MORSE idAtom1="59" idAtom2="74" alpha="0.707000" l0="5.096179" E0="0.985984"/>
+    <MORSE idAtom1="59" idAtom2="75" alpha="0.707000" l0="5.538340" E0="0.842991"/>
+    <MORSE idAtom1="59" idAtom2="76" alpha="0.707000" l0="6.814492" E0="0.536325"/>
+    <MORSE idAtom1="59" idAtom2="77" alpha="0.707000" l0="7.640327" E0="0.400254"/>
+    <MORSE idAtom1="60" idAtom2="73" alpha="0.707000" l0="5.972370" E0="0.722815"/>
+    <MORSE idAtom1="60" idAtom2="74" alpha="0.707000" l0="4.054145" E0="1.426378"/>
+    <MORSE idAtom1="60" idAtom2="75" alpha="0.707000" l0="6.902897" E0="0.519784"/>
+    <MORSE idAtom1="61" idAtom2="72" alpha="0.707000" l0="5.836041" E0="0.758591"/>
+    <MORSE idAtom1="61" idAtom2="73" alpha="0.707000" l0="4.755122" E0="1.112646"/>
+    <MORSE idAtom1="61" idAtom2="74" alpha="0.707000" l0="5.325953" E0="0.908884"/>
+    <MORSE idAtom1="61" idAtom2="75" alpha="0.707000" l0="7.859415" E0="0.370356"/>
+    <MORSE idAtom1="62" idAtom2="71" alpha="0.707000" l0="7.981741" E0="0.354645"/>
+    <MORSE idAtom1="62" idAtom2="72" alpha="0.707000" l0="5.476391" E0="0.861701"/>
+    <MORSE idAtom1="62" idAtom2="73" alpha="0.707000" l0="5.095703" E0="0.986150"/>
+    <MORSE idAtom1="62" idAtom2="74" alpha="0.707000" l0="5.778530" E0="0.774210"/>
+    <MORSE idAtom1="62" idAtom2="75" alpha="0.707000" l0="6.369336" E0="0.627966"/>
+    <MORSE idAtom1="63" idAtom2="70" alpha="0.707000" l0="6.128871" E0="0.683821"/>
+    <MORSE idAtom1="63" idAtom2="71" alpha="0.707000" l0="5.730014" E0="0.787635"/>
+    <MORSE idAtom1="63" idAtom2="72" alpha="0.707000" l0="4.930935" E0="1.045442"/>
+    <MORSE idAtom1="63" idAtom2="73" alpha="0.707000" l0="6.827507" E0="0.533857"/>
+    <MORSE idAtom1="64" idAtom2="70" alpha="0.707000" l0="5.985975" E0="0.719339"/>
+    <MORSE idAtom1="64" idAtom2="71" alpha="0.707000" l0="6.057831" E0="0.701254"/>
+    <MORSE idAtom1="64" idAtom2="72" alpha="0.707000" l0="6.843146" E0="0.530907"/>
+    <MORSE idAtom1="64" idAtom2="73" alpha="0.707000" l0="7.977961" E0="0.355120"/>
+    <MORSE idAtom1="65" idAtom2="69" alpha="0.707000" l0="5.397352" E0="0.886177"/>
+    <MORSE idAtom1="65" idAtom2="70" alpha="0.707000" l0="4.294888" E0="1.309740"/>
+    <MORSE idAtom1="65" idAtom2="71" alpha="0.707000" l0="6.156224" E0="0.677225"/>
+    <MORSE idAtom1="66" idAtom2="70" alpha="0.707000" l0="6.436639" E0="0.613166"/>
+    <MORSE idAtom1="66" idAtom2="71" alpha="0.707000" l0="7.506959" E0="0.419624"/>
+    <MORSE idAtom1="66" idAtom2="93" alpha="0.707000" l0="7.519808" E0="0.417718"/>
+    <MORSE idAtom1="69" idAtom2="93" alpha="0.707000" l0="6.873896" E0="0.525153"/>
+    <MORSE idAtom1="70" idAtom2="93" alpha="0.707000" l0="7.731760" E0="0.387493"/>
+    <MORSE idAtom1="71" idAtom2="89" alpha="0.707000" l0="6.651322" E0="0.568250"/>
+    <MORSE idAtom1="71" idAtom2="92" alpha="0.707000" l0="6.351876" E0="0.631863"/>
+    <MORSE idAtom1="71" idAtom2="93" alpha="0.707000" l0="6.141036" E0="0.680880"/>
+    <MORSE idAtom1="72" idAtom2="89" alpha="0.707000" l0="7.275916" E0="0.455425"/>
+    <MORSE idAtom1="72" idAtom2="92" alpha="0.707000" l0="7.748817" E0="0.385158"/>
+    <MORSE idAtom1="73" idAtom2="88" alpha="0.707000" l0="7.354968" E0="0.442844"/>
+    <MORSE idAtom1="73" idAtom2="89" alpha="0.707000" l0="6.585787" E0="0.581601"/>
+    <MORSE idAtom1="74" idAtom2="88" alpha="0.707000" l0="7.989806" E0="0.353633"/>
+    <MORSE idAtom1="85" idAtom2="89" alpha="0.707000" l0="6.678117" E0="0.562880"/>
+    <MORSE idAtom1="85" idAtom2="90" alpha="0.707000" l0="6.704486" E0="0.557645"/>
+    <MORSE idAtom1="86" idAtom2="90" alpha="0.707000" l0="6.305922" E0="0.642237"/>
+    <MORSE idAtom1="87" idAtom2="91" alpha="0.707000" l0="6.506212" E0="0.598234"/>
+    <MORSE idAtom1="87" idAtom2="104" alpha="0.707000" l0="6.665877" E0="0.565327"/>
+    <MORSE idAtom1="87" idAtom2="105" alpha="0.707000" l0="7.221917" E0="0.464224"/>
+    <MORSE idAtom1="88" idAtom2="92" alpha="0.707000" l0="7.294903" E0="0.452371"/>
+    <MORSE idAtom1="89" idAtom2="93" alpha="0.707000" l0="5.895970" E0="0.742651"/>
+    <MORSE idAtom1="90" idAtom2="94" alpha="0.707000" l0="5.927570" E0="0.734382"/>
+    <MORSE idAtom1="90" idAtom2="95" alpha="0.707000" l0="5.354080" E0="0.899870"/>
+    <MORSE idAtom1="90" idAtom2="104" alpha="0.707000" l0="7.268334" E0="0.456650"/>
+    <MORSE idAtom1="91" idAtom2="95" alpha="0.707000" l0="5.400047" E0="0.885331"/>
+    <MORSE idAtom1="91" idAtom2="103" alpha="0.707000" l0="6.870142" E0="0.525852"/>
+    <MORSE idAtom1="91" idAtom2="104" alpha="0.707000" l0="5.804855" E0="0.767021"/>
+    <MORSE idAtom1="91" idAtom2="105" alpha="0.707000" l0="6.092543" E0="0.692681"/>
+    <MORSE idAtom1="93" idAtom2="198" alpha="0.707000" l0="7.011879" E0="0.500093"/>
+    <MORSE idAtom1="94" idAtom2="103" alpha="0.707000" l0="7.704119" E0="0.391308"/>
+    <MORSE idAtom1="94" idAtom2="198" alpha="0.707000" l0="5.355523" E0="0.899410"/>
+    <MORSE idAtom1="95" idAtom2="103" alpha="0.707000" l0="5.984614" E0="0.719686"/>
+    <MORSE idAtom1="95" idAtom2="104" alpha="0.707000" l0="6.281972" E0="0.647711"/>
+    <MORSE idAtom1="95" idAtom2="196" alpha="0.707000" l0="6.210960" E0="0.664216"/>
+    <MORSE idAtom1="95" idAtom2="197" alpha="0.707000" l0="6.234400" E0="0.658722"/>
+    <MORSE idAtom1="95" idAtom2="198" alpha="0.707000" l0="5.191914" E0="0.953096"/>
+    <MORSE idAtom1="96" idAtom2="101" alpha="0.707000" l0="5.695858" E0="0.797226"/>
+    <MORSE idAtom1="96" idAtom2="102" alpha="0.707000" l0="6.013232" E0="0.712425"/>
+    <MORSE idAtom1="96" idAtom2="103" alpha="0.707000" l0="4.954625" E0="1.036703"/>
+    <MORSE idAtom1="96" idAtom2="104" alpha="0.707000" l0="6.529686" E0="0.593279"/>
+    <MORSE idAtom1="96" idAtom2="195" alpha="0.707000" l0="7.866910" E0="0.369373"/>
+    <MORSE idAtom1="96" idAtom2="196" alpha="0.707000" l0="5.305175" E0="0.915601"/>
+    <MORSE idAtom1="96" idAtom2="197" alpha="0.707000" l0="5.522174" E0="0.847834"/>
+    <MORSE idAtom1="96" idAtom2="198" alpha="0.707000" l0="6.709981" E0="0.556560"/>
+    <MORSE idAtom1="97" idAtom2="100" alpha="0.707000" l0="7.629058" E0="0.401855"/>
+    <MORSE idAtom1="97" idAtom2="101" alpha="0.707000" l0="4.550070" E0="1.196503"/>
+    <MORSE idAtom1="97" idAtom2="102" alpha="0.707000" l0="5.814665" E0="0.764359"/>
+    <MORSE idAtom1="97" idAtom2="103" alpha="0.707000" l0="6.997755" E0="0.502603"/>
+    <MORSE idAtom1="97" idAtom2="194" alpha="0.707000" l0="5.515465" E0="0.849852"/>
+    <MORSE idAtom1="97" idAtom2="195" alpha="0.707000" l0="5.945141" E0="0.729824"/>
+    <MORSE idAtom1="97" idAtom2="196" alpha="0.707000" l0="5.347462" E0="0.901983"/>
+    <MORSE idAtom1="97" idAtom2="197" alpha="0.707000" l0="7.004243" E0="0.501448"/>
+    <MORSE idAtom1="98" idAtom2="100" alpha="0.707000" l0="5.818751" E0="0.763253"/>
+    <MORSE idAtom1="98" idAtom2="101" alpha="0.707000" l0="3.912433" E0="1.499835"/>
+    <MORSE idAtom1="98" idAtom2="102" alpha="0.707000" l0="7.318371" E0="0.448625"/>
+    <MORSE idAtom1="98" idAtom2="193" alpha="0.707000" l0="7.815727" E0="0.376134"/>
+    <MORSE idAtom1="98" idAtom2="194" alpha="0.707000" l0="5.750425" E0="0.781959"/>
+    <MORSE idAtom1="98" idAtom2="195" alpha="0.707000" l0="6.493539" E0="0.600927"/>
+    <MORSE idAtom1="98" idAtom2="196" alpha="0.707000" l0="7.012106" E0="0.500053"/>
+    <MORSE idAtom1="98" idAtom2="197" alpha="0.707000" l0="7.128282" E0="0.479885"/>
+    <MORSE idAtom1="99" idAtom2="100" alpha="0.707000" l0="5.626660" E0="0.817017"/>
+    <MORSE idAtom1="99" idAtom2="101" alpha="0.707000" l0="6.130812" E0="0.683351"/>
+    <MORSE idAtom1="99" idAtom2="192" alpha="0.707000" l0="7.381065" E0="0.438768"/>
+    <MORSE idAtom1="99" idAtom2="193" alpha="0.707000" l0="5.425876" E0="0.877265"/>
+    <MORSE idAtom1="99" idAtom2="194" alpha="0.707000" l0="5.270743" E0="0.926840"/>
+    <MORSE idAtom1="99" idAtom2="195" alpha="0.707000" l0="7.659477" E0="0.397547"/>
+    <MORSE idAtom1="102" idAtom2="108" alpha="0.707000" l0="6.652453" E0="0.568022"/>
+    <MORSE idAtom1="103" idAtom2="108" alpha="0.707000" l0="7.810115" E0="0.376882"/>
+    <MORSE idAtom1="104" idAtom2="108" alpha="0.707000" l0="5.904901" E0="0.740305"/>
+    <MORSE idAtom1="107" idAtom2="122" alpha="0.707000" l0="7.528025" E0="0.416503"/>
+    <MORSE idAtom1="108" idAtom2="122" alpha="0.707000" l0="5.996864" E0="0.716569"/>
+    <MORSE idAtom1="108" idAtom2="123" alpha="0.707000" l0="6.139046" E0="0.681360"/>
+    <MORSE idAtom1="108" idAtom2="124" alpha="0.707000" l0="7.866165" E0="0.369471"/>
+    <MORSE idAtom1="109" idAtom2="120" alpha="0.707000" l0="5.951267" E0="0.728241"/>
+    <MORSE idAtom1="109" idAtom2="121" alpha="0.707000" l0="5.569320" E0="0.833787"/>
+    <MORSE idAtom1="109" idAtom2="122" alpha="0.707000" l0="4.754111" E0="1.113045"/>
+    <MORSE idAtom1="109" idAtom2="123" alpha="0.707000" l0="6.338096" E0="0.634956"/>
+    <MORSE idAtom1="110" idAtom2="120" alpha="0.707000" l0="5.582560" E0="0.829884"/>
+    <MORSE idAtom1="110" idAtom2="121" alpha="0.707000" l0="6.176765" E0="0.672314"/>
+    <MORSE idAtom1="110" idAtom2="122" alpha="0.707000" l0="6.598284" E0="0.579031"/>
+    <MORSE idAtom1="110" idAtom2="123" alpha="0.707000" l0="6.974339" E0="0.506790"/>
+    <MORSE idAtom1="110" idAtom2="165" alpha="0.707000" l0="6.745361" E0="0.549626"/>
+    <MORSE idAtom1="110" idAtom2="166" alpha="0.707000" l0="5.727197" E0="0.788422"/>
+    <MORSE idAtom1="111" idAtom2="118" alpha="0.707000" l0="6.341443" E0="0.634203"/>
+    <MORSE idAtom1="111" idAtom2="119" alpha="0.707000" l0="6.130070" E0="0.683531"/>
+    <MORSE idAtom1="111" idAtom2="120" alpha="0.707000" l0="4.613690" E0="1.169830"/>
+    <MORSE idAtom1="111" idAtom2="121" alpha="0.707000" l0="7.033835" E0="0.496218"/>
+    <MORSE idAtom1="111" idAtom2="165" alpha="0.707000" l0="6.192755" E0="0.668515"/>
+    <MORSE idAtom1="111" idAtom2="166" alpha="0.707000" l0="5.991423" E0="0.717952"/>
+    <MORSE idAtom1="112" idAtom2="118" alpha="0.707000" l0="6.278108" E0="0.648598"/>
+    <MORSE idAtom1="112" idAtom2="119" alpha="0.707000" l0="6.088145" E0="0.693761"/>
+    <MORSE idAtom1="112" idAtom2="120" alpha="0.707000" l0="5.696394" E0="0.797075"/>
+    <MORSE idAtom1="112" idAtom2="121" alpha="0.707000" l0="6.851207" E0="0.529393"/>
+    <MORSE idAtom1="112" idAtom2="163" alpha="0.707000" l0="6.540667" E0="0.590975"/>
+    <MORSE idAtom1="112" idAtom2="164" alpha="0.707000" l0="5.495763" E0="0.855806"/>
+    <MORSE idAtom1="112" idAtom2="165" alpha="0.707000" l0="4.059719" E0="1.423563"/>
+    <MORSE idAtom1="112" idAtom2="166" alpha="0.707000" l0="6.194740" E0="0.668045"/>
+    <MORSE idAtom1="113" idAtom2="117" alpha="0.707000" l0="5.611232" E0="0.821495"/>
+    <MORSE idAtom1="113" idAtom2="118" alpha="0.707000" l0="4.377830" E0="1.271806"/>
+    <MORSE idAtom1="113" idAtom2="119" alpha="0.707000" l0="6.339851" E0="0.634561"/>
+    <MORSE idAtom1="113" idAtom2="120" alpha="0.707000" l0="7.900495" E0="0.365003"/>
+    <MORSE idAtom1="113" idAtom2="163" alpha="0.707000" l0="5.992040" E0="0.717795"/>
+    <MORSE idAtom1="113" idAtom2="164" alpha="0.707000" l0="5.353699" E0="0.899992"/>
+    <MORSE idAtom1="113" idAtom2="165" alpha="0.707000" l0="6.397350" E0="0.621763"/>
+    <MORSE idAtom1="114" idAtom2="118" alpha="0.707000" l0="6.677389" E0="0.563025"/>
+    <MORSE idAtom1="114" idAtom2="119" alpha="0.707000" l0="7.838666" E0="0.373089"/>
+    <MORSE idAtom1="114" idAtom2="162" alpha="0.707000" l0="6.824951" E0="0.534341"/>
+    <MORSE idAtom1="114" idAtom2="163" alpha="0.707000" l0="3.981518" E0="1.463564"/>
+    <MORSE idAtom1="114" idAtom2="164" alpha="0.707000" l0="5.928239" E0="0.734208"/>
+    <MORSE idAtom1="114" idAtom2="165" alpha="0.707000" l0="7.937477" E0="0.360251"/>
+    <MORSE idAtom1="115" idAtom2="136" alpha="0.707000" l0="7.725210" E0="0.388394"/>
+    <MORSE idAtom1="115" idAtom2="137" alpha="0.707000" l0="7.069920" E0="0.489913"/>
+    <MORSE idAtom1="115" idAtom2="163" alpha="0.707000" l0="6.959229" E0="0.509511"/>
+    <MORSE idAtom1="120" idAtom2="182" alpha="0.707000" l0="7.233654" E0="0.462297"/>
+    <MORSE idAtom1="121" idAtom2="181" alpha="0.707000" l0="6.679864" E0="0.562532"/>
+    <MORSE idAtom1="121" idAtom2="182" alpha="0.707000" l0="4.554501" E0="1.194626"/>
+    <MORSE idAtom1="121" idAtom2="183" alpha="0.707000" l0="5.515326" E0="0.849894"/>
+    <MORSE idAtom1="121" idAtom2="184" alpha="0.707000" l0="5.768867" E0="0.776865"/>
+    <MORSE idAtom1="122" idAtom2="181" alpha="0.707000" l0="7.252777" E0="0.459175"/>
+    <MORSE idAtom1="122" idAtom2="182" alpha="0.707000" l0="6.436036" E0="0.613297"/>
+    <MORSE idAtom1="122" idAtom2="183" alpha="0.707000" l0="5.138560" E0="0.971287"/>
+    <MORSE idAtom1="122" idAtom2="184" alpha="0.707000" l0="5.239397" E0="0.937193"/>
+    <MORSE idAtom1="123" idAtom2="183" alpha="0.707000" l0="7.231474" E0="0.462654"/>
+    <MORSE idAtom1="123" idAtom2="184" alpha="0.707000" l0="5.347164" E0="0.902078"/>
+    <MORSE idAtom1="123" idAtom2="185" alpha="0.707000" l0="7.039995" E0="0.495136"/>
+    <MORSE idAtom1="123" idAtom2="189" alpha="0.707000" l0="7.133682" E0="0.478968"/>
+    <MORSE idAtom1="124" idAtom2="183" alpha="0.707000" l0="6.789696" E0="0.541059"/>
+    <MORSE idAtom1="124" idAtom2="184" alpha="0.707000" l0="6.217861" E0="0.662594"/>
+    <MORSE idAtom1="124" idAtom2="185" alpha="0.707000" l0="6.221658" E0="0.661703"/>
+    <MORSE idAtom1="124" idAtom2="186" alpha="0.707000" l0="7.878632" E0="0.367842"/>
+    <MORSE idAtom1="125" idAtom2="185" alpha="0.707000" l0="6.430099" E0="0.614589"/>
+    <MORSE idAtom1="125" idAtom2="186" alpha="0.707000" l0="6.154260" E0="0.677697"/>
+    <MORSE idAtom1="126" idAtom2="185" alpha="0.707000" l0="7.313501" E0="0.449400"/>
+    <MORSE idAtom1="127" idAtom2="183" alpha="0.707000" l0="6.309329" E0="0.641462"/>
+    <MORSE idAtom1="127" idAtom2="184" alpha="0.707000" l0="6.844296" E0="0.530691"/>
+    <MORSE idAtom1="127" idAtom2="185" alpha="0.707000" l0="4.444444" E0="1.242136"/>
+    <MORSE idAtom1="127" idAtom2="186" alpha="0.707000" l0="6.115228" E0="0.687135"/>
+    <MORSE idAtom1="128" idAtom2="185" alpha="0.707000" l0="4.800578" E0="1.094867"/>
+    <MORSE idAtom1="128" idAtom2="186" alpha="0.707000" l0="4.430068" E0="1.248480"/>
+    <MORSE idAtom1="128" idAtom2="187" alpha="0.707000" l0="6.211622" E0="0.664060"/>
+    <MORSE idAtom1="129" idAtom2="174" alpha="0.707000" l0="7.517168" E0="0.418109"/>
+    <MORSE idAtom1="129" idAtom2="175" alpha="0.707000" l0="6.987248" E0="0.504477"/>
+    <MORSE idAtom1="129" idAtom2="183" alpha="0.707000" l0="7.404995" E0="0.435063"/>
+    <MORSE idAtom1="129" idAtom2="184" alpha="0.707000" l0="7.140643" E0="0.477788"/>
+    <MORSE idAtom1="129" idAtom2="185" alpha="0.707000" l0="4.516732" E0="1.210721"/>
+    <MORSE idAtom1="129" idAtom2="186" alpha="0.707000" l0="6.029759" E0="0.708265"/>
+    <MORSE idAtom1="129" idAtom2="187" alpha="0.707000" l0="5.563669" E0="0.835459"/>
+    <MORSE idAtom1="130" idAtom2="173" alpha="0.707000" l0="7.119623" E0="0.481360"/>
+    <MORSE idAtom1="130" idAtom2="174" alpha="0.707000" l0="4.993290" E0="1.022596"/>
+    <MORSE idAtom1="130" idAtom2="175" alpha="0.707000" l0="5.324354" E0="0.909399"/>
+    <MORSE idAtom1="130" idAtom2="182" alpha="0.707000" l0="7.480189" E0="0.423624"/>
+    <MORSE idAtom1="130" idAtom2="183" alpha="0.707000" l0="5.531413" E0="0.845063"/>
+    <MORSE idAtom1="130" idAtom2="184" alpha="0.707000" l0="4.968417" E0="1.031649"/>
+    <MORSE idAtom1="130" idAtom2="185" alpha="0.707000" l0="4.646404" E0="1.156347"/>
+    <MORSE idAtom1="130" idAtom2="186" alpha="0.707000" l0="7.563273" E0="0.411333"/>
+    <MORSE idAtom1="130" idAtom2="187" alpha="0.707000" l0="6.256273" E0="0.653636"/>
+    <MORSE idAtom1="130" idAtom2="188" alpha="0.707000" l0="7.452950" E0="0.427732"/>
+    <MORSE idAtom1="131" idAtom2="174" alpha="0.707000" l0="5.731927" E0="0.787101"/>
+    <MORSE idAtom1="131" idAtom2="175" alpha="0.707000" l0="4.561356" E0="1.191727"/>
+    <MORSE idAtom1="131" idAtom2="176" alpha="0.707000" l0="5.397117" E0="0.886251"/>
+    <MORSE idAtom1="131" idAtom2="177" alpha="0.707000" l0="7.004762" E0="0.501356"/>
+    <MORSE idAtom1="131" idAtom2="179" alpha="0.707000" l0="6.698496" E0="0.558830"/>
+    <MORSE idAtom1="131" idAtom2="181" alpha="0.707000" l0="7.866290" E0="0.369454"/>
+    <MORSE idAtom1="131" idAtom2="182" alpha="0.707000" l0="4.972920" E0="1.030004"/>
+    <MORSE idAtom1="131" idAtom2="183" alpha="0.707000" l0="5.055506" E0="1.000297"/>
+    <MORSE idAtom1="131" idAtom2="184" alpha="0.707000" l0="6.508849" E0="0.597676"/>
+    <MORSE idAtom1="131" idAtom2="185" alpha="0.707000" l0="7.692155" E0="0.392970"/>
+    <MORSE idAtom1="132" idAtom2="174" alpha="0.707000" l0="6.193594" E0="0.668316"/>
+    <MORSE idAtom1="132" idAtom2="175" alpha="0.707000" l0="6.019816" E0="0.710764"/>
+    <MORSE idAtom1="132" idAtom2="176" alpha="0.707000" l0="4.471448" E0="1.230306"/>
+    <MORSE idAtom1="132" idAtom2="177" alpha="0.707000" l0="6.635990" E0="0.571346"/>
+    <MORSE idAtom1="132" idAtom2="179" alpha="0.707000" l0="7.083988" E0="0.487477"/>
+    <MORSE idAtom1="132" idAtom2="182" alpha="0.707000" l0="5.524218" E0="0.847220"/>
+    <MORSE idAtom1="132" idAtom2="183" alpha="0.707000" l0="7.491735" E0="0.421894"/>
+    <MORSE idAtom1="133" idAtom2="176" alpha="0.707000" l0="5.736018" E0="0.785961"/>
+    <MORSE idAtom1="133" idAtom2="177" alpha="0.707000" l0="5.779266" E0="0.774008"/>
+    <MORSE idAtom1="133" idAtom2="178" alpha="0.707000" l0="6.110320" E0="0.688331"/>
+    <MORSE idAtom1="133" idAtom2="179" alpha="0.707000" l0="5.188151" E0="0.954367"/>
+    <MORSE idAtom1="133" idAtom2="180" alpha="0.707000" l0="7.293917" E0="0.452529"/>
+    <MORSE idAtom1="133" idAtom2="181" alpha="0.707000" l0="7.949707" E0="0.358693"/>
+    <MORSE idAtom1="133" idAtom2="182" alpha="0.707000" l0="5.814543" E0="0.764392"/>
+    <MORSE idAtom1="134" idAtom2="176" alpha="0.707000" l0="6.134826" E0="0.682380"/>
+    <MORSE idAtom1="134" idAtom2="177" alpha="0.707000" l0="5.565037" E0="0.835054"/>
+    <MORSE idAtom1="134" idAtom2="178" alpha="0.707000" l0="5.867898" E0="0.750076"/>
+    <MORSE idAtom1="134" idAtom2="179" alpha="0.707000" l0="7.183415" E0="0.470601"/>
+    <MORSE idAtom1="135" idAtom2="176" alpha="0.707000" l0="6.968696" E0="0.507805"/>
+    <MORSE idAtom1="137" idAtom2="158" alpha="0.707000" l0="7.836562" E0="0.373367"/>
+    <MORSE idAtom1="139" idAtom2="158" alpha="0.707000" l0="6.994769" E0="0.503135"/>
+    <MORSE idAtom1="140" idAtom2="158" alpha="0.707000" l0="7.466667" E0="0.425658"/>
+    <MORSE idAtom1="141" idAtom2="156" alpha="0.707000" l0="4.990869" E0="1.023473"/>
+    <MORSE idAtom1="141" idAtom2="157" alpha="0.707000" l0="5.231907" E0="0.939684"/>
+    <MORSE idAtom1="141" idAtom2="158" alpha="0.707000" l0="5.393907" E0="0.887259"/>
+    <MORSE idAtom1="142" idAtom2="156" alpha="0.707000" l0="5.855620" E0="0.753347"/>
+    <MORSE idAtom1="142" idAtom2="157" alpha="0.707000" l0="5.386200" E0="0.889686"/>
+    <MORSE idAtom1="142" idAtom2="158" alpha="0.707000" l0="6.948314" E0="0.511486"/>
+    <MORSE idAtom1="143" idAtom2="154" alpha="0.707000" l0="7.119304" E0="0.481414"/>
+    <MORSE idAtom1="143" idAtom2="155" alpha="0.707000" l0="6.061315" E0="0.700389"/>
+    <MORSE idAtom1="143" idAtom2="156" alpha="0.707000" l0="5.209324" E0="0.947234"/>
+    <MORSE idAtom1="143" idAtom2="157" alpha="0.707000" l0="6.166924" E0="0.674662"/>
+    <MORSE idAtom1="144" idAtom2="154" alpha="0.707000" l0="6.256178" E0="0.653658"/>
+    <MORSE idAtom1="144" idAtom2="155" alpha="0.707000" l0="5.575204" E0="0.832051"/>
+    <MORSE idAtom1="144" idAtom2="156" alpha="0.707000" l0="6.416082" E0="0.617649"/>
+    <MORSE idAtom1="144" idAtom2="157" alpha="0.707000" l0="6.419415" E0="0.616920"/>
+    <MORSE idAtom1="144" idAtom2="175" alpha="0.707000" l0="7.985429" E0="0.354181"/>
+    <MORSE idAtom1="145" idAtom2="152" alpha="0.707000" l0="6.773647" E0="0.544144"/>
+    <MORSE idAtom1="145" idAtom2="153" alpha="0.707000" l0="5.941993" E0="0.730638"/>
+    <MORSE idAtom1="145" idAtom2="154" alpha="0.707000" l0="3.969901" E0="1.469601"/>
+    <MORSE idAtom1="145" idAtom2="155" alpha="0.707000" l0="5.237445" E0="0.937842"/>
+    <MORSE idAtom1="146" idAtom2="152" alpha="0.707000" l0="5.713688" E0="0.792205"/>
+    <MORSE idAtom1="146" idAtom2="153" alpha="0.707000" l0="5.916558" E0="0.737253"/>
+    <MORSE idAtom1="146" idAtom2="154" alpha="0.707000" l0="6.079963" E0="0.695776"/>
+    <MORSE idAtom1="146" idAtom2="155" alpha="0.707000" l0="6.557700" E0="0.587418"/>
+    <MORSE idAtom1="147" idAtom2="151" alpha="0.707000" l0="5.987707" E0="0.718898"/>
+    <MORSE idAtom1="147" idAtom2="152" alpha="0.707000" l0="4.228201" E0="1.341060"/>
+    <MORSE idAtom1="147" idAtom2="153" alpha="0.707000" l0="5.863149" E0="0.751339"/>
+    <MORSE idAtom1="148" idAtom2="152" alpha="0.707000" l0="5.680789" E0="0.801495"/>
+    <MORSE idAtom1="148" idAtom2="153" alpha="0.707000" l0="6.684056" E0="0.561697"/>
+    <MORSE idAtom1="153" idAtom2="177" alpha="0.707000" l0="7.914396" E0="0.363210"/>
+    <MORSE idAtom1="153" idAtom2="178" alpha="0.707000" l0="7.994520" E0="0.353042"/>
+    <MORSE idAtom1="154" idAtom2="177" alpha="0.707000" l0="7.076330" E0="0.488801"/>
+    <MORSE idAtom1="155" idAtom2="175" alpha="0.707000" l0="6.118555" E0="0.686326"/>
+    <MORSE idAtom1="155" idAtom2="176" alpha="0.707000" l0="5.517883" E0="0.849124"/>
+    <MORSE idAtom1="155" idAtom2="177" alpha="0.707000" l0="4.634186" E0="1.161365"/>
+    <MORSE idAtom1="155" idAtom2="178" alpha="0.707000" l0="7.781237" E0="0.380759"/>
+    <MORSE idAtom1="156" idAtom2="174" alpha="0.707000" l0="7.857110" E0="0.370658"/>
+    <MORSE idAtom1="156" idAtom2="175" alpha="0.707000" l0="5.720280" E0="0.790357"/>
+    <MORSE idAtom1="156" idAtom2="176" alpha="0.707000" l0="4.794273" E0="1.097316"/>
+    <MORSE idAtom1="156" idAtom2="177" alpha="0.707000" l0="6.192996" E0="0.668458"/>
+    <MORSE idAtom1="157" idAtom2="173" alpha="0.707000" l0="6.556846" E0="0.587596"/>
+    <MORSE idAtom1="157" idAtom2="174" alpha="0.707000" l0="5.401371" E0="0.884916"/>
+    <MORSE idAtom1="157" idAtom2="175" alpha="0.707000" l0="4.549674" E0="1.196671"/>
+    <MORSE idAtom1="157" idAtom2="176" alpha="0.707000" l0="5.991633" E0="0.717898"/>
+    <MORSE idAtom1="158" idAtom2="173" alpha="0.707000" l0="4.967833" E0="1.031862"/>
+    <MORSE idAtom1="158" idAtom2="174" alpha="0.707000" l0="4.976846" E0="1.028572"/>
+    <MORSE idAtom1="158" idAtom2="175" alpha="0.707000" l0="6.661569" E0="0.566190"/>
+    <MORSE idAtom1="158" idAtom2="176" alpha="0.707000" l0="7.557500" E0="0.412176"/>
+    <MORSE idAtom1="159" idAtom2="172" alpha="0.707000" l0="5.734759" E0="0.786312"/>
+    <MORSE idAtom1="159" idAtom2="173" alpha="0.707000" l0="3.573924" E0="1.690981"/>
+    <MORSE idAtom1="159" idAtom2="174" alpha="0.707000" l0="6.336493" E0="0.635317"/>
+    <MORSE idAtom1="160" idAtom2="171" alpha="0.707000" l0="6.334864" E0="0.635684"/>
+    <MORSE idAtom1="160" idAtom2="172" alpha="0.707000" l0="5.560190" E0="0.836489"/>
+    <MORSE idAtom1="160" idAtom2="173" alpha="0.707000" l0="5.879266" E0="0.747061"/>
+    <MORSE idAtom1="161" idAtom2="171" alpha="0.707000" l0="5.683068" E0="0.800848"/>
+    <MORSE idAtom1="161" idAtom2="172" alpha="0.707000" l0="5.634681" E0="0.814698"/>
+    <MORSE idAtom1="161" idAtom2="173" alpha="0.707000" l0="6.135698" E0="0.682169"/>
+    <MORSE idAtom1="161" idAtom2="174" alpha="0.707000" l0="7.533325" E0="0.415722"/>
+    <MORSE idAtom1="162" idAtom2="169" alpha="0.707000" l0="6.543496" E0="0.590383"/>
+    <MORSE idAtom1="162" idAtom2="170" alpha="0.707000" l0="5.657065" E0="0.808261"/>
+    <MORSE idAtom1="162" idAtom2="171" alpha="0.707000" l0="4.053635" E0="1.426635"/>
+    <MORSE idAtom1="162" idAtom2="172" alpha="0.707000" l0="6.204878" E0="0.665649"/>
+    <MORSE idAtom1="163" idAtom2="169" alpha="0.707000" l0="5.606751" E0="0.822801"/>
+    <MORSE idAtom1="163" idAtom2="170" alpha="0.707000" l0="5.604338" E0="0.823505"/>
+    <MORSE idAtom1="163" idAtom2="171" alpha="0.707000" l0="6.230904" E0="0.659538"/>
+    <MORSE idAtom1="164" idAtom2="168" alpha="0.707000" l0="5.151518" E0="0.966837"/>
+    <MORSE idAtom1="164" idAtom2="169" alpha="0.707000" l0="3.779368" E0="1.572250"/>
+    <MORSE idAtom1="164" idAtom2="170" alpha="0.707000" l0="5.608352" E0="0.822334"/>
+    <MORSE idAtom1="165" idAtom2="169" alpha="0.707000" l0="6.130630" E0="0.683395"/>
+    <MORSE idAtom1="165" idAtom2="170" alpha="0.707000" l0="6.561124" E0="0.586706"/>
+    <MORSE idAtom1="168" idAtom2="192" alpha="0.707000" l0="5.753173" E0="0.781198"/>
+    <MORSE idAtom1="169" idAtom2="192" alpha="0.707000" l0="7.935150" E0="0.360548"/>
+    <MORSE idAtom1="170" idAtom2="188" alpha="0.707000" l0="6.307385" E0="0.641904"/>
+    <MORSE idAtom1="170" idAtom2="191" alpha="0.707000" l0="6.438553" E0="0.612751"/>
+    <MORSE idAtom1="170" idAtom2="192" alpha="0.707000" l0="6.175187" E0="0.672690"/>
+    <MORSE idAtom1="171" idAtom2="188" alpha="0.707000" l0="6.810575" E0="0.537070"/>
+    <MORSE idAtom1="171" idAtom2="191" alpha="0.707000" l0="7.749820" E0="0.385022"/>
+    <MORSE idAtom1="172" idAtom2="187" alpha="0.707000" l0="6.428801" E0="0.614872"/>
+    <MORSE idAtom1="172" idAtom2="188" alpha="0.707000" l0="5.990965" E0="0.718068"/>
+    <MORSE idAtom1="173" idAtom2="187" alpha="0.707000" l0="7.277137" E0="0.455228"/>
+    <MORSE idAtom1="184" idAtom2="188" alpha="0.707000" l0="6.708308" E0="0.556890"/>
+    <MORSE idAtom1="184" idAtom2="189" alpha="0.707000" l0="7.113536" E0="0.482399"/>
+    <MORSE idAtom1="185" idAtom2="189" alpha="0.707000" l0="6.379823" E0="0.625637"/>
+    <MORSE idAtom1="186" idAtom2="190" alpha="0.707000" l0="5.892189" E0="0.743647"/>
+    <MORSE idAtom1="187" idAtom2="191" alpha="0.707000" l0="7.927948" E0="0.361470"/>
+    <MORSE idAtom1="188" idAtom2="192" alpha="0.707000" l0="6.385878" E0="0.624296"/>
+    <MORSE idAtom1="189" idAtom2="193" alpha="0.707000" l0="6.704264" E0="0.557689"/>
+    <MORSE idAtom1="189" idAtom2="194" alpha="0.707000" l0="5.820162" E0="0.762872"/>
+    <MORSE idAtom1="190" idAtom2="194" alpha="0.707000" l0="6.407162" E0="0.619605"/>
+  </MOLECULE>
+</STRUCTURE>
