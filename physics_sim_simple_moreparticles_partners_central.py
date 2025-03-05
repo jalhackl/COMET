@@ -100,7 +100,7 @@ class Particle():
 
         self.particle_type = particle_type
         if self.particle_type == "const":
-            print("really const init")
+            
             self.const_vel = random_3d_vector_with_magnitude(self.active_velocity0)
 
 
@@ -294,23 +294,17 @@ def integrate_evel_vector(Particle, evelvec):
     
     elif partdim == 2:
 
-        #D = (kt*Particle.temperature)/Particle.friction[0]
-        #D = 0
-        
+
         randomfactor = np.sqrt(2*D*timestep)
         
         theta = np.random.randn(partdim)*randomfactor
         phi = np.random.randn(partdim)*randomfactor
-        #espherical = coordinates.cartesian_to_spherical(evelvec[0], evelvec[1], evelvec[2]) 
         
         etheta, ephi = cart2pol(evelvec[0], evelvec[1])
         
         #latitude
-        #etheta = espherical[1].value
         etheta = 0
-        
-        #ephi = espherical[2].value
-        
+                
         eestimate = evelvec + etheta * theta + ephi * phi
         
         evelvecnew = eestimate / np.linalg.norm(eestimate)
@@ -322,8 +316,6 @@ def integrate_evel_vector(Particle, evelvec):
         #alternatively, should be the same for small D and delta t (it is)
         #evelvecnew2 = evelvec + etheta * theta + ephi * phi - 0.5 * (((theta**2) + (phi**2))*evelvec)
         
-        # print(evelvecnew)
-        # print(evelvecnew2)
             
         return evelvecnew
 
@@ -338,10 +330,6 @@ def new_pos(Particle):
     Particle.positions.append(Particle.position) 
     Particle.velocities.append(Particle.velocity) 
 
-    print("finval")
-    print(Particle.position)
-    print(Particle.velocity)
-    print(Particle.force)
     Particle.position = Particle.position + Particle.velocity*timestep + (Particle.force )*(timestep**2)*0.5 / Particle.mass
 
 
@@ -383,23 +371,6 @@ def new_vel_partners(Particle):
     Particle.force = actforces
 
 
-    #EABPO: backflow force on non-active polymer particles
-    '''
-    if (EABPO == True and Particle.eab == True):
-        Particle.velocity = Particle.velocity + timestep * (Particle.active_force + Particle.active_forces[-1]) / (2*Particle.mass)
-            #velocity verlet
-        #print("compare the forces")
-        #print(Particle.active_force)
-        #print(Particle.active_forces[-1])
-    
-    if (EABPO == True):
-        if ((Particle.eab == True and EABPO_mono_active_backflow == True) or (Particle.eab == False and EABPO_mono_backflow == True)):
-            Particle.velocity = Particle.velocity - timestep * ( (Particle.mass / massparts) * ( total_active_force + old_total_active_force ) ) / (2*Particle.mass)
-            #velocity verlet
-            #print("compare the TOTAL forces")
-            #print(total_active_force)
-            #print(old_total_active_force )
-    '''
 
     #SABPO
     if (Particle.sab == True):
@@ -426,26 +397,11 @@ def new_vel_partners(Particle):
             
             
             Particle.active_forces.append(new_temp)
-        #2212 ausk
-        #Particle.active_velocities.append(Particle.active_velocity)
-        
-        Particle.active_velocity = new_active_velocity
-        
-        #total velocity - wird innerhalb des algorithmus nie benoetigt (aber fuers plotten umso mehr)
-        #2212 ausk
-        #Particle.total_velocity = Particle.velocity + new_active_velocity
-        #Particle.total_velocities.append(Particle.total_velocity)
-    
-    '''
-    #just for plotting
-    if (Particle.solvent == 0 and SABPO == True and Particle.sab == False):
-        Particle.active_velocities.append(Particle.active_velocity)
-        Particle.total_velocity = Particle.velocity + Particle.active_velocity
-        #Particle.total_velocities.append(Particle.total_velocity)
-    '''
+
+
     if Particle.particle_type == "const":
         if const_vel_try == True:
-            print("particle const")
+            
             Particle.velocity = Particle.const_vel
             Particle.force = np.array([0 for _ in range(partdim)])
 
@@ -501,8 +457,7 @@ def new_forces_thermostat_partners(Particle, min_group=1):
     if (fenepot_on == 1):
         fp = fene_potential(Particle)
         force = force - fp
-       # print("fenep")
-       # print(force)
+
     if (quarticpot_on == 1):
         qp = quartic_potential(Particle)
         force = force - qp
@@ -765,25 +720,20 @@ def run_simulation(particles, partners=False, move_groups=None, group_additions 
             # new velocities
             
             if partners:
-                print("before")
-                print(Particle.particle_type)
+
                 if Particle.particle_type == "const":
-                    print("in const")
+                    
                     new_vel_partners(Particle)
             else:
                 new_vel(Particle)
 
             if adopt_vel:
-                print("in adopt")
+                
                 adopt_central_velocity(Particle)
             if adopt_act_vel:
                 adopt_central_active_velocity(Particle)
 
-            print("the vel")
-            print(Particle.velocity)
-
         if box:
-            print("boxcheck")
             boxcheck()
 
         if group_additions:
@@ -879,20 +829,11 @@ def run_simulation_sab_follow(particles, move_groups=None, group_additions = Fal
             #if adopt_act_vel:
             adopt_central_active_velocity(Particle)
 
-            print("the vel")
-            print(Particle.velocity)
 
         if box:
-            print("boxcheck")
+            
             boxcheck()
-        '''
-        if group_additions:
-            compute_group_vel_additions(particles, move_groups, abs_vel=group_velocity)
-            for Particle in particles:  
-                curr_group = Particle.move_group
 
-                Particle.velocity = Particle.velocity + additional_vels[curr_group-min_group] 
-        '''
         for Particle in particles:
             Particle.active_velocities.append(Particle.active_velocity)
             Particle.total_velocities.append(Particle.velocity + Particle.active_velocity)
@@ -992,7 +933,7 @@ def beads_distance_3d(formerpos, desireddist, all_particles):
 
 import numpy as np
 
-def beads_distance_2d(formerpos, desireddist, all_particles, max_attempts=1000000):
+def beads_distance_2d(formerpos, desireddist, all_particles, max_attempts=1000):
     success = False
     attempts = 0
     
@@ -1010,6 +951,7 @@ def beads_distance_2d(formerpos, desireddist, all_particles, max_attempts=100000
         attempts += 1
 
     if not success:
+        
         raise ValueError("Couldn't find a valid position after many attempts.")
 
     return newpoint
@@ -1113,38 +1055,45 @@ def init_particles_partners_simple_central_sab(temp = [0.1,0.1,0.2,0.2], entitie
     initforce = np.array([0 for _ in range(partdim)])
     initfriction = np.array([friction for _ in range(partdim)])
 
-    #active_velocity_vec=np.array([1,1,1])
-    init_active_velocity_vec = np.array([random.uniform(-1, 1) for _ in range(partdim)])
-    for ip, particle_group in enumerate(list_of_lists_fixed):
-        initpos = np.array([random.uniform(boxa, boxe) for _ in range(partdim)])
-        nextpos = initpos
-        for iip, particle_entry in enumerate(particle_group):    
-            if partdim == 3:
-                nextpos = beads_distance_3d(nextpos, desireddist, particles)
-            elif partdim == 2:
-                nextpos = beads_distance_2d(nextpos, desireddist, particles)
-            else:
-                raise ValueError("Wrong number of dimensions.")
 
-            curr_group = particle_group.copy()
-            curr_group.remove(particle_entry)
+    successful_initialization = False
 
-            if central_particles[ip] == particle_entry:
-                curr_central_particle = True
-            else:
-                curr_central_particle = False
+    while not successful_initialization:
+        try:
+            particles = []
+            #active_velocity_vec=np.array([1,1,1])
+            init_active_velocity_vec = np.array([random.uniform(-1, 1) for _ in range(partdim)])
+            for ip, particle_group in enumerate(list_of_lists_fixed):
+                initpos = np.array([random.uniform(boxa, boxe) for _ in range(partdim)])
+                nextpos = initpos
+                for iip, particle_entry in enumerate(particle_group):    
+                    if partdim == 3:
+                        nextpos = beads_distance_3d(nextpos, desireddist, particles)
+                    elif partdim == 2:
+                        nextpos = beads_distance_2d(nextpos, desireddist, particles)
+                    else:
+                        raise ValueError("Wrong number of dimensions.")
 
-            if not curr_central_particle:
-                particles.append(Particle(nextpos,initvel,1,initfriction,initforce,1, active_velocity_vec=init_active_velocity_vec, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
-            else:
-                if cpart_type == "sab":
-                    particles.append(Particle(nextpos,initvel,1,initfriction,initforce,1, active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="sab", sab=True, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
-                elif cpart_type == "const":
-                    print("cpart const initialized")
-                    particles.append(Particle(nextpos,initvel,1,initfriction,initforce,1, active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="const", sab=False, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
-                else:
-                    particles.append(Particle(nextpos,initvel,1,initfriction,initforce,1, active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="simple", identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+                    curr_group = particle_group.copy()
+                    curr_group.remove(particle_entry)
 
+                    if central_particles[ip] == particle_entry:
+                        curr_central_particle = True
+                    else:
+                        curr_central_particle = False
+
+                    if not curr_central_particle:
+                        particles.append(Particle(nextpos,initvel,1,initfriction,initforce,1, active_velocity_vec=init_active_velocity_vec, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+                    else:
+                        if cpart_type == "sab":
+                            particles.append(Particle(nextpos,initvel,1,initfriction,initforce,1, active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="sab", sab=True, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+                        elif cpart_type == "const":
+                            particles.append(Particle(nextpos,initvel,1,initfriction,initforce,1, active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="const", sab=False, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+                        else:
+                            particles.append(Particle(nextpos,initvel,1,initfriction,initforce,1, active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="simple", identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+            successful_initialization = True
+        except (ValueError, IndexError) as e:
+            print(f"Initialization error: {e}. Retrying...")  
 
 
     return particles
@@ -1162,13 +1111,6 @@ def init_particles_partners_simple_central_allsab(temp = [0.1,0.1,0.2,0.2], enti
     global particles
     boxa = -2
     boxe = 2
-
-    particles = []
-
-    #entity_temps=[0.1,0.1,0.2,0.2]
-
-
-
 
     num_entries = move_groups_nr
     #fixed_length = 4
@@ -1191,39 +1133,47 @@ def init_particles_partners_simple_central_allsab(temp = [0.1,0.1,0.2,0.2], enti
     initforce = np.array([0 for _ in range(partdim)])
     initfriction = np.array([friction for _ in range(partdim)])
 
-    #active_velocity_vec=np.array([1,1,1])
-    init_active_velocity_vec = np.array([random.uniform(-1, 1) for _ in range(partdim)])
-    for ip, particle_group in enumerate(list_of_lists_fixed):
-        initpos = np.array([random.uniform(boxa, boxe) for _ in range(partdim)])
-        nextpos = initpos
-        for iip, particle_entry in enumerate(particle_group):    
-            if partdim == 3:
-                nextpos = beads_distance_3d(nextpos, desireddist, particles)
-            elif partdim == 2:
-                nextpos = beads_distance_2d(nextpos, desireddist, particles)
-            else:
-                raise ValueError("Wrong number of dimensions.")
 
-            curr_group = particle_group.copy()
-            curr_group.remove(particle_entry)
+    successful_initialization = False
 
-            if central_particles[ip] == particle_entry:
-                curr_central_particle = True
-            else:
-                curr_central_particle = False
+    while not successful_initialization:
+        try:
+            particles = []
+            #active_velocity_vec=np.array([1,1,1])
+            init_active_velocity_vec = np.array([random.uniform(-1, 1) for _ in range(partdim)])
+            for ip, particle_group in enumerate(list_of_lists_fixed):
+                initpos = np.array([random.uniform(boxa, boxe) for _ in range(partdim)])
+                nextpos = initpos
+                for iip, particle_entry in enumerate(particle_group):    
+                    if partdim == 3:
+                        nextpos = beads_distance_3d(nextpos, desireddist, particles)
+                    elif partdim == 2:
+                        nextpos = beads_distance_2d(nextpos, desireddist, particles)
+                    else:
+                        raise ValueError("Wrong number of dimensions.")
 
-            if not curr_central_particle:
-                particles.append(Particle(nextpos,initvel,1,initfriction,initforce,entity_temps[ip], active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="sab_follow", sab=True, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
-            else:
-                if cpart_type == "sab":
-                    print("sab central init")
-                    particles.append(Particle(nextpos,initvel,1,initfriction,initforce,entity_temps[ip], active_velocity_vec=np.array([random.uniform(-1, 1) for _ in range(partdim)]),active_velocity0=active_velocity0 ,particle_type="sab", sab=True, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
-                elif cpart_type == "const":
-                    print("const central init")
-                    particles.append(Particle(nextpos,initvel,1,initfriction,initforce,entity_temps[ip], active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="const", sab=False, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
-                else:
-                    particles.append(Particle(nextpos,initvel,1,initfriction,initforce,entity_temps[ip], active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="simple", identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+                    curr_group = particle_group.copy()
+                    curr_group.remove(particle_entry)
 
+                    if central_particles[ip] == particle_entry:
+                        curr_central_particle = True
+                    else:
+                        curr_central_particle = False
+
+                    if not curr_central_particle:
+                        particles.append(Particle(nextpos,initvel,1,initfriction,initforce,entity_temps[ip], active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="sab_follow", sab=True, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+                    else:
+                        if cpart_type == "sab":
+                            print("sab central init")
+                            particles.append(Particle(nextpos,initvel,1,initfriction,initforce,entity_temps[ip], active_velocity_vec=np.array([random.uniform(-1, 1) for _ in range(partdim)]),active_velocity0=active_velocity0 ,particle_type="sab", sab=True, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+                        elif cpart_type == "const":
+                            print("const central init")
+                            particles.append(Particle(nextpos,initvel,1,initfriction,initforce,entity_temps[ip], active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="const", sab=False, identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+                        else:
+                            particles.append(Particle(nextpos,initvel,1,initfriction,initforce,entity_temps[ip], active_velocity_vec=init_active_velocity_vec,active_velocity0=active_velocity0 ,particle_type="simple", identity = particle_entry, interaction_partners=curr_group, interaction_group=ip, central_particle = curr_central_particle, central_particle_group= central_particles[ip], group=ip, entity_group=ip, move_group=ip, number=particle_entry))    
+            successful_initialization = True
+        except (ValueError, IndexError) as e:
+            print(f"Initialization error: {e}. Retrying...")  
 
 
     return particles
