@@ -290,7 +290,7 @@ def main_clustering_general(x,k_cluster=None,assign_labels='discretize', cluster
   if clustering_algorithm == "spectral":
     clustering = dm.spectral_clustering_on_deltas(average_delta_matrix, k_cluster, assign_labels, eigengap = eigengap, silhouette = silhouette, plot_delta_heatmaps=plot_delta_heatmaps)
   elif clustering_algorithm == "hdbscan":
-     clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas(average_delta_matrix, k_cluster, assign_labels, min_cluster_size=min_cluster_size, min_samples=min_samples)
+     clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas(average_delta_matrix, min_cluster_size=min_cluster_size, min_samples=min_samples)
   elif clustering_algorithm == "agglomerative":
      clustering, k_cluster, matrix = dm.agglomerative_clustering_on_deltas_ward(average_delta_matrix, None)
 
