@@ -42,6 +42,19 @@ def create_clustering_df(trajectories):
                 # If z is missing, set it to 0
                 particle_data[t] = [record[0], record[1], 0, record[2]]
             # Append the flattened data
+            flattened_data.append([obj_id, t] + particle_data[t])
+
+    df = pd.DataFrame(flattened_data, columns=['obj_id', 't', 'x', 'y', 'z', 'label'])
+
+    return df
+
+
+def create_clustering_df_simple(trajectories):
+    flattened_data = []
+    trajectories = trajectories.tolist()
+    for obj_id, particle_data in enumerate(trajectories):
+        for t, record in enumerate(particle_data):
+            
             flattened_data.append([obj_id, t] + record)
 
     df = pd.DataFrame(flattened_data, columns=['obj_id', 't', 'x', 'y', 'z', 'label'])

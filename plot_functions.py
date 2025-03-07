@@ -520,3 +520,44 @@ def plot_traj_labels_plt(particles, interval = 200, save_video=False, filename="
         anim.save(filename)
 
     return anim
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+import numpy as np
+
+
+def ani_2d_plot(df, curr_file, filename_add="", save_plot=True, title_add="animated_plot_cakmak.mp4"):
+    unique_labels = df['label'].unique()
+    colors = plt.cm.tab10(range(len(unique_labels)))
+    label_color_map = dict(zip(unique_labels, colors))
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    # Function to update the scatter plot
+    def update(frame):
+        ax.clear()
+        current_data = df[df['t'] == frame]
+        scatter = ax.scatter(
+            current_data['x'],
+            current_data['y'],
+            c=[label_color_map[label] for label in current_data['label']],
+            s=100,  # Adjust size as needed
+            edgecolor='k'
+        )
+        ax.set_title(f"Timeframe: {frame}")
+        ax.set_xlim(df['x'].min() - 1, df['x'].max() + 1)
+        ax.set_ylim(df['y'].min() - 1, df['y'].max() + 1)
+        ax.set_xlabel("X-coordinate")
+        ax.set_ylabel("Y-coordinate")
+        return scatter,
+
+    frames = df['t'].unique()
+    ani = FuncAnimation(fig, update, frames=frames, repeat=True, interval=500)
+
+    # Save or display the animation
+    if save_plot:
+        ani.save(filename_add + curr_file.split('.')[0] + title_add, writer='ffmpeg')
+
+    plt.show()
