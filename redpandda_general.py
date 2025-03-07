@@ -344,7 +344,7 @@ def main_clustering_general_stddv(x,k_cluster=None,assign_labels='discretize', c
   if clustering_algorithm == "spectral":
     clustering = dm.spectral_clustering_on_deltas(stddv_matrix, k_cluster, assign_labels, eigengap = eigengap, silhouette = silhouette, plot_delta_heatmaps=plot_delta_heatmaps)
   elif clustering_algorithm == "hdbscan":
-     clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas(stddv_matrix, k_cluster, assign_labels, min_cluster_size=min_cluster_size, min_samples=min_samples)
+     clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas(stddv_matrix, min_cluster_size=min_cluster_size, min_samples=min_samples)
   elif clustering_algorithm == "agglomerative":
      clustering, k_cluster, matrix = dm.agglomerative_clustering_on_deltas_ward(stddv_matrix, None)
 
@@ -396,17 +396,9 @@ def main_clustering_general_std(x,k_cluster=None,assign_labels='discretize', clu
 
   matrix = []
 
-  '''
-  if clustering_algorithm == "spectral":
-    clustering = dm.spectral_clustering_on_deltas(average_delta_matrix, k_cluster, assign_labels, eigengap = eigengap, silhouette = silhouette, plot_delta_heatmaps=plot_delta_heatmaps)
-  elif clustering_algorithm == "hdbscan":
-     clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas(average_delta_matrix, k_cluster, assign_labels, min_cluster_size=min_cluster_size, min_samples=min_samples)
-  elif clustering_algorithm == "agglomerative":
-     clustering, k_cluster, matrix = dm.agglomerative_clustering_on_deltas_ward(average_delta_matrix, None)
-  '''
 
  
-  clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas_varadd(average_delta_matrix, std_delta_matrix, k_cluster, assign_labels, min_cluster_size=min_cluster_size, min_samples=min_samples)
+  clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas_varadd(average_delta_matrix, std_delta_matrix, min_cluster_size=min_cluster_size, min_samples=min_samples)
 
 
   Q = []
@@ -420,9 +412,6 @@ def main_clustering_general_std(x,k_cluster=None,assign_labels='discretize', clu
 
 
   return clustering, Q, matrix, point_array
-
-
-
 
 
 
@@ -460,16 +449,8 @@ def main_clustering_general_std_distance(x,k_cluster=None,assign_labels='discret
 
   matrix = []
 
-  '''
-  if clustering_algorithm == "spectral":
-    clustering = dm.spectral_clustering_on_deltas(average_delta_matrix, k_cluster, assign_labels, eigengap = eigengap, silhouette = silhouette, plot_delta_heatmaps=plot_delta_heatmaps)
-  elif clustering_algorithm == "hdbscan":
-     clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas(average_delta_matrix, k_cluster, assign_labels, min_cluster_size=min_cluster_size, min_samples=min_samples)
-  elif clustering_algorithm == "agglomerative":
-     clustering, k_cluster, matrix = dm.agglomerative_clustering_on_deltas_ward(average_delta_matrix, None)
-  '''
 
-  clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas_varadd_distance(average_delta_matrix, std_delta_matrix, k_cluster, assign_labels, min_cluster_size=min_cluster_size, min_samples=min_samples)
+  clustering, k_cluster, matrix = dm.hdbscan_clustering_on_deltas_varadd_distance(average_delta_matrix, std_delta_matrix, min_cluster_size=min_cluster_size, min_samples=min_samples)
 
 
   Q = []
