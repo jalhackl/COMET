@@ -1,0 +1,16 @@
+name: COMET
+channels:
+  - conda-forge
+  - omnia
+  - defaults
+dependencies:
+  - python=3.9
+  - ipykernel
+  - gcc=12.1.0
+  - conda-forge::ffmpeg
+  - openmm
+  - openmmtools
+  - openmm-setup
+  - pip
+  - pip:
+    - -r requirements.txt
