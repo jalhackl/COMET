@@ -4,7 +4,8 @@ channels:
   - omnia
   - defaults
 dependencies:
-  - python=3.9
+  - python=3.9.18
+  - rpy2
   - ipykernel
   - gcc=12.1.0
   - conda-forge::ffmpeg

@@ -53,13 +53,6 @@ def compute_gnm_modes(filename, output_file="new_cov.cov", write_file=False, ins
     nma_object = covnma(modes)
 
 
-    #geostas_result = geostas(pdbfile, fit=True)
-
-    #l = geostas_result
-    #d = dict(l.items())
-
-    #clustering = pandas2ri.PandasDataFrame(d["grps"]).to_numpy().flatten()
-
     r_code = """
 n <- nrow(covariance_matrix)
 
@@ -96,6 +89,7 @@ cov_df
 
     cov_df = pd.DataFrame(result)#.rx(True)
 
+    print(f"Name of output file: {output_file}")
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     if write_file:
         cov_df = cov_df.T
@@ -112,12 +106,12 @@ cov_df
 
 
 def full_covariance_matrix(prot_info, output_file="new_cov.cov", write_file=False):
+
+    print("traj")
+    print(prot_info)
         
     traj = preprocessing_return_traj(prot_info,-1,None)
-
-    #print("TRAJDATA")
-    #print(traj_data)
-
+    
 
     positions = traj[0].xyz
 
@@ -150,6 +144,8 @@ def full_covariance_matrix(prot_info, output_file="new_cov.cov", write_file=Fals
             cov_data.append((index1+1, index2+1, covariance))
 
     cov_df = pd.DataFrame(cov_data, columns=["Atom_Index_1", "Atom_Index_2", "Covariance"])
+
+    print(f"Name of output file: {output_file}")
 
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
@@ -186,6 +182,9 @@ def full_comodo_clustering(filename, elastic_network=True):
         cov_file = filename.split(".")[0] + ".cov"
     except:
         cov_file = filename[0].split(".")[0] + ".cov"
+        cov_file = os.path.join("trajdata", filename[2], cov_file)
+
+    print(f"Name of cov-file: f{cov_file}")
 
     if elastic_network:
         compute_gnm_modes(filename, output_file=cov_file, write_file=True, install=False)

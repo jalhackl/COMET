@@ -117,106 +117,79 @@ def plot_residue_line_plus_noise(residues, labels, noise_label = -1, title = Non
     plt.show()
 
 
-def multiple_line_plots(data, items=None, titles=None, full_title="Residue clustering", orig_data = None, noise_value = -1):
+import numpy as np
+import matplotlib.pyplot as plt
+import sortedcontainers
 
-    import sortedcontainers
-    labels_set = [y for y in [(item['labels']) for item in data] for y in y] 
-    #print(labels_set)
-    labels_set = sortedcontainers.SortedSet(labels_set)
-    #print(labels_set)
+import numpy as np
+import matplotlib.pyplot as plt
+import sortedcontainers
 
+def multiple_line_plots(data, full_title="Residue clustering", 
+                        orig_data=None, noise_value=-1, num_cols=1, plot_subtitle=True, plot_fulltitle=False):
 
+    # Extract unique labels and sort them
+    labels_set = sortedcontainers.SortedSet([y for item in data for y in item['labels']])
+    
+    # Define colormap
     num_labels = len(labels_set)
     color_map = plt.cm.get_cmap('tab20', num_labels)  
 
+    # Determine grid layout
     num_plots = len(data)
-    num_cols = 2  
     num_rows = (num_plots + num_cols - 1) // num_cols  
 
-
-    fig, axs = plt.subplots(num_rows, num_cols, figsize=(15, 2 * num_rows), 
-                            gridspec_kw={'hspace': 0.00001})  # Adjust the value as needed
+    # Create subplots
+    fig, axs = plt.subplots(num_rows, num_cols, figsize=(15, 2 * num_rows), gridspec_kw={'hspace': 0.2})
+    
+    # Ensure axs is iterable correctly
+    if num_cols == 1:  
+        axs = np.array(axs).reshape(-1)  # Force 1D array for single column
+    else:
+        axs = np.array(axs).reshape(num_rows, num_cols)  # Ensure 2D for multiple columns
 
     add_counter = 0
+    for i, item_data in enumerate(data):
+        row, col = divmod(i, num_cols)  # Compute correct row/column index
+        
+        # Correctly index subplot depending on num_cols
+        ax = axs[row] if num_cols == 1 else axs[row, col]
 
-    if num_rows > 1:
-        for i, ax_row in enumerate(axs):
+        items = item_data['items']
+        labels = item_data['labels']
 
-            
-            for j, ax in enumerate(ax_row):
-                index = i * num_cols + j
+        for k in range(len(items) - 1):
+            x = [items[k], items[k + 1]]
+            y = [0, 0]  
+            label_color = color_map(labels_set.index(labels[k]))
 
-                if index < num_plots:
+            # Handle noise coloring
+            if orig_data is not None and orig_data[add_counter][k] == noise_value:
+                label_color = 'black'
 
-                    item_data = data[index]
+            ax.plot(x, y, color=label_color, linewidth=20)  
+            ax.axis('off')  
 
-                    items = item_data['items']
-                    labels = item_data['labels']
-                    
-                    for k in range(len(items) - 1):
-                        x = [items[k], items[k + 1]]
-                        y = [0, 0]  
-                        label_color = color_map(labels_set.index(labels[k]))
+        # Annotate residue numbers
+        ax.annotate(f'{items[0]}', (items[0], 0), xytext=(5, -26), textcoords='offset points', ha='center', color='black')
+        ax.annotate(f'{items[-1]}', (items[-1], 0), xytext=(-5, -26), textcoords='offset points', ha='center', color='black')
+        ax.text((items[0] + items[-1]) / 2, -0.03, 'Residue number', ha='center')
 
-                        if orig_data != None:
-                            if orig_data[add_counter][k] == noise_value:
-                                label_color = 'black'
-     
-                        ax.plot(x, y, color=label_color, linewidth=24)  
-                        ax.axis('off') 
+        if plot_subtitle:
+            ax.set_title(item_data['title'], fontsize=10)
+        add_counter += 1
 
-                    
-                    ax.annotate(f'{items[0]}', (items[0], 0), xytext=(5, -26), textcoords='offset points', ha='center', color='black')
-                    ax.annotate(f'{items[-1]}', (items[-1], 0), xytext=(-5, -26), textcoords='offset points', ha='center', color='black')
+    # Remove unused subplots
+    if num_cols > 1:
+        for j in range(i + 1, num_rows * num_cols):
+            row, col = divmod(j, num_cols)
+            fig.delaxes(axs[row, col])  
 
-                    
-                    ax.text((items[0] + items[-1]) / 2, -0.03, 'Residue number', ha='center')
-
-                    ax.set_title(item_data['title'])
-
-                else:
-                    ax.remove()
-                
-                add_counter = add_counter + 1
-    else:
-
-
-        index = 0
-
-        while index < num_plots :
-            print("index")
-            print(index)
-            if index < num_plots :
-                ax = axs[index]
-
-                item_data = data[index]
-
-                items = item_data['items']
-                labels = item_data['labels']
-                
-                for k in range(len(items) - 1):
-                    x = [items[k], items[k + 1]]
-                    y = [0, 0] 
-                    label_color = color_map(labels_set.index(labels[k]))
-                    
-                    ax.plot(x, y, color=label_color, linewidth=24)  
-                    ax.axis('off')  
-
-                ax.annotate(f'{items[0]}', (items[0], 0), xytext=(5, -26), textcoords='offset points', ha='center', color='black')
-                ax.annotate(f'{items[-1]}', (items[-1], 0), xytext=(-5, -26), textcoords='offset points', ha='center', color='black')
-
-                ax.text((items[0] + items[-1]) / 2, -0.03, 'Residue number', ha='center')
-
-                ax.set_title(item_data['title'])
-            index = index + 1
-
-    plt.suptitle(full_title)
-
+    # Set full title and display plot
+    if plot_fulltitle:
+        plt.suptitle(full_title)
     plt.tight_layout()
-
     plt.show()
-
-
 
 
 
@@ -246,7 +219,7 @@ def create_list_of_dicts(labels, items=None, titles=None):
     if items is None:
         items = []
         for label in labels:
-            print(label)
+
             items.append(list(range(len(label))))
 
     if titles is None:
@@ -303,7 +276,7 @@ def iterate_rearrange_labels(labels_lists):
     except:
      start_label = labels_lists[0]
        
-    #print(start_label)
+
     rearranged_lists = []
     rearranged_lists.append(start_label)
 
@@ -320,7 +293,7 @@ def iterate_rearrange_labels(labels_lists):
 
 
 
-def line_plot_workflow(data, titles = None, full_title = "residue line plots", rearrange = True, hdb_scan_noise=False):
+def line_plot_workflow(data, titles = "", full_title = "residue line plots", rearrange = True, hdb_scan_noise=False, num_cols=1):
     from copy import deepcopy
     data_final = deepcopy(data)
     if rearrange:
@@ -328,9 +301,9 @@ def line_plot_workflow(data, titles = None, full_title = "residue line plots", r
     dicts = create_list_of_dicts(data_final, titles = titles)
 
     if not hdb_scan_noise:
-        multiple_line_plots(dicts, full_title = full_title)
+        multiple_line_plots(dicts, full_title = full_title, num_cols=num_cols)
     else:
-        multiple_line_plots(dicts, full_title = full_title, orig_data = data)
+        multiple_line_plots(dicts, full_title = full_title, orig_data = data, num_cols=num_cols)
 
 
 def find_noise_resiudes(clusters, noise_nr=-1):
