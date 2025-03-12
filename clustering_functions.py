@@ -1,47 +1,86 @@
 import numpy as np
 import distance_matrix as dm
 import redpandda_general
+from postprocess_clusterings import assign_noise_points
 
-def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, return_matrices = False):
+def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, post_process_noise = False, noise_label = -1, return_matrices = False):
 
     dist_matrices = redpandda_general.get_distance_matrices(traj_array)
     average_distance_matrix = redpandda_general.calculate_average_delta_matrix(dist_matrices)
     std_distance_matrix = redpandda_general.get_std_matrices(dist_matrices)
 
     matrices_for_computations = {}
+    import time
+    times_matrices =  {}
+
 
     if "delta" in matrices_to_apply:
+        
+        start_time = time.time()
         delta_matrices = redpandda_general.get_delta_matrices(dist_matrices)
         average_delta_matrix = redpandda_general.calculate_average_delta_matrix(delta_matrices)
         std_delta_matrix = redpandda_general.get_std_matrices(delta_matrices)
         matrices_for_computations["delta"] = average_delta_matrix
 
+        curr_time = time.time() - start_time 
+        times_matrices["delta"] = curr_time
+
     if "delta w/o abs" in matrices_to_apply:
+        start_time = time.time()
+
         delta_matrices_wo_absolute = redpandda_general.get_delta_matrices_wo_absolute(dist_matrices)
         average_delta_matrix_wo_absolute = redpandda_general.calculate_average_delta_matrix(delta_matrices_wo_absolute)
         matrices_for_computations["delta w/o abs"] = average_delta_matrix_wo_absolute
 
+        curr_time = time.time() - start_time 
+        times_matrices["delta w/o abs"] = curr_time
+
     if "stddv" in matrices_to_apply:
+        start_time = time.time()
+
         stddv_matrices = redpandda_general.get_stddv(dist_matrices)
         matrices_for_computations["stddv"] = stddv_matrices
 
+        curr_time = time.time() - start_time 
+        times_matrices["stddv"] = curr_time
+
+
+
     if "delta+1std" in matrices_to_apply:
+        start_time = time.time()
+
+
         summed_delta_matrix_1std = average_delta_matrix + std_delta_matrix 
         matrices_for_computations["delta+1std"] = summed_delta_matrix_1std
 
+        curr_time = time.time() - start_time 
+        times_matrices["delta+1std"] = curr_time + times_matrices["delta"]
+
     if "delta+2std" in matrices_to_apply:
+        start_time = time.time()
+
         summed_delta_matrix_2std = average_delta_matrix + std_delta_matrix * 2 
         matrices_for_computations["delta+2std"] = summed_delta_matrix_2std
+
+        curr_time = time.time() - start_time 
+        times_matrices["delta+2std"] = curr_time + times_matrices["delta"]
 
     clustering_results = []
     for matrix in matrices_for_computations:
 
         for clustering_algo in clusterings_to_apply:
+            start_time = time.time()
             new_clustering_results = dm.clustering_on_deltas(matrices_for_computations[matrix], clustering_algo["method"], **clustering_algo["params"])
             if isinstance(new_clustering_results, tuple):
                 new_clustering_results = new_clustering_results[0]
+            clustering_time = time.time() - start_time 
+            total_time = clustering_time + times_matrices[matrix]
+
+            if post_process_noise and noise_label in new_clustering_results:
+                assign_noise_points(matrices_for_computations[matrix], new_clustering_results, noise_label)
+
             #clustering_results.append([clustering_algo["name"], clustering_algo["method"], clustering_algo["params"], matrix, new_clustering_results ])
-            clustering_results.append({"name":clustering_algo["name"], "method":clustering_algo["method"], "params":clustering_algo["params"], "matrix":matrix, "clustering":new_clustering_results })
+            clustering_results.append({"name":clustering_algo["name"], "method":clustering_algo["method"], "params":clustering_algo["params"], "matrix":matrix, "clustering":new_clustering_results, "runtime": total_time })
 
 
     if return_matrices:

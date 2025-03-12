@@ -561,3 +561,56 @@ def ani_2d_plot(df, curr_file, filename_add="", save_plot=True, title_add="anima
         ani.save(filename_add + curr_file.split('.')[0] + title_add, writer='ffmpeg')
 
     plt.show()
+
+
+
+def plot_sdm_vs_rmse(delta_matrices, get_total_rmses_for_frames,batch_size = 10):
+    import scipy
+    def get_sdm_batches(summed_delta_matrices,get_total_rmses_for_frames,batch_size = batch_size):
+        batched_summed_delta_matrices = []
+        batched_get_total_rmses_for_frames = []
+        for i in range(0, len(summed_delta_matrices), batch_size):
+            try:
+                batched_summed_delta_matrices.append(np.mean(summed_delta_matrices[i:i+batch_size]))
+                batched_get_total_rmses_for_frames.append(np.mean(get_total_rmses_for_frames[i:i+batch_size]))
+            except:
+                pass
+        return batched_summed_delta_matrices, batched_get_total_rmses_for_frames
+
+
+    summed_delta_matrices= []
+    for delta_matrix in delta_matrices:
+        summed_delta_matrices.append(dm.sum_up_matrices(delta_matrix.flatten()))
+
+    batched_summed_delta_matrices, batched_get_total_rmses_for_frames = get_sdm_batches(summed_delta_matrices,get_total_rmses_for_frames)
+
+    pcc = scipy.stats.pearsonr(batched_summed_delta_matrices,batched_get_total_rmses_for_frames )[0]
+
+
+    plt.figure(figsize=(12, 6))
+    plt.plot(summed_delta_matrices, label="Sum of DDM")
+    plt.plot(get_total_rmses_for_frames, label="RMSE w/o Clustering")
+
+    plt.xlabel('Frame')  
+    plt.ylabel('RMSE')  
+
+    plt.title('RMSE with and w/o Clustering of Ace') 
+
+
+    plt.text(
+        0.05,  # x-position (percentage of the x-axis range)
+        0.95,  # y-position (percentage of the y-axis range)
+        f'PCC: {pcc:.3f}',  # Text to display with 3 decimal places
+        transform=plt.gca().transAxes,  # Use axis coordinate system (0-1 range)
+        fontsize=12,  # Font size of the text
+        verticalalignment='top',  # Position the text at the top
+        horizontalalignment='left',  # Position the text on the left side
+        bbox=dict(facecolor='white', edgecolor='black', boxstyle='round,pad=0.5')  # Box around the text for clarity
+    )
+
+
+    plt.legend()
+
+    plt.show()
+
+

@@ -334,7 +334,7 @@ def main_clustring_var(prot_info,k_cluster,assign_labels='discretize', no_q_comp
     delta_matrices = get_delta_matrices(dist_matrices)
   else:
      delta_matrices = get_delta_matrices_no_chunk(dist_matrices)
-  #del dist_matrices
+  
   average_delta_matrix = calculate_average_delta_matrix(delta_matrices)
 
   #new
@@ -385,7 +385,7 @@ def main_clustering_varadd(prot_info,k_cluster,assign_labels='discretize', no_q_
       delta_matrices = get_delta_matrices(dist_matrices)
   else:
      delta_matrices = get_delta_matrices_no_chunk(dist_matrices)
-  #del dist_matrices
+
   average_delta_matrix = calculate_average_delta_matrix(delta_matrices)
 
   #new
@@ -461,9 +461,7 @@ def run_experiments(protein_info_list):
 
 #un_experiments(CONSTANTS.tr)
 '''
-print("firstexperiment")
 run_experiments(CONSTANTS.mcg)
-print("secondexperiment")
 
 run_experiments(CONSTANTS.sav)
 run_experiments(CONSTANTS.r1)

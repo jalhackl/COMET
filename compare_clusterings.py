@@ -2,13 +2,12 @@ import numpy as np
 import mdtraj as md
 import CONSTANTS
 import sklearn.metrics as m
-
 from itertools import combinations
-
-import numpy as np
 from scipy.optimize import linear_sum_assignment
 from sklearn.metrics import confusion_matrix
 import sklearn
+from scipy.spatial import procrustes
+from scipy.spatial.transform import Rotation as R
 
 def geostas_csv_to_numpy_array(filename,k) -> np.ndarray:
   '''
@@ -130,7 +129,7 @@ def get_RMSE_for_clustering(folded_dist: np.ndarray, current_dists: np.ndarray, 
   clusters_mean_rmses = np.sum(cluster_rmses, axis=0) / new_k
   return clusters_mean_rmses
 
-def get_Q_wo_clustering(current_dists: np.ndarray):
+def get_Q_wo_clustering(current_dists: np.ndarray, use_max = True):
   '''
   current_dists: List of distance matrices
 
@@ -139,7 +138,11 @@ def get_Q_wo_clustering(current_dists: np.ndarray):
   current_dists = current_dists[0:len(current_dists):int(len(current_dists)/400)] # TODO: Nur drin, um Rechnung kürzer zu machen
   combis = np.array(list(combinations(current_dists, 2)))
   rmse_for_frame_combis = np.sqrt(np.sum(np.square(np.array([x[0] - x[1] for x in combis]).reshape(len(combis),-1)),axis=1))
-  return np.max(rmse_for_frame_combis)
+  if use_max:
+    return np.max(rmse_for_frame_combis)
+  else:
+    return np.mean(rmse_for_frame_combis)
+   
 
 def get_Q_for_clustering(current_dists: np.ndarray, clustering: np.ndarray, k: int, use_max = False):
   '''
@@ -594,3 +597,152 @@ def get_Q_max_RMSE_for_clustering_extended(delta_matrices: np.ndarray, clusterin
      return all_rmse_trajectories
 
   return np.mean(cluster_qs), cluster_qs
+
+
+
+def rmsd(P, Q):
+    """Computes RMSD between two sets of points."""
+    return np.sqrt(np.mean(np.sum((P - Q) ** 2, axis=1)))
+
+
+import numpy as np
+from scipy.spatial import procrustes
+from scipy.spatial.transform import Rotation as R
+
+def rmsd(P, Q):
+    """Computes RMSD between two sets of points."""
+    return np.sqrt(np.mean(np.sum((P - Q) ** 2, axis=1)))
+
+def get_RMSD_to_average_structure(positions: np.ndarray, clustering: np.ndarray, k=None, apply_superimposition=None, center_positions=False, return_raw=False):
+    '''
+    positions: Array of positions with shape (T, nr_objects, 3) where T is the number of time frames (steps), 
+               nr_objects is the number of particles, and 3 is for x, y, z coordinates.
+    clustering: Array containing index of cluster for each object (of length nr_objects)
+    k: Number of clusters
+
+    Returns the RMSD for each cluster at each time step relative to the superimposed average structure.
+    '''
+
+    if not k:
+        k = len(np.unique(clustering))
+
+    # Initialize array to store RMSD for each cluster at each time step
+    rmsd_per_timestep = np.zeros((k, positions.shape[0]))  # Shape (k, T)
+
+    # Iterate over each cluster
+    for i in range(k):
+        # Get the indices of the objects in cluster i
+        indices = np.where(clustering == i)[0]
+
+        if len(indices) <= 1:
+            rmsd_per_timestep[i, :] = 0
+            continue
+
+        # Extract positions for this cluster (Shape: T, len(indices), 3)
+        cluster_positions = positions[:, indices, :]
+
+        # Compute the average structure (mean position across all time steps) (Shape: len(indices), 3)
+        average_structure = cluster_positions.mean(axis=0)  # Shape (len(indices), 3)
+
+        # Optionally center the positions around the average structure
+        if center_positions:
+            average_structure_mean = average_structure.mean(axis=0)
+            average_structure -= average_structure_mean
+            cluster_positions -= cluster_positions.mean(axis=1, keepdims=True)
+
+        # Optionally apply superimposition to the average structure
+        if apply_superimposition == "kabsch":
+            # Align the cluster positions to the average structure using Kabsch
+            for t in range(positions.shape[0]):  # Iterate over time steps
+                rotation, _ = R.align_vectors(average_structure, cluster_positions[t, :, :])
+                aligned_positions = rotation.apply(cluster_positions[t, :, :])
+                rmsd_per_timestep[i, t] = rmsd(aligned_positions, average_structure)
+
+        elif apply_superimposition == "procrustes":
+            for t in range(positions.shape[0]):
+                mtx1, mtx2, _ = procrustes(average_structure, cluster_positions[t, :, :])
+                rmsd_per_timestep[i, t] = rmsd(mtx1, mtx2)
+        else:
+            # If no superimposition, calculate RMSD directly
+            for t in range(positions.shape[0]):
+                rmsd_per_timestep[i, t] = rmsd(cluster_positions[t, :, :], average_structure)
+
+    if return_raw:
+        return rmsd_per_timestep
+
+    # Optionally return the mean RMSD for each cluster across all time steps
+    return np.mean(rmsd_per_timestep, axis=1), rmsd_per_timestep
+
+
+
+def rmsd(P, Q):
+    """Computes RMSD between two sets of points."""
+    return np.sqrt(np.mean(np.sum((P - Q) ** 2, axis=1)))
+
+def get_RMSD_to_reference(positions: np.ndarray, clustering: np.ndarray, k=None, reference_frame=None, apply_superimposition=None, center_positions=True, return_raw=False):
+    '''
+    positions: Array of positions with shape (T, nr_objects, 3) where T is the number of time frames (steps), 
+               nr_objects is the number of particles, and 3 is for x, y, z coordinates.
+    clustering: Array containing index of cluster for each object (of length nr_objects)
+    k: Number of clusters
+    reference_frame: Specific time frame (index) to use as the reference structure. If None, the average structure will be used.
+    
+    Returns the RMSD for each cluster at each time step relative to the reference structure (either a specific frame or the average).
+    '''
+
+    if not k:
+        k = len(np.unique(clustering))
+
+    # Initialize array to store RMSD for each cluster at each time step
+    rmsd_per_timestep = np.zeros((k, positions.shape[0]))  # Shape (k, T)
+
+    # Iterate over each cluster
+    for i in range(k):
+        # Get the indices of the objects in cluster i
+        indices = np.where(clustering == i)[0]
+
+        if len(indices) <= 1:
+            rmsd_per_timestep[i, :] = 0
+            continue
+
+        # Extract positions for this cluster (Shape: T, len(indices), 3)
+        cluster_positions = positions[:, indices, :]
+
+        # Determine the reference structure
+        if reference_frame is not None:
+            # Use the specific frame as the reference structure (Shape: len(indices), 3)
+            reference_structure = cluster_positions[reference_frame, :, :]
+        else:
+            # Compute the average structure (mean position across all time steps) (Shape: len(indices), 3)
+            reference_structure = cluster_positions.mean(axis=0)  # Shape (len(indices), 3)
+
+        # Optionally center the positions around the reference structure
+        if center_positions:
+            # Center the cluster positions
+            cluster_positions -= cluster_positions.mean(axis=1, keepdims=True)
+
+            # Center the reference structure as well
+            reference_structure -= reference_structure.mean(axis=0)
+
+        # Optionally apply superimposition to the reference structure
+        if apply_superimposition == "kabsch":
+            # Align the cluster positions to the reference structure using Kabsch
+            for t in range(positions.shape[0]):  # Iterate over time steps
+                rotation, _ = R.align_vectors(reference_structure, cluster_positions[t, :, :])
+                aligned_positions = rotation.apply(cluster_positions[t, :, :])
+                rmsd_per_timestep[i, t] = rmsd(aligned_positions, reference_structure)
+
+        elif apply_superimposition == "procrustes":
+            for t in range(positions.shape[0]):
+                mtx1, mtx2, _ = procrustes(reference_structure, cluster_positions[t, :, :])
+                rmsd_per_timestep[i, t] = rmsd(mtx1, mtx2)
+        else:
+            # If no superimposition, calculate RMSD directly
+            for t in range(positions.shape[0]):
+                rmsd_per_timestep[i, t] = rmsd(cluster_positions[t, :, :], reference_structure)
+
+    if return_raw:
+        return rmsd_per_timestep
+
+    # Optionally return the mean RMSD for each cluster across all time steps
+    return np.mean(rmsd_per_timestep, axis=1), rmsd_per_timestep
