@@ -38,7 +38,7 @@ def frobenius_distance(D1, D2):
 
 
 
-def compute_timstep_clustering(input_matrices, title_type="Delta-matrices", dim_red="umap", metric="wasserstein", plot_dim_red=True, kde_plot=True, plot_heatmap=True):
+def compute_timestep_clustering(input_matrices, title_type="Delta-matrices", dim_red="umap", metric="wasserstein", plot_dim_red=True, kde_plot=True, plot_heatmap=True):
 
 
 
@@ -178,3 +178,57 @@ def compute_lcss_weights(dists, epsilon, return_additional_statistics=False):
         return weights, segments, weights_refined
     else:
         return weights, segments
+    
+def iterative_clustering_approach(traj_array, delta_matrices, Q_values, pen=100, clustering_method = "spectral", clustering_params={}, k_cluster=None, compute_Q=False):
+    import clustering_functions
+    from compare_clusterings import max_overlap_matching
+    from compare_clusterings import get_RMSD_to_reference
+
+    if k_cluster is not None:
+        clustering_params["cluster_count"] = k_cluster
+
+    # Flatten the array into a 1D vector
+    flat_array = Q_values.flatten()
+
+    # Reshape into a 4D trajectory (4 rows, as each point has 4 coordinates)
+    Q_values = flat_array.reshape(-1, 4)
+
+    change_points = apply_rpt_change_detection(Q_values, pen=pen)
+
+    timestep_clusters = clustering_functions.cluster_timesteps_change_points(delta_matrices, change_points, clustering_method, clustering_params)
+    timestep_clusters = max_overlap_matching(timestep_clusters)
+
+    if compute_Q:
+        final_Qs = []
+        for timestep in timestep_clusters:
+            print(f'clustering for timestep {timestep["start"]} - {timestep["end"]}: {timestep["clustering"]}')
+            if len(traj_array) > timestep["end"]:
+                Q_from_pos_trajectory_average_procrustes_window = get_RMSD_to_reference(traj_array, timestep["clustering"], apply_superimposition="procrustes",  return_raw=True, start=timestep["start"], end=timestep["end"])
+                final_Qs.append(Q_from_pos_trajectory_average_procrustes_window)
+
+        # Initialize a list to store the concatenated arrays
+        concatenated_arrays = []
+
+        # Iterate through the rows of the arrays and concatenate corresponding rows
+        for i in range(final_Qs[0].shape[0]):  # Assuming all arrays have the same shape
+            # Extract the i-th row from each array and concatenate them horizontally (axis=1)
+            concatenated_row = np.concatenate([arr[i] for arr in final_Qs], axis=0)
+            concatenated_arrays.append(concatenated_row)
+
+        # Convert the list to a numpy array if needed
+        concatenated_arrays = np.array(concatenated_arrays)
+
+        plt.figure(figsize=(12, 6))
+        for i, cluster_q in enumerate(concatenated_arrays):    
+            plt.plot(cluster_q, label=f'Cluster {i+1}')
+
+        plt.xlabel('Frame')  
+        plt.ylabel('RMSD')  
+
+        plt.title('RMSD of Clusters \n compared to average structure \n Procrustes superimposition') 
+
+        plt.legend()
+
+        plt.show()
+
+    return timestep_clusters, final_Qs

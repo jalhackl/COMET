@@ -214,6 +214,65 @@ def rearrange_labels_multi(*label_lists):
     return rearranged_label_lists
 
 
+def max_overlap_matching(timestep_clusters):
+    """
+    Maximize the overlap between clustering labels across consecutive time steps using the Hungarian algorithm.
+
+    Args:
+    timestep_clusters (list): List of dictionaries containing 'start', 'end', and 'clustering' arrays.
+
+    Returns:
+    List: A list of dictionaries with updated clustering labels after applying the Hungarian algorithm.
+    """
+    updated_clusters = []
+
+    # Iterate through each pair of consecutive time steps
+    for i in range(len(timestep_clusters) - 1):
+        # Get the current and next time step clusters
+        curr_start, curr_end, curr_clustering = timestep_clusters[i]['start'], timestep_clusters[i]['end'], timestep_clusters[i]['clustering']
+        next_start, next_end, next_clustering = timestep_clusters[i + 1]['start'], timestep_clusters[i + 1]['end'], timestep_clusters[i + 1]['clustering']
+
+        # Get the number of clusters in the current and next time step
+        num_curr_clusters = len(np.unique(curr_clustering))
+        num_next_clusters = len(np.unique(next_clustering))
+
+        # Create a cost matrix where the rows are current clusters and columns are next clusters
+        cost_matrix = np.zeros((num_curr_clusters, num_next_clusters), dtype=int)
+
+        # Populate the cost matrix with the number of overlapping objects between each pair of clusters
+        for curr_label in range(num_curr_clusters):
+            for next_label in range(num_next_clusters):
+                # Calculate the overlap (number of objects with the same label in both clusters)
+                overlap = np.sum((curr_clustering == curr_label) & (next_clustering == next_label))
+                cost_matrix[curr_label, next_label] = -overlap  # Negative because we want to maximize overlap
+
+        # Use the Hungarian algorithm to find the optimal assignment
+        row_ind, col_ind = linear_sum_assignment(cost_matrix)
+
+        # Create a mapping from the current clusters to the next clusters
+        label_mapping = dict(zip(row_ind, col_ind))
+
+        # Update the clustering labels for the next time step based on the mapping
+        next_clustering_updated = np.copy(next_clustering)
+        for curr_label, next_label in label_mapping.items():
+            next_clustering_updated[next_clustering == next_label] = curr_label
+
+        # Store the updated clustering in the result list
+        updated_clusters.append({
+            'start': curr_start,
+            'end': curr_end,
+            'clustering': curr_clustering
+        })
+
+        # Update the next step with the new clustering labels
+        timestep_clusters[i + 1]['clustering'] = next_clustering_updated
+
+    # Add the last cluster (as it doesn't have a next step to compare with)
+    updated_clusters.append(timestep_clusters[-1])
+
+    return updated_clusters
+
+
 
 def create_list_of_dicts(labels, items=None, titles=None):
     if items is None:

@@ -8,6 +8,7 @@ from sklearn.metrics import confusion_matrix
 import sklearn
 from scipy.spatial import procrustes
 from scipy.spatial.transform import Rotation as R
+from joblib import Parallel, delayed
 
 def geostas_csv_to_numpy_array(filename,k) -> np.ndarray:
   '''
@@ -144,7 +145,7 @@ def get_Q_wo_clustering(current_dists: np.ndarray, use_max = True):
     return np.mean(rmse_for_frame_combis)
    
 
-def get_Q_for_clustering(current_dists: np.ndarray, clustering: np.ndarray, k: int, use_max = False):
+def get_Q_for_clustering_wo_parallel(current_dists: np.ndarray, clustering: np.ndarray, k: int, use_max = False):
   '''
   current_dists: List of distance matrices
   clustering: Array containing index of cluster for each atom
@@ -172,6 +173,93 @@ def get_Q_for_clustering(current_dists: np.ndarray, clustering: np.ndarray, k: i
 
 
   return np.mean(cluster_qs), cluster_qs
+
+
+from joblib import Parallel, delayed
+import numpy as np
+from itertools import combinations
+
+def get_Q_for_clustering_parallel(current_dists: np.ndarray, clustering: np.ndarray, k: int, use_max=False, n_jobs=-1):
+    cluster_qs = np.zeros(k, dtype=float)
+
+    def compute_cluster_Q(i):
+        indices = np.where(clustering == i)[0]
+        ca_count = len(indices)
+        if ca_count <= 1:
+            return 0  # If there's only 1 element, return 0
+
+        cluster_dists = current_dists[np.ix_(range(len(current_dists)), indices, indices)]
+        combis = combinations(cluster_dists, 2)  # Lazy iteration instead of storing all at once
+
+        rmse_values = []
+        for x in combis:
+            rmse = np.sqrt(np.sum((x[0] - x[1])**2) / ca_count)
+            if rmse > 0:
+                rmse_values.append(rmse)
+
+        return np.max(rmse_values) if use_max else np.mean(rmse_values)
+
+    # Run computations in parallel across clusters
+    cluster_qs = np.array(Parallel(n_jobs=n_jobs)(delayed(compute_cluster_Q)(i) for i in range(k)))
+
+    return np.mean(cluster_qs), cluster_qs
+
+
+
+def compute_rmse_for_cluster(cluster_dists, ca_count, use_max):
+    """
+    Helper function to compute the RMSE for a given cluster.
+    This function is parallelized across clusters.
+    """
+    if ca_count <= 1:
+        return 0  # If there's only 1 element, return 0 (no meaningful RMSE)
+
+    rmse_values = []
+    for frame_1, frame_2 in combinations(cluster_dists, 2):  # Memory-efficient pairwise selection
+        rmse = np.sqrt(np.sum((frame_1 - frame_2) ** 2) / ca_count)
+        if rmse > 0:  # Ignore zero RMSE values
+            rmse_values.append(rmse)
+
+    if not rmse_values:
+        return 0  # If no RMSE values remain, return 0
+
+    return np.max(rmse_values) if use_max else np.mean(rmse_values)
+
+
+def get_Q_for_clustering(current_dists: np.ndarray, clustering: np.ndarray, k: int, num_frames: int = 400, use_max=False, n_jobs=-1):
+    """
+    Computes the clustering quality (Q) based on RMSE values.
+
+    Parameters:
+    - current_dists: np.ndarray (shape: [frames, atoms, atoms]), list of distance matrices
+    - clustering: np.ndarray, array containing index of cluster for each atom
+    - k: int, number of clusters
+    - num_frames: int, number of frames to use for computation (default=400)
+    - use_max: bool, if True, use max RMSE; otherwise, use mean RMSE
+    - n_jobs: int, number of parallel jobs (-1 uses all available cores)
+
+    Returns:
+    - mean_Q (float): Mean Q value across clusters
+    - cluster_qs (np.ndarray): Q values for individual clusters
+    """
+
+    # Select frames efficiently based on num_frames argument
+    step = max(1, len(current_dists) // num_frames)  # Avoid division by zero
+    selected_dists = current_dists[::step]
+
+    cluster_qs = np.zeros(k, dtype=float)
+
+    # Use parallel processing to speed up cluster computations
+    cluster_qs = np.array(Parallel(n_jobs=n_jobs)(
+        delayed(compute_rmse_for_cluster)(
+            selected_dists[:, indices, :][:, :, indices],  # Extract distances for this cluster
+            len(indices),
+            use_max
+        ) for i in range(k) if (indices := np.where(clustering == i)[0]).size > 0
+    ))
+
+    return np.mean(cluster_qs), cluster_qs
+
 
 def get_Q_max_RMSE_wo_clustering(delta_matrices: np.ndarray):
   '''
@@ -679,22 +767,35 @@ def rmsd(P, Q):
     """Computes RMSD between two sets of points."""
     return np.sqrt(np.mean(np.sum((P - Q) ** 2, axis=1)))
 
-def get_RMSD_to_reference(positions: np.ndarray, clustering: np.ndarray, k=None, reference_frame=None, apply_superimposition=None, center_positions=True, return_raw=False):
+def get_RMSD_to_reference(positions: np.ndarray, clustering: np.ndarray, k=None, reference_frame=None, 
+                           apply_superimposition=None, center_positions=True, return_raw=False, 
+                           start=None, end=None):
     '''
     positions: Array of positions with shape (T, nr_objects, 3) where T is the number of time frames (steps), 
                nr_objects is the number of particles, and 3 is for x, y, z coordinates.
     clustering: Array containing index of cluster for each object (of length nr_objects)
     k: Number of clusters
     reference_frame: Specific time frame (index) to use as the reference structure. If None, the average structure will be used.
+    apply_superimposition: Superimposition method to use ('kabsch', 'procrustes', or None).
+    center_positions: Whether to center the positions around the reference structure.
+    return_raw: Whether to return the RMSD values for each time step or only the average RMSD.
+    start: The starting time frame (inclusive). If None, all frames are considered.
+    end: The ending time frame (inclusive). If None, all frames are considered.
     
     Returns the RMSD for each cluster at each time step relative to the reference structure (either a specific frame or the average).
     '''
-
+    
     if not k:
         k = len(np.unique(clustering))
 
-    # Initialize array to store RMSD for each cluster at each time step
-    rmsd_per_timestep = np.zeros((k, positions.shape[0]))  # Shape (k, T)
+    # Determine the valid time range to consider
+    if start is not None and end is not None:
+        time_range = range(start, end + 1)
+    else:
+        time_range = range(positions.shape[0])  # Consider all time frames
+
+    # Initialize array to store RMSD for each cluster at each selected time step
+    rmsd_per_timestep = np.zeros((k, len(time_range)))  # Shape (k, number of frames in the range)
 
     # Iterate over each cluster
     for i in range(k):
@@ -726,23 +827,107 @@ def get_RMSD_to_reference(positions: np.ndarray, clustering: np.ndarray, k=None,
 
         # Optionally apply superimposition to the reference structure
         if apply_superimposition == "kabsch":
-            # Align the cluster positions to the reference structure using Kabsch
-            for t in range(positions.shape[0]):  # Iterate over time steps
+            for t_idx, t in enumerate(time_range):  # Iterate only over the selected time steps
                 rotation, _ = R.align_vectors(reference_structure, cluster_positions[t, :, :])
                 aligned_positions = rotation.apply(cluster_positions[t, :, :])
-                rmsd_per_timestep[i, t] = rmsd(aligned_positions, reference_structure)
+                rmsd_per_timestep[i, t_idx] = rmsd(aligned_positions, reference_structure)
 
         elif apply_superimposition == "procrustes":
-            for t in range(positions.shape[0]):
+            for t_idx, t in enumerate(time_range):
                 mtx1, mtx2, _ = procrustes(reference_structure, cluster_positions[t, :, :])
-                rmsd_per_timestep[i, t] = rmsd(mtx1, mtx2)
+                rmsd_per_timestep[i, t_idx] = rmsd(mtx1, mtx2)
         else:
             # If no superimposition, calculate RMSD directly
-            for t in range(positions.shape[0]):
-                rmsd_per_timestep[i, t] = rmsd(cluster_positions[t, :, :], reference_structure)
+            for t_idx, t in enumerate(time_range):
+                rmsd_per_timestep[i, t_idx] = rmsd(cluster_positions[t, :, :], reference_structure)
 
     if return_raw:
         return rmsd_per_timestep
 
-    # Optionally return the mean RMSD for each cluster across all time steps
+    # Optionally return the mean RMSD for each cluster across the selected time steps
     return np.mean(rmsd_per_timestep, axis=1), rmsd_per_timestep
+
+def max_overlap_matching(timestep_clusters):
+    """
+    Maximize the overlap between clustering labels across consecutive time steps using the Hungarian algorithm.
+
+    Args:
+    timestep_clusters (list): List of dictionaries containing 'start', 'end', and 'clustering' arrays.
+
+    Returns:
+    List: A list of dictionaries with updated clustering labels after applying the Hungarian algorithm.
+    """
+    updated_clusters = []
+
+    # Iterate through each pair of consecutive time steps
+    for i in range(len(timestep_clusters) - 1):
+        # Get the current and next time step clusters
+        curr_start, curr_end, curr_clustering = timestep_clusters[i]['start'], timestep_clusters[i]['end'], timestep_clusters[i]['clustering']
+        next_start, next_end, next_clustering = timestep_clusters[i + 1]['start'], timestep_clusters[i + 1]['end'], timestep_clusters[i + 1]['clustering']
+
+        # Get the number of clusters in the current and next time step
+        num_curr_clusters = len(np.unique(curr_clustering))
+        num_next_clusters = len(np.unique(next_clustering))
+
+        # Create a cost matrix where the rows are current clusters and columns are next clusters
+        cost_matrix = np.zeros((num_curr_clusters, num_next_clusters), dtype=int)
+
+        # Populate the cost matrix with the number of overlapping objects between each pair of clusters
+        for curr_label in range(num_curr_clusters):
+            for next_label in range(num_next_clusters):
+                # Calculate the overlap (number of objects with the same label in both clusters)
+                overlap = np.sum((curr_clustering == curr_label) & (next_clustering == next_label))
+                cost_matrix[curr_label, next_label] = -overlap  # Negative because we want to maximize overlap
+
+        # Use the Hungarian algorithm to find the optimal assignment
+        row_ind, col_ind = linear_sum_assignment(cost_matrix)
+
+        # Create a mapping from the current clusters to the next clusters
+        label_mapping = dict(zip(row_ind, col_ind))
+
+        # Update the clustering labels for the next time step based on the mapping
+        next_clustering_updated = np.copy(next_clustering)
+        for curr_label, next_label in label_mapping.items():
+            next_clustering_updated[next_clustering == next_label] = curr_label
+
+        # Store the updated clustering in the result list
+        updated_clusters.append({
+            'start': curr_start,
+            'end': curr_end,
+            'clustering': curr_clustering
+        })
+
+        # Update the next step with the new clustering labels
+        timestep_clusters[i + 1]['clustering'] = next_clustering_updated
+
+    # Add the last cluster (as it doesn't have a next step to compare with)
+    updated_clusters.append(timestep_clusters[-1])
+
+    return updated_clusters
+
+
+def relabel_clustering_starting_from_zero(clustering):
+    # Original array
+    arr = np.array(clustering).copy()
+
+    # Get the unique values, sort them, and create a mapping
+    unique_values = sorted(np.unique(arr))
+
+    # Create a mapping of original values to the new labels
+    mapping = {value: idx for idx, value in enumerate(unique_values)}
+
+    # Apply the mapping to the array
+    relabeled_array = np.vectorize(mapping.get)(arr)
+    return relabeled_array
+
+
+def get_sdm_batches(summed_delta_matrices,get_total_rmses_for_frames,batch_size = 10):
+    batched_summed_delta_matrices = []
+    batched_get_total_rmses_for_frames = []
+    for i in range(0, len(summed_delta_matrices), batch_size):
+        try:
+            batched_summed_delta_matrices.append(np.mean(summed_delta_matrices[i:i+batch_size]))
+            batched_get_total_rmses_for_frames.append(np.mean(get_total_rmses_for_frames[i:i+batch_size]))
+        except:
+            pass
+    return batched_summed_delta_matrices, batched_get_total_rmses_for_frames

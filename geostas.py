@@ -5,7 +5,7 @@ from rpy2.robjects import pandas2ri
 
 
 
-def compute_geostas_clusters_multipdb(filename, install=False, only_CA=True):
+def compute_geostas_clusters_multipdb(filename, install=False, only_CA=True, k=3):
     if install == True:
         utils = importr('utils')
         utils.install_packages('bio3d', repos="https://cloud.r-project.org")
@@ -21,7 +21,7 @@ def compute_geostas_clusters_multipdb(filename, install=False, only_CA=True):
         pdbfile = bio3d.trim(pdbfile, atom='CA')
 
 
-    geostas_result = geostas(pdbfile, fit=True)
+    geostas_result = geostas(pdbfile, k=k, fit=True)
 
     l = geostas_result
     d = dict(l.items())
@@ -32,7 +32,7 @@ def compute_geostas_clusters_multipdb(filename, install=False, only_CA=True):
 
 
 
-def compute_geostas_clusters_dcd(filename, pdb_file=None, install=False, only_CA=True):
+def compute_geostas_clusters_dcd(filename, pdb_file=None, install=False, only_CA=True, k=3):
     if install == True:
         utils = importr('utils')
         utils.install_packages('bio3d', repos="https://cloud.r-project.org")
@@ -60,7 +60,7 @@ def compute_geostas_clusters_dcd(filename, pdb_file=None, install=False, only_CA
             # Apply CA selection to DCD trajectory
             trajectory_file = bio3d.trim(trajectory_file, ca_selection)
 
-    geostas_result = geostas(trajectory_file, fit=True)
+    geostas_result = geostas(trajectory_file, k=k, fit=True)
 
     l = geostas_result
     d = dict(l.items())
