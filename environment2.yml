@@ -1,11 +1,13 @@
 name: COMET
 channels:
   - conda-forge
+  - bioconda
   - omnia
   - defaults
 dependencies:
-  - python=3.9.18
+  - python=3.9
   - rpy2
+  - r-bio3d
   - ipykernel
   - gcc=12.1.0
   - conda-forge::ffmpeg
