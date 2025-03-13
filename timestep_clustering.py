@@ -179,6 +179,7 @@ def compute_lcss_weights(dists, epsilon, return_additional_statistics=False):
     else:
         return weights, segments
     
+    
 def iterative_clustering_approach(traj_array, delta_matrices, Q_values, pen=100, clustering_method = "spectral", clustering_params={}, k_cluster=None, compute_Q=False):
     import clustering_functions
     from compare_clusterings import max_overlap_matching
@@ -187,11 +188,9 @@ def iterative_clustering_approach(traj_array, delta_matrices, Q_values, pen=100,
     if k_cluster is not None:
         clustering_params["cluster_count"] = k_cluster
 
-    # Flatten the array into a 1D vector
-    flat_array = Q_values.flatten()
 
-    # Reshape into a 4D trajectory (4 rows, as each point has 4 coordinates)
-    Q_values = flat_array.reshape(-1, 4)
+    Q_values = Q_values.T
+
 
     change_points = apply_rpt_change_detection(Q_values, pen=pen)
 
@@ -210,28 +209,33 @@ def iterative_clustering_approach(traj_array, delta_matrices, Q_values, pen=100,
         concatenated_arrays = []
 
         # Iterate through the rows of the arrays and concatenate corresponding rows
-        for i in range(final_Qs[0].shape[0]):  # Assuming all arrays have the same shape
-            # Extract the i-th row from each array and concatenate them horizontally (axis=1)
-            concatenated_row = np.concatenate([arr[i] for arr in final_Qs], axis=0)
-            concatenated_arrays.append(concatenated_row)
+        if len(final_Qs) > 0:
+            for i in range(final_Qs[0].shape[0]):  # Assuming all arrays have the same shape
+                # Extract the i-th row from each array and concatenate them horizontally (axis=1)
+                concatenated_row = np.concatenate([arr[i] for arr in final_Qs], axis=0)
+                concatenated_arrays.append(concatenated_row)
 
-        # Convert the list to a numpy array if needed
-        concatenated_arrays = np.array(concatenated_arrays)
+            # Convert the list to a numpy array if needed
+            concatenated_arrays = np.array(concatenated_arrays)
 
-        plt.figure(figsize=(12, 6))
-        for i, cluster_q in enumerate(concatenated_arrays):    
-            plt.plot(cluster_q, label=f'Cluster {i+1}')
+            plt.figure(figsize=(12, 6))
+            for i, cluster_q in enumerate(concatenated_arrays):    
+                plt.plot(cluster_q, label=f'Cluster {i+1}')
 
-        plt.xlabel('Frame')  
-        plt.ylabel('RMSD')  
+            plt.xlabel('Frame')  
+            plt.ylabel('RMSD')  
 
-        plt.title('RMSD of Clusters \n compared to average structure \n Procrustes superimposition') 
+            plt.title('RMSD of Clusters for all time segments \n compared to average structure \n Procrustes superimposition') 
 
-        plt.legend()
+            plt.legend()
 
-        plt.show()
-
-    return timestep_clusters, final_Qs
+            plt.show()
+            return timestep_clusters, final_Qs
+        else:
+            print("No change points found!")
+            return timestep_clusters, []
+            
+    return timestep_clusters
 
 
 def compute_adjacent_distances(matrix, distance_type="wasserstein", aggregation="mean"):
@@ -283,7 +287,6 @@ def distance_outliers(distances, use_otsu=False, upper=90):
     else:
         Q1, Q3 = np.percentile(distances, [25, upper])
         IQR = Q3 - Q1
-        lower_bound = Q1 - 1.5 * IQR
         upper_bound = Q3 + 1.5 * IQR
         outlier_indices = np.where(distances > upper_bound)[0]
 
