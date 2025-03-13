@@ -232,3 +232,69 @@ def iterative_clustering_approach(traj_array, delta_matrices, Q_values, pen=100,
         plt.show()
 
     return timestep_clusters, final_Qs
+
+
+def compute_adjacent_distances(matrix, distance_type="wasserstein", aggregation="mean"):
+    """
+    Compute Wasserstein or Frobenius distances for adjacent rows and aggregate using max or mean.
+    
+    Parameters:
+        matrix (numpy.ndarray): A 2D NumPy array.
+        distance_type (str): "wasserstein" or "frobenius".
+        aggregation (str): "max" or "mean".
+    
+    Returns:
+        np.ndarray: An array of aggregated distances with the same length as input matrix.
+    """
+    
+    # Compute pairwise distances
+    wasserstein_distances = [wasserstein_distance(matrix[i], matrix[i + 1]) for i in range(len(matrix) - 1)]
+    frobenius_distances = [np.linalg.norm(matrix[i] - matrix[i + 1], ord=2) for i in range(len(matrix) - 1)]
+
+    # Select the correct distance type
+    distances = wasserstein_distances if distance_type == "wasserstein" else frobenius_distances
+
+    # Aggregated distances for each row
+    aggregated_distances = np.zeros(len(matrix))
+
+    for i in range(len(matrix)):
+        # Get adjacent distances
+        neighbors = []
+        if i > 0:
+            neighbors.append(distances[i - 1])  # Distance to previous row
+        if i < len(matrix) - 1:
+            neighbors.append(distances[i])  # Distance to next row
+
+        # Aggregate using max or mean
+        if aggregation == "max":
+            aggregated_distances[i] = max(neighbors)
+        else:  # Default to mean
+            aggregated_distances[i] = np.mean(neighbors)
+
+    return aggregated_distances
+
+
+def distance_outliers(distances, use_otsu=False, upper=90):
+    if use_otsu:
+        # use otsu's rule to determine threshold
+        from skimage.filters import threshold_otsu
+        thresh = threshold_otsu(distances)
+        outlier_indices = np.where(distances > thresh)[0]
+    else:
+        Q1, Q3 = np.percentile(distances, [25, upper])
+        IQR = Q3 - Q1
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+        outlier_indices = np.where(distances > upper_bound)[0]
+
+    outlier_indices_merged = []
+    for ie, entry in enumerate(outlier_indices):
+        try:
+            if outlier_indices[ie+1] == outlier_indices[ie] + 1:
+                continue
+            else:
+                outlier_indices_merged.append(entry)
+        except:
+            outlier_indices_merged.append(entry)
+
+    return outlier_indices_merged
