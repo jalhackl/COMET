@@ -490,7 +490,8 @@ def invert_active_velocities(active_vels):
 
 def new_vel_partners_global_velocities(Particle):
 
-    actforces = new_forces_thermostat_partners(Particle)  
+
+    actforces = new_forces_thermostat_partners(Particle) 
 
     Particle.velocity = Particle.velocity + timestep * (actforces + Particle.force) / (2*Particle.mass)
     
@@ -599,6 +600,9 @@ def new_forces_thermostat_partners(Particle, min_group=1):
     Particle.forces.append(Particle.force)
    
     return force
+
+
+
 
 #interaction_partner_calc
 
@@ -1009,12 +1013,6 @@ def run_simulation_sab_follow_global_vels(particles, move_groups=None, group_add
             # new velocities
 
             new_vel_partners_global_velocities(Particle)
-
-
-            #if adopt_vel:
-            #    adopt_central_velocity(Particle)
-            #if adopt_act_vel:
-            adopt_central_active_velocity(Particle)
 
 
         if box:
@@ -1638,8 +1636,6 @@ def particles_init_simulate_smallgroups_sab_velocity_objects(stim_steps=1000, Dv
     particles = init_particles_partners_simple_central_allsab_global_vel(cpart_type="sab", temp=T, active_velocity0=act_magnitude, move_groups_nr=move_groups_nr, furtherparticles=furtherparticles)
 
     run_simulation_sab_follow_global_vels(particles)
-
-#def init_particles_partners_simple_central_sab(temp = [0.1,0.1,0.2,0.2], entities=2, cpart_type="sab", move_groups_nr=5, furtherparticles=50, free_particles=None, random_distr_of_move_groups=False, desireddist = 0.8, friction = 1, explicit_groups=None):
 
     return particles
 
