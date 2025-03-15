@@ -598,21 +598,20 @@ def predict_k(affinity_matrix):
 
 
 def agglomerative_clustering_on_deltas(summed_delta_matrix: np.ndarray, cluster_count = None, distance_threshold=None, linkage='complete') -> np.ndarray:
-  #linkage 'ward' does not work with precomputed dist mat
   normed_distance_matrix = normed_values(summed_delta_matrix)
 
   if cluster_count is None and distance_threshold is None:
     distance_threshold = 0.1
 
   if cluster_count is not None:
-
     clustering = AgglomerativeClustering(n_clusters=cluster_count, affinity='precomputed', linkage=linkage)
   else:
     clustering = AgglomerativeClustering(n_clusters=None, distance_threshold=distance_threshold, affinity='precomputed', linkage=linkage)
 
   result = clustering.fit(normed_distance_matrix)
-  #return result.labels_, cluster_count, normed_distance_matrix
   return result.labels_
+
+
 
 
 
@@ -659,11 +658,7 @@ def agglomerative_clustering_on_deltas_var(summed_delta_matrix: np.ndarray, clus
 
 
 
-def agglomerative_clustering_on_deltas(summed_delta_matrix: np.ndarray, cluster_count: Num, linkage='average') -> np.ndarray:
-  normed_distance_matrix = normed_values(summed_delta_matrix)
-  clustering = AgglomerativeClustering(n_clusters=cluster_count, affinity='precomputed', linkage=linkage)
-  result = clustering.fit(normed_distance_matrix)
-  return result.labels_
+
 
 def calculate_average_value(delta_matrix: np.ndarray) -> Num:
   return np.sum(delta_matrix) / (len(delta_matrix[0])*len(delta_matrix[0]))

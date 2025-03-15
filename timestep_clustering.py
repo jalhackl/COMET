@@ -16,14 +16,18 @@ def plot_distance_heatmap(distance_matrix, title="Timestep heatmap"):
     plt.show()
 
 # Define the Wasserstein distance as a custom metric
-def wasserstein_distance_matrices(D1, D2):
+def wasserstein_distance_matrices(D1, D2, sort=True):
     """
     Compute the Wasserstein distance between two distance matrices.
     This metric is permutation-invariant.
     """
     # Flatten and sort the matrices
-    v1 = np.sort(D1.flatten())
-    v2 = np.sort(D2.flatten())
+    if sort:
+        v1 = np.sort(D1.flatten())
+        v2 = np.sort(D2.flatten())
+    else:
+        v1 = D1.flatten()
+        v2 = D2.flatten()
     # Compute the Wasserstein distance
     return wasserstein_distance(v1, v2)
 
@@ -38,7 +42,7 @@ def frobenius_distance(D1, D2):
 
 
 
-def compute_timestep_clustering(input_matrices, title_type="Delta-matrices", dim_red="umap", metric="wasserstein", plot_dim_red=True, kde_plot=True, plot_heatmap=True):
+def compute_timestep_clustering(input_matrices, title_type="Delta-matrices", dim_red="umap", metric="frobenius", plot_dim_red=True, kde_plot=True, plot_heatmap=True):
 
 
 
@@ -56,11 +60,11 @@ def compute_timestep_clustering(input_matrices, title_type="Delta-matrices", dim
     
     pairwise_distances = np.zeros((n_matrices, n_matrices))
 
-    if metric == "wasserstein":
+    if metric == "frobenius":
         results = Parallel(n_jobs=-1)(
             delayed(compute_distance_frobenius)(i, j) for i in range(n_matrices) for j in range(i, n_matrices)
         )
-    elif metric == "frobenius":
+    elif metric == "wasserstein":
         results = Parallel(n_jobs=-1)(
             delayed(compute_distance_wasserstein)(i, j) for i in range(n_matrices) for j in range(i, n_matrices)
         )
@@ -95,7 +99,7 @@ def compute_timestep_clustering(input_matrices, title_type="Delta-matrices", dim
     if plot_dim_red and dim_red_valid:
         # Plot the results
         plt.scatter(embedding[:, 0], embedding[:, 1], c=colors, cmap='viridis')
-        plt.title(dim_red + " with " + metric)
+        plt.title(dim_red + " with " + metric + " metric")
         plt.xlabel(dim_red + " Dimension 1")
         plt.ylabel(dim_red + " Dimension 2")
         plt.show()
@@ -179,7 +183,7 @@ def compute_lcss_weights(dists, epsilon, return_additional_statistics=False):
     else:
         return weights, segments
     
-    
+
 def iterative_clustering_approach(traj_array, delta_matrices, Q_values, pen=100, clustering_method = "spectral", clustering_params={}, k_cluster=None, compute_Q=False):
     import clustering_functions
     from compare_clusterings import max_overlap_matching
