@@ -55,14 +55,13 @@ D=0.001
 
 
 def random_3d_vector_with_magnitude(magnitude):
-    # Generate a random 3D vector
-    #partdim
+
     random_vector = np.random.randn(partdim)
     
-    # Normalize the vector (make its magnitude 1)
+    # Normalize 
     unit_vector = random_vector / np.linalg.norm(random_vector)
     
-    # Scale the unit vector by the desired magnitude
+    # Scale 
     scaled_vector = unit_vector * magnitude
     
     return scaled_vector
@@ -251,8 +250,7 @@ def cart_to_e_unit(evelvec):
     theta = np.arccos(z/r)
     phi = np.arctan(y/x)
     
-    #unit
-    
+
     #runit = (np.sin(theta)*np.cos(phi)*ex)+((np.sin(theta)*np.sin(phi))*ey)+(np.cos(theta)*ez)
     
     thetaunit = (np.cos(theta)*np.cos(phi)*ex)+((np.cos(theta)*np.sin(phi))*ey)-(np.sin(theta)*ez)
@@ -312,9 +310,6 @@ def integrate_evel_vector(Particle, evelvec):
         
         evelvecnew = eestimate / np.linalg.norm(eestimate)
         
-        #theta und pi werden hier vollkommen analog behandelt - logischerweise - das ding soll sich ja in beide richtungen gleich drehen
-        #einfach theta 0 setzen...
-        
         
         #alternatively, should be the same for small D and delta t (it is)
         #evelvecnew2 = evelvec + etheta * theta + ephi * phi - 0.5 * (((theta**2) + (phi**2))*evelvec)
@@ -366,9 +361,6 @@ def integrate_evel_vector_no_particle_argument(evelvec):
         eestimate = evelvec + etheta * theta + ephi * phi
         
         evelvecnew = eestimate / np.linalg.norm(eestimate)
-        
-        #theta und pi werden hier vollkommen analog behandelt - logischerweise - das ding soll sich ja in beide richtungen gleich drehen
-        #einfach theta 0 setzen...
         
         
         #alternatively, should be the same for small D and delta t (it is)
@@ -850,10 +842,9 @@ def run_simulation(particles, partners=False, move_groups=None, group_additions 
             # new velocities
             
             if partners:
-                print("before")
-                print(Particle.particle_type)
+
                 if Particle.particle_type == "const":
-                    print("in const")
+                    
                     new_vel_partners(Particle)
             else:
                 new_vel(Particle)
@@ -876,7 +867,7 @@ def run_simulation(particles, partners=False, move_groups=None, group_additions 
 
 
 
-def permute_groups(particles):
+def permute_groups(particles, main_particle="sab", follow_particle="sab_follow"):
     # Step 1: Organize particles by their original groups
     group_dict = {}
     for particle in particles:
@@ -909,10 +900,10 @@ def permute_groups(particles):
             particle.central_particle = new_central_atom  # Assig
 
             if particle.identity == particle.central_particle:
-                particle.particle_type == "sab"
+                particle.particle_type = main_particle
                 
             else:
-                particle.particle_type == "sab_follow"
+                particle.particle_type = follow_particle
 
     return particles
 
@@ -946,9 +937,6 @@ def run_simulation_sab_follow(particles, move_groups=None, group_additions = Fal
         for Particle in particles:  
             # new velocities
             
-            #if partners:
-                #print("before")
-                #print(Particle.particle_type)
             #if Particle.particle_type == "const":
             new_vel_partners(Particle)
 
@@ -1499,7 +1487,6 @@ def particles_init_simulate_smallgroups(stim_steps=1000, move_groups_nr=5, furth
 
     run_simulation(particles, partners = True)
 
-#def init_particles_partners_simple_central_sab(temp = [0.1,0.1,0.2,0.2], entities=2, cpart_type="sab", move_groups_nr=5, furtherparticles=50, free_particles=None, random_distr_of_move_groups=False, desireddist = 0.8, friction = 1, explicit_groups=None):
 
     return particles
 

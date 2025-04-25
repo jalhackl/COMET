@@ -49,6 +49,40 @@ def create_clustering_df(trajectories):
     return df
 
 
+def create_clustering_df_ndim(trajectories):
+    """
+    Converts a list of trajectories into a flat pandas DataFrame with automatic dimensionality detection.
+    
+    Parameters:
+        trajectories (list): Each trajectory is a list of records [x1, x2, ..., xn, label]
+
+    Returns:
+        pd.DataFrame: Columns = ['obj_id', 't', 'x1', ..., 'xn', 'label']
+    """
+    flattened_data = []
+
+    # Determine dimensionality from the first record
+    first_record = trajectories[0][0]
+    n_dim = len(first_record) - 1  # Last entry is assumed to be the label
+
+    for obj_id, particle_data in enumerate(trajectories):
+        for t, record in enumerate(particle_data):
+            coords = record[:-1]
+            label = record[-1]
+
+            # Pad with zeros if needed
+            if len(coords) < n_dim:
+                coords += [0] * (n_dim - len(coords))
+            elif len(coords) > n_dim:
+                coords = coords[:n_dim]
+
+            flattened_data.append([obj_id, t] + coords + [label])
+
+    # Create column names like ['x1', ..., 'xn']
+    columns = ['obj_id', 't'] + [f'x{i+1}' for i in range(n_dim)] + ['label']
+    return pd.DataFrame(flattened_data, columns=columns)
+
+
 def create_clustering_df_simple(trajectories):
     flattened_data = []
     trajectories = trajectories.tolist()
@@ -201,6 +235,62 @@ def simulation_to_array_velocities(particles_from_sim, group_attribute_name = "m
     trajectories = particle_labels
 
     return trajectories
+
+
+def simulation_to_array_velocities_extended(particles_from_sim, include_positions=False, group_attribute_name="move_group"):
+    particle_list = list(particles_from_sim)
+
+    velocities_list = []
+    positions_list = []
+    times_list = []
+    groups_list = []
+
+    for pp in particle_list:
+        velocity_list = []
+        position_list = []
+        time_list = []
+        group_list = []
+
+        has_dynamic_groups = hasattr(pp, "curr_group_list")  # Check if dynamic groups exist
+        static_group = getattr(pp, group_attribute_name, None)  # Fallback if dynamic groups are absent
+
+        for timess, velocity in enumerate(pp.velocities):
+            velocity_list.append(velocity)
+            time_list.append(timess)
+
+            if has_dynamic_groups:
+                group_list.append(pp.curr_group_list[timess])  # Use dynamic group
+            else:
+                group_list.append(static_group)  # Use static group
+
+            if include_positions:
+                position_list.append(pp.positions[timess])  # Extract position at this timestep
+
+        velocities_list.append(velocity_list)
+        times_list.append(time_list)
+        groups_list.append(group_list)
+        if include_positions:
+            positions_list.append(position_list)
+
+    particles_new = velocities_list
+    labels_new = list(range(len(particles_new)))
+
+    particle_labels = []
+    for ig, group in enumerate(particles_new):
+        particle_label_group = []
+        for ie, entry in enumerate(group):
+            new_entry = [*entry]  # Start with velocity data
+            if include_positions:
+                new_entry.extend(positions_list[ig][ie])  # Append position data
+            new_entry.append(groups_list[ig][ie])  # Append group data
+            
+            particle_label_group.append(new_entry)
+        particle_labels.append(particle_label_group)
+
+    trajectories = particle_labels
+
+    return trajectories
+
 
 
 def compute_velocities(points, delta_t=1):

@@ -15,6 +15,9 @@ import CONSTANTS
 from functools import wraps, reduce
 from time import time
 
+from haversine import haversine, Unit
+from geopy.distance import geodesic
+
 def timing(f):
     @wraps(f)
     def wrap(*args, **kw):
@@ -666,13 +669,70 @@ def calculate_average_value(delta_matrix: np.ndarray) -> Num:
 def calculate_knn_graph(delta_matrix: np.ndarray) -> Num:
   return skn.kneighbors_graph(X=delta_matrix, n_neighbors=10, mode='distance', include_self=True).toarraly()
 
-#@timing
-def calculate_distance_matrix(traj_array: np.ndarray) -> np.ndarray:
-  '''
-  traj_array: Array containing positions x, y, z of all atoms in time step i
-  '''
-  #return scipy.spatial.distance_matrix(traj_array, traj_array, p=2)
-  return np.linalg.norm(traj_array[:, None, :] - traj_array[None, :, :], axis=-1)
+
+
+def calculate_distance_matrix(traj_array: np.ndarray, metric: str = "euclidean") -> np.ndarray:
+    """
+    Calculate pairwise distance matrix using various metrics, including handling 
+    latitude/longitude and altitude.
+    
+    Parameters:
+        traj_array (np.ndarray): Positions of all particles at a given time step, shape (N, D)
+        metric (str): Distance metric to use. Options: "euclidean", "cosine", "manhattan", "haversine", "geo3d"
+    
+    Returns:
+        np.ndarray: Pairwise distance matrix of shape (N, N)
+    """
+    if metric == "euclidean":
+        return np.linalg.norm(traj_array[:, None, :] - traj_array[None, :, :], axis=-1)
+
+    elif metric == "cosine":
+        norms = np.linalg.norm(traj_array, axis=1, keepdims=True)
+        normalized = traj_array / (norms + 1e-10)
+        cosine_sim = np.dot(normalized, normalized.T)
+        return 1 - cosine_sim
+
+    elif metric == "manhattan":
+        return np.sum(np.abs(traj_array[:, None, :] - traj_array[None, :, :]), axis=-1)
+
+    elif metric == "haversine":
+        if traj_array.shape[1] != 2:
+            raise ValueError("Haversine distance requires 2D (lat, lon) input in radians.")
+        
+        dist_matrix = np.zeros((traj_array.shape[0], traj_array.shape[0]))
+        
+        for i in range(traj_array.shape[0]):
+            for j in range(traj_array.shape[0]):
+                # Calculate the Haversine distance between lat/lon points
+                point1 = (traj_array[i, 0], traj_array[i, 1])
+                point2 = (traj_array[j, 0], traj_array[j, 1])
+                dist_matrix[i, j] = haversine(point1, point2, unit=Unit.KILOMETERS)
+        
+        return dist_matrix
+
+    elif metric == "geo3d":
+        if traj_array.shape[1] != 3:
+            raise ValueError("Geo3d metric requires 3D input (lat, lon, altitude).")
+
+        dist_matrix = np.zeros((traj_array.shape[0], traj_array.shape[0]))
+        
+        for i in range(traj_array.shape[0]):
+            for j in range(traj_array.shape[0]):
+                # Calculate the 2D geodesic distance
+                point1 = (traj_array[i, 0], traj_array[i, 1])
+                point2 = (traj_array[j, 0], traj_array[j, 1])
+                distance = geodesic(point1, point2).kilometers
+
+                # Calculate the altitude difference
+                altitude_diff = abs(traj_array[i, 2] - traj_array[j, 2])
+                
+                # Calculate the 3D distance
+                dist_matrix[i, j] = np.sqrt(distance**2 + altitude_diff**2)
+        
+        return dist_matrix
+
+    else:
+        raise ValueError(f"Unsupported metric: {metric}")
 
 #@timing
 def calculate_delta_matrix(dist_then: np.ndarray, dist_now: np.ndarray) -> np.ndarray:

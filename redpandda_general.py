@@ -25,12 +25,19 @@ def timing(f):
 warnings.filterwarnings("ignore")
 pool = multiprocessing.Pool()
 
+from functools import partial
 
-
-
+'''
 @timing
 def get_distance_matrices(traj_array):
     return np.array(list(pool.map(dm.calculate_distance_matrix, traj_array)))
+'''
+
+@timing
+def get_distance_matrices(traj_array, metric='euclidean'):
+    # Use functools.partial to pass 'metric' argument to the function
+    partial_distance_func = partial(dm.calculate_distance_matrix, metric=metric)
+    return np.array(list(pool.map(partial_distance_func, traj_array)))
 
 @timing
 def get_delta_matrices(dist_matrices):
@@ -77,7 +84,7 @@ def calculate_var_delta_matrix(delta_matrices):
     return np.var(delta_matrices, axis=0)/len(delta_matrices)
 
 
-def prepare_data_from_df(x, use_mean_preprocessing=True):
+def prepare_data_from_df(x, use_mean_preprocessing=True, group_by_obj_id=False):
     import pandas as pd
     import numpy as np  
 
@@ -91,7 +98,15 @@ def prepare_data_from_df(x, use_mean_preprocessing=True):
     point_array = []
 
     # Group by time ('t') after ensuring data is sorted by 'obj_id'
-    for g in x.sort_values(['obj_id'], ascending=True).groupby("t"):
+
+    if group_by_obj_id:
+        group_variable = "obj_id"
+        sort_variable = "t"
+    else:
+        group_variable = "t"
+        sort_variable = "obj_id"
+
+    for g in x.sort_values([sort_variable], ascending=True).groupby(group_variable):
         tpoints.append(g[1].values)
         df_points.append(pd.DataFrame(g[1]))
         new_df = pd.DataFrame(g[1])
@@ -101,6 +116,38 @@ def prepare_data_from_df(x, use_mean_preprocessing=True):
         point_array.append(new_df[['obj_id']].values)
 
     # Calculate the number of frames and objects
+    frames_count = len(df_points[0]) if df_points else 0
+    n_objects = len(df_points)
+
+    return traj_array, point_array, frames_count, n_objects
+
+
+def prepare_data_from_df_ndim(x, use_mean_preprocessing=True, group_by_obj_id=False):
+    import pandas as pd
+    import numpy as np  
+
+    if use_mean_preprocessing:
+        x = x.groupby(['t', 'obj_id'], as_index=False).mean()
+
+    tpoints = []
+    df_points = []
+    traj_array = []
+    point_array = []
+
+    # Detect spatial coordinate columns (e.g. x1, x2, ..., xn)
+    coord_cols = [col for col in x.columns if col.startswith('x') and col[1:].isdigit()]
+    coord_cols.sort(key=lambda c: int(c[1:]))  # Ensure x1, x2, ..., xn order
+
+    # Grouping logic
+    group_variable = "obj_id" if group_by_obj_id else "t"
+    sort_variable = "t" if group_by_obj_id else "obj_id"
+
+    for _, group_df in x.sort_values([sort_variable], ascending=True).groupby(group_variable):
+        tpoints.append(group_df.values)
+        df_points.append(pd.DataFrame(group_df))
+        traj_array.append(group_df[coord_cols].values)
+        point_array.append(group_df[['obj_id']].values)
+
     frames_count = len(df_points[0]) if df_points else 0
     n_objects = len(df_points)
 

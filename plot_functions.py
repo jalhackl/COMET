@@ -89,105 +89,6 @@ def reorganize_by_label(traj):
 
 
 
-
-import plotly.graph_objs as go
-
-def plot_traj_labels_plotly_2nd(trajectories, duration=100, noise_label=-1, color_map = "Spectral"):
-    num_timesteps = len(trajectories[0])
-    num_particles = len(trajectories)
-    groups_list = np.array(trajectories)[:, :, -1]
-    unique_groups = np.unique(np.array(groups_list).flatten())
-    num_groups = len(unique_groups)
-
-    #colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'brown', 'pink', 'grey', 'cyan']
-    color_palette = plt.cm.get_cmap(color_map, num_groups)
-    colors = [color_palette(i) for i in range(num_groups)]
-    colors = [f'rgba({int(c[0]*255)}, {int(c[1]*255)}, {int(c[2]*255)}, {c[3]})' for c in colors]
-
-    color_mapping = {group: 'black' if group == noise_label else colors[i] 
-                     for i, group in enumerate(unique_groups)}
-
-    xmin = np.min(np.array(trajectories)[:, :, 0].flatten())
-    xmax = np.max(np.array(trajectories)[:, :, 0].flatten())
-    ymin = np.min(np.array(trajectories)[:, :, 1].flatten())
-    ymax = np.max(np.array(trajectories)[:, :, 1].flatten())
-    zmin = np.min(np.array(trajectories)[:, :, 2].flatten())
-    zmax = np.max(np.array(trajectories)[:, :, 2].flatten())
-
-    frames = []
-    for t in range(num_timesteps):
-        result = [[particle[t]] for particle in trajectories]
-        result = reorganize_by_label(result)
-
-        num_particles_per_group = []
-        for ii in result:
-            num_particles_per_group.append(len(ii))
-
-        frame_data = []
-        for group_index in range(num_groups):
-            group = unique_groups[group_index]
-            particle_index = 0
-            num_particles = num_particles_per_group[group_index]
-            xs = [result[group_index][particle_index + p][0] for p in range(num_particles)]
-            ys = [result[group_index][particle_index + p][1] for p in range(num_particles)]
-            zs = [result[group_index][particle_index + p][2] for p in range(num_particles)]
-            frame_data.append(go.Scatter3d(
-                x=xs, y=ys, z=zs,
-                mode='markers',
-                marker=dict(size=5, color=color_mapping[group]),
-                name=f'Group {group}'
-            ))
-            particle_index += num_particles
-        frames.append(go.Frame(data=frame_data, name=str(t)))
-
-    initial_data = []
-    for group_index in range(num_groups):
-        group = unique_groups[group_index]
-        particle_index = 0
-        result = [[particle[0]] for particle in trajectories]
-        result = reorganize_by_label(result)
-        num_particles_per_group = []
-        for ii in result:
-            num_particles_per_group.append(len(ii))
-
-        num_particles = num_particles_per_group[group_index]
-        xs = [result[group_index][particle_index + p][0] for p in range(num_particles)]
-        ys = [result[group_index][particle_index + p][1] for p in range(num_particles)]
-        zs = [result[group_index][particle_index + p][2] for p in range(num_particles)]
-        initial_data.append(go.Scatter3d(
-            x=xs, y=ys, z=zs,
-            mode='markers',
-            marker=dict(size=5, color=color_mapping[group]),
-            name=f'Group {group}'
-        ))
-        particle_index += num_particles
-
-    fig = go.Figure(
-        data=initial_data,
-        layout=go.Layout(
-            updatemenus=[dict(
-                type="buttons",
-                showactive=False,
-                buttons=[dict(label="Play",
-                              method="animate",
-                              args=[None, dict(frame=dict(duration=duration, redraw=True), fromcurrent=True)])]
-            )],
-            scene=dict(
-                xaxis=dict(range=[xmin, xmax]),
-                yaxis=dict(range=[ymin, ymax]),
-                zaxis=dict(range=[zmin, zmax]),
-                aspectmode='cube'
-            ),
-            title="3D Particle Trajectories"
-        ),
-        frames=frames
-    )
-
-    fig.show()
-
-
-
-
 import numpy as np
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
@@ -322,6 +223,151 @@ def plot_traj_labels_plotly_2nd(trajectories, duration=100, noise_label=-1, colo
     fig.show()
 
 
+import numpy as np
+import matplotlib.pyplot as plt
+import plotly.graph_objs as go
+
+def plot_traj_labels_plotly_nd(trajectories, duration=100, noise_label=-1, color_map="Spectral", dims_to_plot=None):
+    """
+    Plots 2D or 3D particle trajectories using Plotly, automatically detecting dimensionality,
+    or allows manual selection of 2 or 3 dimensions if the data has more than 3 spatial dimensions.
+    
+    Parameters:
+        trajectories (list): List of trajectories where each trajectory contains points in [x1, x2, ..., xn, label] format.
+        duration (int): Animation frame duration in milliseconds.
+        noise_label (int): Label used for noise points (colored black).
+        color_map (str): Colormap for labeled groups.
+        dims_to_plot (list): Indices of 2 or 3 dimensions to visualize if spatial dimension > 3.
+    """
+    num_timesteps = len(trajectories[0])
+    num_particles = len(trajectories)
+
+    sample_point = trajectories[0][0]
+    point_dim = len(sample_point)
+    label_index = point_dim - 1
+    spatial_dim = label_index
+
+    # Handle dimensionality and dims_to_plot
+    if dims_to_plot:
+        if len(dims_to_plot) not in [2, 3]:
+            raise ValueError("dims_to_plot must have length 2 or 3.")
+        dims_to_use = dims_to_plot
+    else:
+        if spatial_dim > 3:
+            raise ValueError(f"Data has {spatial_dim} spatial dimensions. Please specify dims_to_plot (length 2 or 3).")
+        dims_to_use = list(range(spatial_dim))
+
+
+    is_3d = len(dims_to_use) == 3
+
+    # Extract labels and unique groups
+    groups_list = np.array(trajectories)[:, :, -1]
+    unique_groups = np.unique(groups_list.flatten())
+    num_groups = len(unique_groups)
+
+    # Generate colors for groups
+    color_palette = plt.cm.get_cmap(color_map, num_groups)
+    colors = [color_palette(i) for i in range(num_groups)]
+    colors = [f'rgba({int(c[0]*255)}, {int(c[1]*255)}, {int(c[2]*255)}, {c[3]})' for c in colors]
+    color_mapping = {group: 'black' if group == noise_label else colors[i] for i, group in enumerate(unique_groups)}
+
+    data_array = np.array(trajectories)
+    mins = [np.min(data_array[:, :, d]) for d in dims_to_use]
+    maxs = [np.max(data_array[:, :, d]) for d in dims_to_use]
+
+    frames = []
+    for t in range(num_timesteps):
+        result = [[particle[t]] for particle in trajectories]
+        result = reorganize_by_label(result)  # Assumed external function
+
+        num_particles_per_group = [len(group) for group in result]
+        frame_data = []
+
+        for group_index in range(num_groups):
+            group = unique_groups[group_index]
+            particle_index = 0
+            num_particles = num_particles_per_group[group_index]
+
+            coords = [[point[d] for d in dims_to_use] for point in result[group_index][particle_index:particle_index + num_particles]]
+            xs = [c[0] for c in coords]
+            ys = [c[1] for c in coords]
+            zs = [c[2] for c in coords] if is_3d else None
+
+            if is_3d:
+                scatter = go.Scatter3d(
+                    x=xs, y=ys, z=zs,
+                    mode='markers',
+                    marker=dict(size=5, color=color_mapping[group]),
+                    name=f'Group {group}'
+                )
+            else:
+                scatter = go.Scatter(
+                    x=xs, y=ys,
+                    mode='markers',
+                    marker=dict(size=5, color=color_mapping[group]),
+                    name=f'Group {group}'
+                )
+            frame_data.append(scatter)
+            particle_index += num_particles
+        frames.append(go.Frame(data=frame_data, name=str(t)))
+
+    # Initial frame
+    initial_data = []
+    result = [[particle[0]] for particle in trajectories]
+    result = reorganize_by_label(result)
+    num_particles_per_group = [len(group) for group in result]
+
+    for group_index in range(num_groups):
+        group = unique_groups[group_index]
+        particle_index = 0
+        num_particles = num_particles_per_group[group_index]
+
+        coords = [[point[d] for d in dims_to_use] for point in result[group_index][particle_index:particle_index + num_particles]]
+        xs = [c[0] for c in coords]
+        ys = [c[1] for c in coords]
+        zs = [c[2] for c in coords] if is_3d else None
+
+        if is_3d:
+            scatter = go.Scatter3d(
+                x=xs, y=ys, z=zs,
+                mode='markers',
+                marker=dict(size=5, color=color_mapping[group]),
+                name=f'Group {group}'
+            )
+        else:
+            scatter = go.Scatter(
+                x=xs, y=ys,
+                mode='markers',
+                marker=dict(size=5, color=color_mapping[group]),
+                name=f'Group {group}'
+            )
+        initial_data.append(scatter)
+        particle_index += num_particles
+
+    # Create figure
+    layout = go.Layout(
+        updatemenus=[dict(
+            type="buttons",
+            showactive=False,
+            buttons=[dict(label="Play",
+                          method="animate",
+                          args=[None, dict(frame=dict(duration=duration, redraw=True), fromcurrent=True)])]
+        )],
+        title="Particle Trajectories"
+    )
+
+    if is_3d:
+        layout.update(scene=dict(
+            xaxis=dict(range=[mins[0], maxs[0]]),
+            yaxis=dict(range=[mins[1], maxs[1]]),
+            zaxis=dict(range=[mins[2], maxs[2]]),
+            aspectmode='cube'
+        ))
+    else:
+        layout.update(xaxis=dict(range=[mins[0], maxs[0]]), yaxis=dict(range=[mins[1], maxs[1]]))
+
+    fig = go.Figure(data=initial_data, layout=layout, frames=frames)
+    fig.show()
 
 
 

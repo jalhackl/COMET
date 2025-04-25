@@ -99,6 +99,8 @@ def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, pos
 def cluster_timesteps_change_points(input_matrix, change_points, clustering_method = "hdbscan", clustering_params ={}):
     start_idx = 0
     timestep_clusterings = []
+    if len(change_points) < 1:
+        change_points = [len(input_matrix) -1]
     for end_idx in change_points:
         timestep_clustering = {}
         timestep_clustering["start"] = start_idx
@@ -107,6 +109,19 @@ def cluster_timesteps_change_points(input_matrix, change_points, clustering_meth
         delta_selected_frames = input_matrix[start_idx:end_idx + 1]  # Select range from start to end (inclusive)
         
         start_idx = end_idx + 1  # Move to the next range
+        average_delta_matrix = redpandda_general.calculate_average_delta_matrix(delta_selected_frames)
+
+        new_clustering_results = dm.clustering_on_deltas(average_delta_matrix, clustering_method, **clustering_params)
+        timestep_clustering["clustering"] = new_clustering_results
+        timestep_clusterings.append(timestep_clustering)
+
+    # last cluster timeframe
+    timestep_clustering = {}
+    timestep_clustering["start"] = end_idx
+    timestep_clustering["end"] = len(input_matrix)-1
+    if timestep_clustering["end"] - timestep_clustering["start"] > 0:
+        delta_selected_frames = input_matrix[end_idx:len(input_matrix)-1]  # Select range from start to end (inclusive)
+
         average_delta_matrix = redpandda_general.calculate_average_delta_matrix(delta_selected_frames)
 
         new_clustering_results = dm.clustering_on_deltas(average_delta_matrix, clustering_method, **clustering_params)

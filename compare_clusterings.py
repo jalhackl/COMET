@@ -242,6 +242,8 @@ def get_Q_for_clustering(current_dists: np.ndarray, clustering: np.ndarray, k: i
     - mean_Q (float): Mean Q value across clusters
     - cluster_qs (np.ndarray): Q values for individual clusters
     """
+    if not k:
+       k = len(np.unique(k))
 
     # Select frames efficiently based on num_frames argument
     step = max(1, len(current_dists) // num_frames)  # Avoid division by zero
@@ -767,9 +769,24 @@ def rmsd(P, Q):
     """Computes RMSD between two sets of points."""
     return np.sqrt(np.mean(np.sum((P - Q) ** 2, axis=1)))
 
+
+def relabel_to_zero(clustering):
+    # Original array
+    arr = np.array(clustering).copy()
+
+    # Get the unique values, sort them, and create a mapping
+    unique_values = sorted(np.unique(arr))
+
+    # Create a mapping of original values to the new labels
+    mapping = {value: idx for idx, value in enumerate(unique_values)}
+
+    # Apply the mapping to the array
+    relabeled_array = np.vectorize(mapping.get)(arr)
+    return relabeled_array, mapping
+
 def get_RMSD_to_reference(positions: np.ndarray, clustering: np.ndarray, k=None, reference_frame=None, 
                            apply_superimposition=None, center_positions=True, return_raw=False, 
-                           start=None, end=None):
+                           start=None, end=None, relabel=False):
     '''
     positions: Array of positions with shape (T, nr_objects, 3) where T is the number of time frames (steps), 
                nr_objects is the number of particles, and 3 is for x, y, z coordinates.
@@ -787,6 +804,10 @@ def get_RMSD_to_reference(positions: np.ndarray, clustering: np.ndarray, k=None,
     
     if not k:
         k = len(np.unique(clustering))
+
+    if relabel:
+        clustering, mapping = relabel_to_zero(clustering)
+        print(mapping)
 
     # Determine the valid time range to consider
     if start is not None and end is not None:
