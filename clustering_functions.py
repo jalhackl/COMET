@@ -4,17 +4,25 @@ import redpandda_general
 from postprocess_clusterings import assign_noise_points
 
 def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, post_process_noise = False, noise_label = -1, return_matrices = False):
+    import time
 
+    start_time = time.time()
     dist_matrices = redpandda_general.get_distance_matrices(traj_array)
+    dist_matrices_time = time.time() - start_time
+
+
     average_distance_matrix = redpandda_general.calculate_average_delta_matrix(dist_matrices)
+
+    
     std_distance_matrix = redpandda_general.get_std_matrices(dist_matrices)
 
+
     matrices_for_computations = {}
-    import time
+    
     times_matrices =  {}
 
 
-    if "delta" in matrices_to_apply:
+    if "delta" in matrices_to_apply or "delta+1std" in matrices_to_apply or "delta+2std" in matrices_to_apply:
         
         start_time = time.time()
         delta_matrices = redpandda_general.get_delta_matrices(dist_matrices)
@@ -23,7 +31,7 @@ def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, pos
         matrices_for_computations["delta"] = average_delta_matrix
 
         curr_time = time.time() - start_time 
-        times_matrices["delta"] = curr_time
+        times_matrices["delta"] = curr_time + dist_matrices_time
 
     if "delta w/o abs" in matrices_to_apply:
         start_time = time.time()
@@ -33,7 +41,7 @@ def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, pos
         matrices_for_computations["delta w/o abs"] = average_delta_matrix_wo_absolute
 
         curr_time = time.time() - start_time 
-        times_matrices["delta w/o abs"] = curr_time
+        times_matrices["delta w/o abs"] = curr_time + dist_matrices_time
 
     if "stddv" in matrices_to_apply:
         start_time = time.time()
@@ -42,7 +50,7 @@ def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, pos
         matrices_for_computations["stddv"] = stddv_matrices
 
         curr_time = time.time() - start_time 
-        times_matrices["stddv"] = curr_time
+        times_matrices["stddv"] = curr_time + dist_matrices_time
 
 
 
@@ -54,7 +62,7 @@ def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, pos
         matrices_for_computations["delta+1std"] = summed_delta_matrix_1std
 
         curr_time = time.time() - start_time 
-        times_matrices["delta+1std"] = curr_time + times_matrices["delta"]
+        times_matrices["delta+1std"] = curr_time + times_matrices["delta"] + dist_matrices_time
 
     if "delta+2std" in matrices_to_apply:
         start_time = time.time()
@@ -63,7 +71,7 @@ def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, pos
         matrices_for_computations["delta+2std"] = summed_delta_matrix_2std
 
         curr_time = time.time() - start_time 
-        times_matrices["delta+2std"] = curr_time + times_matrices["delta"]
+        times_matrices["delta+2std"] = curr_time + times_matrices["delta"] + dist_matrices_time
 
     clustering_results = []
     for matrix in matrices_for_computations:
@@ -85,7 +93,7 @@ def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, pos
 
     if return_matrices:
         matrices_for_computations["all distances"] = dist_matrices
-        if "delta" in matrices_to_apply:
+        if "delta" in matrices_to_apply or "delta+1std" in matrices_to_apply or "delta+2std" in matrices_to_apply:
             matrices_for_computations["all deltas"] = delta_matrices
         if "delta w/o abs" in matrices_to_apply:
             matrices_for_computations["delta w/o abs"] = delta_matrices_wo_absolute

@@ -706,7 +706,7 @@ def calculate_distance_matrix(traj_array: np.ndarray, metric: str = "euclidean")
                 # Calculate the Haversine distance between lat/lon points
                 point1 = (traj_array[i, 0], traj_array[i, 1])
                 point2 = (traj_array[j, 0], traj_array[j, 1])
-                dist_matrix[i, j] = haversine(point1, point2, unit=Unit.KILOMETERS)
+                dist_matrix[i, j] = haversine(point1, point2, unit=Unit.KILOMETERS, normalize=True)
         
         return dist_matrix
 

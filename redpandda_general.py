@@ -122,9 +122,13 @@ def prepare_data_from_df(x, use_mean_preprocessing=True, group_by_obj_id=False):
     return traj_array, point_array, frames_count, n_objects
 
 
-def prepare_data_from_df_ndim(x, use_mean_preprocessing=True, group_by_obj_id=False):
-    import pandas as pd
-    import numpy as np  
+def prepare_data_from_df_ndim(
+    x, 
+    use_mean_preprocessing=True, 
+    group_by_obj_id=False, 
+    coord_columns=None
+):
+
 
     if use_mean_preprocessing:
         x = x.groupby(['t', 'obj_id'], as_index=False).mean()
@@ -134,9 +138,12 @@ def prepare_data_from_df_ndim(x, use_mean_preprocessing=True, group_by_obj_id=Fa
     traj_array = []
     point_array = []
 
-    # Detect spatial coordinate columns (e.g. x1, x2, ..., xn)
-    coord_cols = [col for col in x.columns if col.startswith('x') and col[1:].isdigit()]
-    coord_cols.sort(key=lambda c: int(c[1:]))  # Ensure x1, x2, ..., xn order
+    # Detect spatial coordinate columns
+    if coord_columns is None:
+        coord_cols = [col for col in x.columns if col.startswith('x') and col[1:].isdigit()]
+        coord_cols.sort(key=lambda c: int(c[1:]))  # Ensure x1, x2, ..., xn order
+    else:
+        coord_cols = coord_columns  # use the user-provided list
 
     # Grouping logic
     group_variable = "obj_id" if group_by_obj_id else "t"
