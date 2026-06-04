@@ -1,6 +1,6 @@
 # COMET - Clustering of Molecular and Environmental Trajectories
 
-The algorithm allows clustering of spatio-temporal particle data (e.g. molecular dynamics trajectories) using temporal delta matrices and **SHiP** [ **SHiP**](https://github.com/pasiweber/SHiP-framework/) (Similarity-Hierarchy-Partitioning), a framework for clustering by leveraging similarity trees. This repository provides code for preprocessing of general datasets (csv) as well as MD data sets, the COMET clustering workdlow and benchmarking / visualization functions for analyzing the results and comparing it to several other methods (see main script description below).
+The algorithm allows clustering of spatio-temporal particle data (e.g. molecular dynamics trajectories) using temporal delta matrices and [ **SHiP**](https://github.com/pasiweber/SHiP-framework/) (Similarity-Hierarchy-Partitioning), a framework for clustering by leveraging similarity trees. This repository provides code for preprocessing of general datasets (csv) as well as MD data sets, the COMET clustering workdlow and benchmarking / visualization functions for analyzing the results and comparing it to several other methods (see main script description below).
 
 
 COMET computes temporal delta matrices from trajectory data and applies SHiP clustering on these matrices.
