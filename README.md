@@ -111,8 +111,8 @@ COMET-D73C/
 For running SHiP, use the environment in SHiP_dmat.yml: 
 
 ```bash
-conda env create -f COMET_MD_env.yml
-conda activate COMET_MD
+conda env create -f SHiP_dmat.yml
+conda activate ship-dmat
 ```
 
 For MD related functions (in particular preprocessing for SHiP), COMET_MD_env provides the necessary libraries:
