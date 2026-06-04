@@ -1,7 +1,6 @@
-# COMET - Clustering of Molecular and Environmental Trajectories
+# COMET - Proximity-agnostic Clustering of Co-movement Patterns in Temporal Data
 
 The algorithm allows clustering of spatio-temporal particle data (e.g. molecular dynamics trajectories) using temporal delta matrices and [ **SHiP**](https://github.com/pasiweber/SHiP-framework/) (Similarity-Hierarchy-Partitioning), a framework for clustering by leveraging similarity trees. This repository provides code for preprocessing of general datasets (csv) as well as MD data sets, the COMET clustering workdlow and benchmarking / visualization functions for analyzing the results and comparing it to several other methods (see main script description below).
-
 
 COMET computes temporal delta matrices from trajectory data and applies SHiP clustering on these matrices.
 Example workflow:
@@ -25,6 +24,7 @@ results = clustering_workflow(traj_array, matrices_to_apply, clusterings_to_appl
 ```
 
 SHiP (Similarity-Hierarchical-Partitioning Clustering Framework) is the primary clustering algorithm. It builds ultrametric trees from distance matrices which can be partitioned by several partitioning methods.
+For only applying SHiP (in case tat data is already provided as numpy-arrays containing the delta matrices), one can use:
 
 ```python
 from SHiP import SHiP
@@ -120,18 +120,4 @@ For MD related functions (in particular preprocessing for SHiP), COMET_MD_env pr
 ```bash
 conda env create -f COMET_MD_env.yml
 conda activate COMET_MD
-```
-
-### pip dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### R dependency
-
-GEOSTAS clustering requires R's `bio3d` package:
-
-```r
-install.packages("bio3d", repos = "https://cloud.r-project.org")
 ```
