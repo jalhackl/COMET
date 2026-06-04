@@ -2,7 +2,7 @@ from ast import Num
 from turtle import update
 import numpy as np
 import math
-import mdtraj as md
+# import mdtraj as md
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import scipy
@@ -10,13 +10,25 @@ from sklearn.cluster import SpectralClustering
 from sklearn.cluster import AgglomerativeClustering
 import sklearn.neighbors as skn
 import CONSTANTS
+import numpy as np
+import hdbscan
+
+
+from SHiP import SHiP
+from SHiP.ultrametric_tree import UltrametricTreeType as UTreeType, AVAILABLE_ULTRAMETRIC_TREE_TYPES
+from SHiP.partitioning import PartitioningMethod as PMethod, AVAILABLE_PARTITIONING_METHODS
+
+from sklearn.metrics import adjusted_rand_score as ari
+from sklearn.datasets import load_iris
+
+
 #import manipulate_trajectory as mt
 
 from functools import wraps, reduce
 from time import time
 
-from haversine import haversine, Unit
-from geopy.distance import geodesic
+# from haversine import haversine, Unit
+# from geopy.distance import geodesic
 
 def timing(f):
     @wraps(f)
@@ -126,9 +138,52 @@ def clustering_on_deltas(summed_delta_matrix: np.ndarray, algorithm: str, plot_h
         # Filter kwargs based on valid parameters
         params = {key: value for key, value in kwargs.items() if key in valid_params}
         return apply_pyrea(summed_delta_matrix, **params)
+    elif algorithm.lower() == "ship":
+        valid_params = inspect.signature(ship_clustering_on_deltas).parameters
+        params = {key: value for key, value in kwargs.items() if key in valid_params}
+        return ship_clustering_on_deltas(summed_delta_matrix, **params)
     else:
         raise ValueError(f"Unknown clustering algorithm: {algorithm}")
 
+
+### ADD SHIP 
+# if algo == ship and partiion method == dc tree --> use ship clustering from ship dm package
+# ultrametric -> bei dc distance bleiben
+#comet -> python3.9, ship -> python3.10
+
+@timing
+def ship_clustering_on_deltas(
+    summed_delta_matrix: np.ndarray,
+    tree_type=UTreeType.DCTree,
+    partitioning_method=PMethod.Threshold,
+    hierarchie: int=2,
+    min_points: int = 2,
+    min_cluster_size: int = 2,
+    plot_delta_heatmaps: bool = False,
+    return_matrix: bool = True,
+    k: int = None,
+    tiebreaker_method: str = "euclidean_distance"
+) -> np.ndarray:
+    config = {"k":k,"tiebreaker_method": tiebreaker_method,"automatically_increase_too_small_costs": True,"min_points": min_points,"min_cluster_size": min_cluster_size
+    }
+  
+    if plot_delta_heatmaps:
+        create_delta_heatmap(summed_delta_matrix, title="avg. delta matrix heatmap (SHIP)")
+    ship = SHiP(
+        data=summed_delta_matrix,
+        treeType=tree_type,
+        config=config,
+        is_distance_matrix=True
+    )
+    labels = ship.fit_predict(hierarchie, partitioning_method)
+    labels_arr = np.array(labels)
+
+    max_label = max(labels)
+
+    if return_matrix:
+        return labels_arr, max_label, summed_delta_matrix
+    else:
+        return labels_arr, max_label
 
 
 @timing
@@ -194,10 +249,8 @@ def hdbscan_clustering_on_deltas(summed_delta_matrix: np.ndarray, min_cluster_si
   normed_similarity_matrix = normed_values(summed_delta_matrix)
 
 
-  import hdbscan
 
   clustering = hdbscan.HDBSCAN(min_cluster_size=min_cluster_size, min_samples=min_samples, metric='precomputed') 
-
 
   result = clustering.fit(normed_similarity_matrix.astype(np.float64))
 
@@ -226,7 +279,6 @@ def hdbscan_clustering_on_deltas_varadd(summed_delta_matrix: np.ndarray, std_del
 
 
   import hdbscan
-
   clustering = hdbscan.HDBSCAN(min_cluster_size=min_cluster_size, min_samples=min_samples, metric='precomputed') 
 
 
@@ -658,6 +710,23 @@ def agglomerative_clustering_on_deltas_var(summed_delta_matrix: np.ndarray, clus
   result = clustering.fit(normed_distance_matrix)
   return result.labels_, cluster_count, normed_distance_matrix
 
+def st_point_labels_to_object_labels(df_st, point_labels):
+    """
+    Convert point-level ST labels to object-level labels
+    using majority vote per object id.
+    """
+    df_tmp = df_st.copy()
+    df_tmp["pred"] = point_labels
+
+    obj_labels = (
+        df_tmp
+        .groupby("id")["pred"]
+        .agg(lambda x: x.value_counts().idxmax())
+        .sort_index()
+        .to_numpy()
+    )
+
+    return obj_labels
 
 
 
@@ -695,18 +764,18 @@ def calculate_distance_matrix(traj_array: np.ndarray, metric: str = "euclidean")
     elif metric == "manhattan":
         return np.sum(np.abs(traj_array[:, None, :] - traj_array[None, :, :]), axis=-1)
 
-    elif metric == "haversine":
-        if traj_array.shape[1] != 2:
-            raise ValueError("Haversine distance requires 2D (lat, lon) input in radians.")
+    # elif metric == "haversine":
+    #     if traj_array.shape[1] != 2:
+    #         raise ValueError("Haversine distance requires 2D (lat, lon) input in radians.")
         
-        dist_matrix = np.zeros((traj_array.shape[0], traj_array.shape[0]))
+    #     dist_matrix = np.zeros((traj_array.shape[0], traj_array.shape[0]))
         
-        for i in range(traj_array.shape[0]):
-            for j in range(traj_array.shape[0]):
-                # Calculate the Haversine distance between lat/lon points
-                point1 = (traj_array[i, 0], traj_array[i, 1])
-                point2 = (traj_array[j, 0], traj_array[j, 1])
-                dist_matrix[i, j] = haversine(point1, point2, unit=Unit.KILOMETERS, normalize=True)
+    #     for i in range(traj_array.shape[0]):
+    #         for j in range(traj_array.shape[0]):
+    #             # Calculate the Haversine distance between lat/lon points
+    #             point1 = (traj_array[i, 0], traj_array[i, 1])
+    #             point2 = (traj_array[j, 0], traj_array[j, 1])
+    #             dist_matrix[i, j] = haversine(point1, point2, unit=Unit.KILOMETERS, normalize=True)
         
         return dist_matrix
 

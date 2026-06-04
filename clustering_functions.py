@@ -3,6 +3,12 @@ import distance_matrix as dm
 import redpandda_general
 from postprocess_clusterings import assign_noise_points
 
+from SHiP import SHiP
+from SHiP.ultrametric_tree import UltrametricTreeType as UTreeType, AVAILABLE_ULTRAMETRIC_TREE_TYPES
+from SHiP.partitioning import PartitioningMethod as PMethod, AVAILABLE_PARTITIONING_METHODS
+
+
+
 def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, post_process_noise = False, noise_label = -1, return_matrices = False):
     import time
 
@@ -29,7 +35,7 @@ def clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, pos
         average_delta_matrix = redpandda_general.calculate_average_delta_matrix(delta_matrices)
         std_delta_matrix = redpandda_general.get_std_matrices(delta_matrices)
         matrices_for_computations["delta"] = average_delta_matrix
-
+        print("avg delta",average_delta_matrix.shape)
         curr_time = time.time() - start_time 
         times_matrices["delta"] = curr_time + dist_matrices_time
 
@@ -118,7 +124,6 @@ def cluster_timesteps_change_points(input_matrix, change_points, clustering_meth
         
         start_idx = end_idx + 1  # Move to the next range
         average_delta_matrix = redpandda_general.calculate_average_delta_matrix(delta_selected_frames)
-
         new_clustering_results = dm.clustering_on_deltas(average_delta_matrix, clustering_method, **clustering_params)
         timestep_clustering["clustering"] = new_clustering_results
         timestep_clusterings.append(timestep_clustering)

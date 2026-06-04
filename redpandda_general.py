@@ -1,6 +1,6 @@
 import math
 import CONSTANTS
-import mdtraj as md
+# import mdtraj as md
 import distance_matrix as dm
 import numpy as np
 import multiprocessing
@@ -23,7 +23,25 @@ def timing(f):
     return wrap
 
 warnings.filterwarnings("ignore")
-pool = multiprocessing.Pool()
+
+# Remove this line:
+# pool = multiprocessing.Pool()
+
+from functools import partial
+import multiprocessing
+
+@timing
+def get_distance_matrices(traj_array, metric='euclidean', use_parallel=True):
+    partial_distance_func = partial(dm.calculate_distance_matrix, metric=metric)
+    
+    if use_parallel:
+        # Create pool locally inside the function
+        with multiprocessing.Pool() as pool:
+            return np.array(list(pool.map(partial_distance_func, traj_array)))
+    else:
+        # Sequential fallback
+        return np.array([partial_distance_func(x) for x in traj_array])
+
 
 from functools import partial
 
@@ -33,11 +51,11 @@ def get_distance_matrices(traj_array):
     return np.array(list(pool.map(dm.calculate_distance_matrix, traj_array)))
 '''
 
-@timing
-def get_distance_matrices(traj_array, metric='euclidean'):
-    # Use functools.partial to pass 'metric' argument to the function
-    partial_distance_func = partial(dm.calculate_distance_matrix, metric=metric)
-    return np.array(list(pool.map(partial_distance_func, traj_array)))
+# @timing
+# def get_distance_matrices(traj_array, metric='euclidean'):
+#     # Use functools.partial to pass 'metric' argument to the function
+#     partial_distance_func = partial(dm.calculate_distance_matrix, metric=metric)
+#     return np.array(list(pool.map(partial_distance_func, traj_array)))
 
 @timing
 def get_delta_matrices(dist_matrices):
@@ -84,6 +102,53 @@ def calculate_var_delta_matrix(delta_matrices):
     return np.var(delta_matrices, axis=0)/len(delta_matrices)
 
 
+def prepare_data_from_df_new(x, use_mean_preprocessing=True, group_by_obj_id=False, return_labels=False):
+    import pandas as pd
+    import numpy as np  
+
+    if use_mean_preprocessing:
+        # Aggregate duplicates by taking the mean of coordinates
+        x = x.groupby(['t', 'obj_id'], as_index=False).mean()
+
+    tpoints = []
+    df_points = []
+    traj_array = []
+    point_array = []
+    
+    label_array = []
+
+    # Group by time ('t') after ensuring data is sorted by 'obj_id'
+
+    if group_by_obj_id:
+        group_variable = "obj_id"
+        sort_variable = "t"
+    else:
+        group_variable = "t"
+        sort_variable = "obj_id"
+
+    for g in x.sort_values([sort_variable], ascending=True).groupby(group_variable):
+        tpoints.append(g[1].values)
+        df_points.append(pd.DataFrame(g[1]))
+        new_df = pd.DataFrame(g[1])
+
+        # Extract trajectory data (x, y, z) and object IDs
+        traj_array.append(np.array(new_df[['x', 'y', 'z']].values))
+        point_array.append(new_df[['obj_id']].values)
+        
+        if return_labels and 'label' in new_df.columns:
+            label_array.append(new_df[['label']].values)
+
+    # Calculate the number of frames and objects
+    frames_count = len(df_points[0]) if df_points else 0
+    n_objects = len(df_points)
+
+    if return_labels and 'label' in new_df.columns:
+      return traj_array, point_array, frames_count, n_objects, label_array
+    else:
+      return traj_array, point_array, frames_count, n_objects
+
+
+
 def prepare_data_from_df(x, use_mean_preprocessing=True, group_by_obj_id=False):
     import pandas as pd
     import numpy as np  
@@ -113,6 +178,7 @@ def prepare_data_from_df(x, use_mean_preprocessing=True, group_by_obj_id=False):
 
         # Extract trajectory data (x, y, z) and object IDs
         traj_array.append(np.array(new_df[['x', 'y', 'z']].values))
+
         point_array.append(new_df[['obj_id']].values)
 
     # Calculate the number of frames and objects

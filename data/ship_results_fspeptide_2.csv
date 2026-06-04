@@ -1,0 +1,3 @@
+name,method,params,matrix,clustering,runtime
+COMET,ship,"{'partitioning_method': <PartitioningMethod.Stability: 12>, 'hierarchie': 2, 'tiebreaker_method': 'euclidean_distance'}",delta,[1 1 3 3 2 2 0 0 6 6 5 4 4 4 4 5 7 7 7 7 7],2.427746295928955
+COMET,ship,"{'partitioning_method': <PartitioningMethod.Stability: 12>, 'hierarchie': 2, 'tiebreaker_method': 'euclidean_distance'}",delta+1std,[3 3 3 2 2 2 1 1 0 0 0 4 4 4 4 4 5 5 5 5 5],4.843284368515015

@@ -1,7 +1,7 @@
 import math
 import CONSTANTS
 import mdtraj as md
-import distance_matrix as dm
+# import distance_matrix as dm
 import manipulate_trajectory as mt
 import numpy as np
 import multiprocessing

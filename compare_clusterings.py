@@ -1,5 +1,5 @@
 import numpy as np
-import mdtraj as md
+# import mdtraj as md
 import CONSTANTS
 import sklearn.metrics as m
 from itertools import combinations

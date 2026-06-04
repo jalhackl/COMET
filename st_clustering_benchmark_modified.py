@@ -187,22 +187,38 @@ class ST_DBSCAN(DBSCAN):
 
 @st_decorator
 class ST_Agglomerative(AgglomerativeClustering):
-    def __init__(self, eps1=0.5, eps2=10, n_clusters=2, *, affinity='precomputed',
-                 memory=None,
-                 connectivity=None, compute_full_tree='auto',
-                 linkage='average', distance_threshold=None,
-                 compute_distances=False, dist='euclidean'):
+    def __init__(
+        self,
+        eps1=0.5,
+        eps2=10,
+        n_clusters=2,
+        *,
+        metric="euclidean",
+        memory=None,
+        connectivity=None,
+        compute_full_tree="auto",
+        linkage="average",
+        distance_threshold=None,
+        compute_distances=False,
+        dist=None,          # optional COMET alias
+    ):
+        # 1. store ST-specific params
         self.eps1 = eps1
         self.eps2 = eps2
-        self.n_clusters = n_clusters
-        self.distance_threshold = distance_threshold
-        self.memory = memory
-        self.connectivity = connectivity
-        self.compute_full_tree = compute_full_tree
-        self.linkage = linkage
-        self.affinity = affinity
-        self.compute_distances = compute_distances
-        self.dist = dist
+        self.dist = dist or metric
+
+        # 2. call sklearn parent
+        super().__init__(
+            n_clusters=n_clusters,
+            metric=metric,
+            memory=memory,
+            connectivity=connectivity,
+            compute_full_tree=compute_full_tree,
+            linkage=linkage,
+            distance_threshold=distance_threshold,
+            compute_distances=compute_distances,
+        )
+
         
 @st_decorator
 class ST_KMeans(KMeans):
@@ -325,6 +341,7 @@ class ST_HDBSCAN(hdbscan.HDBSCAN):
         self.eps1 = eps1
         self.eps2 = eps2
         self.min_cluster_size = min_cluster_size
+        self.branch_detection_data = False
         self.min_samples = min_samples
         self.alpha = alpha
         self.max_cluster_size = max_cluster_size

@@ -1,0 +1,4 @@
+2026-02-07 20:27:08,867 - dataset: couzin_1800_10.csv, method: BIRCH, nmi: 0.2892, ari: 0.1823, runtime: 4.2814
+2026-02-07 20:32:26,956 - dataset: couzin_3000_17.csv, method: BIRCH, nmi: 0.0762, ari: -0.0219, runtime: 37.2541
+2026-02-07 20:32:54,266 - dataset: calovi_600_52.csv, method: BIRCH, nmi: 0.3393, ari: 0.0812, runtime: 4.411
+2026-02-07 20:36:11,465 - dataset: calovi_2100_62.csv, method: BIRCH, nmi: 0.0822, ari: -0.0062, runtime: 90.8317

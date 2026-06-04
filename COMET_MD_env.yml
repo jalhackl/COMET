@@ -1,0 +1,37 @@
+name: COMET_MD
+channels:
+  - conda-forge
+  - bioconda
+  - omnia
+  - defaults
+dependencies:
+  - python=3.10
+  - rpy2
+  - ipykernel
+  - conda-forge::ffmpeg
+  - openmm
+  - openmmtools
+  - openmm-setup
+  - r-bio3d
+  - pip
+  - pip:
+    - MDAnalysis
+    - hdbscan
+    - contourpy==1.3.2
+    - matplotlib
+    - scikit-learn
+    - cycler==0.12.1
+    - fonttools==4.59.2
+    - joblib==1.5.2
+    - kiwisolver==1.4.9
+    - matplotlib==3.10.6
+    - numpy==2.2.6
+    - pandas==2.3.2
+    - pillow==11.3.0
+    - pyparsing==3.2.4
+    - pytz==2025.2
+    - scikit-learn==1.7.2
+    - scipy==1.15.3
+    - threadpoolctl==3.6.0
+    - tzdata==2025.2
+    - -r requirements.txt

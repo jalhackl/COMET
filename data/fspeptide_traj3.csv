@@ -1,0 +1,5 @@
+,name,method,params,matrix,clustering,runtime,Q,dataset
+0,COMET,ship,"{'partitioning_method': <PartitioningMethod.Stability: 12>, 'hierarchie': 2, 'tiebreaker_method': 'euclidean_distance'}",delta+1std,[1 1 1 1 0 0 0 0 0 2 2 2 4 4 4 4 4 4 3 3 3],5.729790449142456,0.08694389107599491,
+1,Geostas,Geostas,,,[2 2 2 2 2 2 1 1 1 4 4 4 4 4 3 3 3 3 3 3 3],21.482016801834106,0.21676658154320608,
+2,Resicon,,,,[2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 1 1],8.724364042282104,0.2507413452272387,fs-peptide_trajectory-3
+3,Comodo,Comodo,Elastic Network,,[1 1 1 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 3 3],0.3664109706878662,0.3025976322466899,
