@@ -1,6 +1,6 @@
 # COMET - Clustering of Molecular and Environmental Trajectories
 
-The algorithm allows clustering of spatio-temporal particle data (e.g. molecular dynamics trajectories) using temporal delta matrices and **SHiP** (Hierarchical Clustering with Ultrametric Trees). This repository provides code for preprocessing of general datasets (csv) as well as MD data sets, the COMET clustring framework and benchmarking / visualization functions for analyzing the results and comparing it to several other methods (see main script description below).
+The algorithm allows clustering of spatio-temporal particle data (e.g. molecular dynamics trajectories) using temporal delta matrices and **SHiP** [ **SHiP**](https://github.com/pasiweber/SHiP-framework/) (Similarity-Hierarchy-Partitioning), a framework for clustering by leveraging similarity trees. This repository provides code for preprocessing of general datasets (csv) as well as MD data sets, the COMET clustering workdlow and benchmarking / visualization functions for analyzing the results and comparing it to several other methods (see main script description below).
 
 
 COMET computes temporal delta matrices from trajectory data and applies SHiP clustering on these matrices.
@@ -24,7 +24,7 @@ clusterings_to_apply = [{
 results = clustering_workflow(traj_array, matrices_to_apply, clusterings_to_apply, post_process_noise=True)
 ```
 
-SHiP (Scalable Hierarchical clustering with Partitioning) is the primary clustering algorithm. It builds ultrametric trees from distance matrices and partitions them using configurable methods (Threshold, Elbow, ThresholdElbow).
+SHiP (Similarity-Hierarchical-Partitioning Clustering Framework) is the primary clustering algorithm. It builds ultrametric trees from distance matrices which can be partitioned by several partitioning methods.
 
 ```python
 from SHiP import SHiP
