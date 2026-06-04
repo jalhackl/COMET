@@ -1,4 +1,4 @@
-name: ship-dmat-new
+name: ship-dmat
 channels:
   - defaults
 dependencies:
